@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FullComponent } from './layouts/full/full.component';
+import { UploadLectureComponent } from './layouts/upload-lecture/upload-lecture.component';
 
 export const Approutes: Routes = [
   {
@@ -17,6 +18,10 @@ export const Approutes: Routes = [
       {
         path: 'component',
         loadChildren: './component/component.module#ComponentsModule'
+      },
+      {
+        path: 'upload',
+        component: UploadLectureComponent
       }
     ]
   },
