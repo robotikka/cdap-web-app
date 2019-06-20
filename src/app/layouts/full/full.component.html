@@ -81,35 +81,6 @@
     <!-- ============================================================== -->
     <div class="container-fluid">
       <app-breadcrumb></app-breadcrumb>
-
-      <div class="card">
-        <div class="card-body">
-          <aw-wizard navBarLayout="large-empty-symbols">
-            <aw-wizard-step
-              stepTitle="Upload Video"
-              [navigationSymbol]="{ symbol: '1' }"
-            >
-                <div>
-                    <button class="btn btn-primary" awNextStep>NEXT: UPLOAD SLIDES</button>
-                </div>
-            </aw-wizard-step>
-            <aw-wizard-step
-              stepTitle="Upload Slides"
-              [navigationSymbol]="{ symbol: '2' }"
-            >
-                <button class="btn btn-primary" awNextStep>SAVE LECTURE</button>
-                <a awPreviousStep>Go back</a>
-            </aw-wizard-step>
-            <aw-wizard-completion-step
-              stepTitle="Done"
-              [navigationSymbol]="{ symbol: '3' }"
-            >
-                <h2>Successfully uplaoded your lecture</h2>
-            </aw-wizard-completion-step>
-          </aw-wizard>
-        </div>
-      </div>
-
       <!-- ============================================================== -->
       <!-- Start Page Content -->
       <!-- ============================================================== -->

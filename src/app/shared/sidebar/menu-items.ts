@@ -12,7 +12,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
-    path: '/component/accordion',
+    path: '/upload',
     title: 'Upload',
     icon: 'mdi mdi-equal',
     class: '',

@@ -21,7 +21,10 @@ export const Approutes: Routes = [
       },
       {
         path: 'upload',
-        component: UploadLectureComponent
+        component: UploadLectureComponent,
+        data: {
+          title: 'Upload Lecture'
+        }
       }
     ]
   },
