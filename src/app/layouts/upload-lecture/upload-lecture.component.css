@@ -19,7 +19,24 @@
     display: flex;
 }
 
-.next-button {
+.save-video-button {
     padding-top: 20px;
     text-align: end;
+}
+
+.save-slides-button {
+    padding-top: 20px;
+}
+
+.back-button {
+    padding-top: 5px;
+}
+
+.step-2-heading {
+    padding-left: 60px;
+    text-align: left !important;
+}
+
+.upload-slides-container {
+    text-align: center;
 }
