@@ -1,3 +1,25 @@
 .upload-lecture {
-    /* text-align: center !important; */
+    text-align: end !important;
+}
+.drop-zone {
+    padding: 0 60px 0 60px;
+}
+
+.detail-form {
+    padding: 0 120px 0 0;
+}
+
+.upload-container {
+    padding-top: 60px;
+}
+
+.file-drop-zone {
+    height: 500px !important;
+    border: 3px dotted;
+    display: flex;
+}
+
+.next-button {
+    padding-top: 20px;
+    text-align: end;
 }

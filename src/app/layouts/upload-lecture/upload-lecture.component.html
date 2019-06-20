@@ -6,41 +6,37 @@
         [navigationSymbol]="{ symbol: '1' }"
       >
       
-      <div class="row">
+      <div class="upload-container row">
         <div class="col-md-6">
-            <div class="card .w-50">
+            <div class="drop-zone">
                 <h2>Upload Video</h2>
                 <file-drop
-                  dropZoneLabel="Drop files here"
+                  multiple="false"
+                  dropZoneLabel="Drag and drop your files here"
                   (onFileDrop)="dropped($event)"
                   (onFileOver)="fileOver($event)"
                   (onFileLeave)="fileLeave($event)"
                 >
-                  <span>optional content (don't set dropZoneLabel then)</span>
+                <table>
+                  <tr *ngFor="let item of files; let i = index">{{ item.relativePath }}</tr>
+                </table>
+                  <!-- <span *ngFor="let item of files; let i = index">{{ item.relativePath }}</span> -->
                 </file-drop>
-                <div class="upload-table">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                      </tr>
-                    </thead>
-                    <tbody class="upload-name-style">
-                      <tr *ngFor="let item of files; let i = index">
-                        <td>
-                          <strong>{{ item.relativePath }}</strong>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                
               </div>
         </div>
-        <div class="col-md-6">
+        <div class="detail-form col-md-6">
             <div>
               <h3>Video Details</h3>
+              <label>Name of the lecture</label>
+              <input class="form-control form-control"/>
             </div>
-            <div class="upload-lecture">
+
+            <div>
+              <label>Description</label>
+              <input class="form-control form-control"/>
+            </div>
+            <div class=next-button>
                 <button class="btn btn-primary" awNextStep>
                   NEXT: UPLOAD SLIDES
                 </button>
