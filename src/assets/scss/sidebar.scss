@@ -6,13 +6,39 @@ File: scss
 */
 
 
+$sidebar-hover-text: #ffffff;
+
 /*******************
 Main sidebar
 ******************/
+.half-a-border-on-bottom {
+    border-bottom:1px solid #ACACC5;
+    position: relative;
+    &::after {
+        padding:0;margin:0;display:block;/* probably not really needed? */
+        content: "";
+        width:10%;
+        height:1.1px;/* slight higher to work around rounding errors(?) on some zoom levels in some browsers. */
+        background-color:#26344B;
+        position: absolute;
+        right:0;
+        bottom:-1px;
+    }
+    &::before {
+        padding:0;margin:0;display:block;/* probably not really needed? */
+        content: "";
+        width:10%;
+        height:1.1px;/* slight higher to work around rounding errors(?) on some zoom levels in some browsers. */
+        background-color:#26344B;
+        position: absolute;
+        left:0;
+        bottom:-1px;
+    }
+  }
 
 .left-sidebar {
     position: absolute;
-    width: 100px;
+    width: 80px;
     height: 100vh;
     top: 0px;
     z-index: 20;
@@ -80,15 +106,15 @@ sidebar navigation
             a {
                 text-align: center;
                 color: $sidebar-text;
-                padding: 8px 35px 8px 15px;
+                padding: 8px 17px 8px 17px;
                 display: block;
                 font-size: 14px;
                 font-weight: 400;
                 &.active,
                 &:hover {
-                    color: $themecolor;
+                    color: $sidebar-hover-text;
                     i {
-                        color: $themecolor;
+                        color: $sidebar-hover-text;
                     }
                 }
                 &.active {
@@ -132,10 +158,10 @@ sidebar navigation
     > ul > li {
         margin-bottom: 5px;
         &.active > a {
-            color: $themecolor;
+            color: $sidebar-hover-text;
             font-weight: 500;
             i {
-                color: $themecolor;
+                color: $sidebar-hover-text;
             }
         }
     }
