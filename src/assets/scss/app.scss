@@ -2134,3 +2134,23 @@ Layouts
     display: inline-block;
     vertical-align: middle;
 }
+
+.custom-css aw-wizard aw-wizard-navigation-bar.horizontal ul.steps-indicator li.current .step-indicator {
+    color: white;
+    border-width: thin;
+    border-color: #009efd !important;
+    background: #009efd; /* Old browsers */
+    background: -moz-linear-gradient(top,  #009efd 0%, #2af598 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #009efd 0%,#2af598 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #009efd 0%,#2af598 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009efd', endColorstr='#2af598',GradientType=0 ); /* IE6-9 */
+}
+
+.custom-css aw-wizard-navigation-bar.horizontal ul.steps-indicator li.current:before {
+    background-color: #009efd !important;
+}
+
+.custom-css aw-wizard-navigation-bar.horizontal ul.steps-indicator li:before {
+    height: 3px !important;
+}
+  
