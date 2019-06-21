@@ -20,6 +20,11 @@ import { Approutes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SpinnerComponent } from './shared/spinner.component';
 
+import { ArchwizardModule } from 'angular-archwizard';
+import { FileDropModule } from 'ngx-file-drop';
+
+import { UploadLectureComponent } from './layouts/upload-lecture/upload-lecture.component';
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
   wheelSpeed: 2,
@@ -33,7 +38,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FullComponent,
     NavigationComponent,
     BreadcrumbComponent,
-    SidebarComponent
+    SidebarComponent,
+    UploadLectureComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +49,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpClientModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(Approutes),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    ArchwizardModule,
+    FileDropModule
   ],
   providers: [
     {

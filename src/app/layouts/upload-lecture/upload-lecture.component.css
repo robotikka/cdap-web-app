@@ -1,0 +1,42 @@
+.upload-lecture {
+    text-align: end !important;
+}
+.drop-zone {
+    padding: 0 60px 0 60px;
+}
+
+.detail-form {
+    padding: 0 120px 0 0;
+}
+
+.upload-container {
+    padding-top: 60px;
+}
+
+.file-drop-zone {
+    height: 500px !important;
+    border: 3px dotted;
+    display: flex;
+}
+
+.save-video-button {
+    padding-top: 20px;
+    text-align: end;
+}
+
+.save-slides-button {
+    padding-top: 20px;
+}
+
+.back-button {
+    padding-top: 5px;
+}
+
+.step-2-heading {
+    padding-left: 60px;
+    text-align: left !important;
+}
+
+.upload-slides-container {
+    text-align: center;
+}
