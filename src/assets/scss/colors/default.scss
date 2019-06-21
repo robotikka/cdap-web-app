@@ -6,6 +6,7 @@ File: scss
 */
 @import '../variable';
 $themecolor: #009efb;
+$sidebar-hover-text: #ffffff;
 $themecolor-dark: #028ee1;
 $topbar: #455a64;
 $themecolor-alt: #26c6da;
@@ -140,9 +141,9 @@ a.link {
 .sidebar-nav ul li a {
     &.router-link-active,
     &:hover {
-      color: $themecolor;
+      color: $sidebar-hover-text;
       i {
-        color: $themecolor;
+        color: $sidebar-hover-text;
       }  
     }
 }

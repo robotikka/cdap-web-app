@@ -46,6 +46,15 @@ File: scss
 /*******************
  Topbar
 *******************/
+.mini-sidebar {
+  .topbar {
+    .top-navbar {
+    .navbar-header {
+      display: none;
+    }
+  }
+}
+}
 
 .topbar {
   position: relative;
@@ -59,8 +68,15 @@ File: scss
     }
     .navbar-header {
       line-height: 45px;
-      padding-left: 10px;
       .navbar-brand {
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#009efd+0,2af598+100 */
+        background: #009efd; /* Old browsers */
+        background: -moz-linear-gradient(top,  #009efd 0%, #2af598 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #009efd 0%,#2af598 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #009efd 0%,#2af598 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009efd', endColorstr='#2af598',GradientType=0 ); /* IE6-9 */
+        text-align: center;
+        width: 80px;
         margin-right: 0px;
         padding-bottom: 0px;
         padding-top: 0px;

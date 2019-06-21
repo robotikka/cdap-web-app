@@ -8,9 +8,10 @@ File: scss
 $themecolor: #398bf7;
 $themecolor-dark: #028ee1;
 $topbar: #fff;
-$sidebar:#242a33;
-$sidebar-text: #687384;
-$sidebar-icons: #424a56;
+$sidebar:#26344B;
+$sidebar-text: #ACACC5;
+$sidebar-hover-text: #ffffff;
+$sidebar-icons: #ACACC5;
 $sidebar-dark: #1c2128;
 $sidebar-alt:#1c2128;
 $themecolor-alt: #26c6da;
@@ -109,9 +110,9 @@ $topbar-alt: #398bf7;
     .sidebar-nav ul li a {
         &.router-link-active,
         &:hover {
-            color: $themecolor;
+            color: $sidebar-hover-text;
             i {
-                color: $themecolor;
+                color: $sidebar-hover-text;
             }
         }
     }
