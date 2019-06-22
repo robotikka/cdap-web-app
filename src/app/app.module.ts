@@ -48,7 +48,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BreadcrumbComponent,
     SidebarComponent,
     UploadLectureComponent,
-    MyUploadsComponent
+    MyUploadsComponent,
     VideoPlaybackComponent
   ],
   imports: [
