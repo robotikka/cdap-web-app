@@ -30,7 +30,7 @@ export const Approutes: Routes = [
         }
       },
       {
-        path: 'myupload',
+        path: 'myuploads',
         component: MyUploadsComponent
       },
       {
