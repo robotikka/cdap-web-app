@@ -32,7 +32,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
-    path: '/myupload',
+    path: '/myuploads',
     title: 'My Uploads',
     icon: 'mdi mdi-view-carousel',
     class: '',

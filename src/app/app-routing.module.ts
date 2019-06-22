@@ -30,7 +30,7 @@ export const Approutes: Routes = [
         }
       },
       {
-        path: 'myupload',
+        path: 'myuploads',
         component: MyUploadsComponent
       },
       {
@@ -41,6 +41,6 @@ export const Approutes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/starter'
+    redirectTo: '/home'
   }
 ];
