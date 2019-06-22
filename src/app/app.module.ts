@@ -23,7 +23,14 @@ import { SpinnerComponent } from './shared/spinner.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import { FileDropModule } from 'ngx-file-drop';
 
+// videogular
+import { VgCoreModule } from 'videogular2/core';
+import { VgControlsModule } from 'videogular2/controls';
+import { VgOverlayPlayModule } from 'videogular2/overlay-play';
+import { VgBufferingModule } from 'videogular2/buffering';
+
 import { UploadLectureComponent } from './layouts/upload-lecture/upload-lecture.component';
+import { VideoPlaybackComponent } from './layouts/video-playback/video-playback.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -39,7 +46,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NavigationComponent,
     BreadcrumbComponent,
     SidebarComponent,
-    UploadLectureComponent
+    UploadLectureComponent,
+    VideoPlaybackComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +59,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RouterModule.forRoot(Approutes),
     PerfectScrollbarModule,
     ArchwizardModule,
-    FileDropModule
+    FileDropModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [
     {
