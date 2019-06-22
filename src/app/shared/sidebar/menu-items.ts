@@ -22,7 +22,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
-    path: '/component/alert',
+    path: '/videoplayer',
     title: 'Explore',
     icon: 'mdi mdi-message-bulleted',
     class: '',
