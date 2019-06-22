@@ -24,6 +24,7 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { FileDropModule } from 'ngx-file-drop';
 
 import { UploadLectureComponent } from './layouts/upload-lecture/upload-lecture.component';
+import { MyUploadsComponent } from './layouts/my-uploads/my-uploads.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -39,7 +40,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NavigationComponent,
     BreadcrumbComponent,
     SidebarComponent,
-    UploadLectureComponent
+    UploadLectureComponent,
+    MyUploadsComponent
   ],
   imports: [
     CommonModule,
