@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { VgAPI } from 'videogular2/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PlayerCurrentTimeService } from '../../services/player-current-time.service';
+import { VideoPlayerComponent } from '../../component/video-player/video-player.component';
 
 @Component({
   selector: 'app-video-playback',
@@ -7,11 +8,23 @@ import { VgAPI } from 'videogular2/core';
   styleUrls: ['./video-playback.component.css']
 })
 export class VideoPlaybackComponent implements OnInit {
-  api: VgAPI;
+  @ViewChild(VideoPlayerComponent) player;
 
-  constructor() { }
+  src = 'assets/gravity_falls_opening.mp4';
+
+  currentTime: any;
+
+  constructor(private currentTimeService: PlayerCurrentTimeService) { }
 
   ngOnInit() {
+    this.currentTimeService.currentTime.subscribe(time => {
+      this.currentTime = time;
+
+    });
+  }
+
+  seekVideo() {
+    this.player.seekVideo(30);
   }
 
   // onPlayerReady(api: VgAPI) {

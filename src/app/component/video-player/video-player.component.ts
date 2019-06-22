@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VgAPI } from 'videogular2/core';
+import { PlayerCurrentTimeService } from '../../services/player-current-time.service';
 
 @Component({
   selector: 'app-video-player',
@@ -12,7 +13,7 @@ export class VideoPlayerComponent implements OnInit {
 
   private api: VgAPI;
 
-  constructor() { }
+  constructor(private currentTimeService: PlayerCurrentTimeService) { }
 
   ngOnInit() {
   }
@@ -25,12 +26,21 @@ export class VideoPlayerComponent implements OnInit {
     });
 
     this.api.getDefaultMedia().subscriptions.timeUpdate.subscribe((data) => {
-      console.log(data.srcElement.currentTime);
-      if (Math.floor(data.srcElement.currentTime) === 5) {
-        // console.log('current time fired');
-        this.api.getDefaultMedia().pause();
-      }
+
+      // update current time service
+      this.currentTimeService.changeTime(Math.floor(data.srcElement.currentTime));
+
+      // console.log(data.srcElement.currentTime);
+      // if (Math.floor(data.srcElement.currentTime) === 5) {
+      //   // console.log('current time fired');
+      //   this.api.getDefaultMedia().pause();
+      // }
     });
+
+  }
+
+  seekVideo(time: any) {
+    this.api.$$seek(this.api.getDefaultMedia(), time);
   }
 
 }
