@@ -6,16 +6,17 @@ import { FullComponent } from './layouts/full/full.component';
 import { UploadLectureComponent } from './layouts/upload-lecture/upload-lecture.component';
 import { MyUploadsComponent } from './layouts/my-uploads/my-uploads.component';
 import { VideoPlaybackComponent } from './layouts/video-playback/video-playback.component';
+import { HomeComponent } from './layouts/home/home.component';
 
 export const Approutes: Routes = [
   {
     path: '',
     component: FullComponent,
     children: [
-      { path: '', redirectTo: '/starter', pathMatch: 'full' },
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
       {
-        path: 'starter',
-        loadChildren: './starter/starter.module#StarterModule'
+        path: 'home',
+        component: HomeComponent
       },
       {
         path: 'component',

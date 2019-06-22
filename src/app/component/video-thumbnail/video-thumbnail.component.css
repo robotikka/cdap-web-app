@@ -1,0 +1,46 @@
+.img-container {
+  position: relative;
+}
+
+.img-container:hover {
+    cursor: pointer;
+}
+
+.img-container i {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.img-container:hover i {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    color: #009EFD;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+.card-img-top {
+    min-width: 300px;
+    max-height: 200px !important;
+    display: inline-block;
+}
+
+.thumbnail-container {
+    width: 300px;
+    height: 345px;
+}
+
+.card-body-container {
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* border-bottom: 10px; */
+}
+
+.thumbnail-container card-text {
+  padding-bottom: 5px;
+}

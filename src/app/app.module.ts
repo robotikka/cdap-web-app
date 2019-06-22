@@ -32,6 +32,9 @@ import { VgBufferingModule } from 'videogular2/buffering';
 import { UploadLectureComponent } from './layouts/upload-lecture/upload-lecture.component';
 import { MyUploadsComponent } from './layouts/my-uploads/my-uploads.component';
 import { VideoPlaybackComponent } from './layouts/video-playback/video-playback.component';
+import { HomeComponent } from './layouts/home/home.component';
+
+import { VideoThumbnailComponent } from './component/video-thumbnail/video-thumbnail.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -48,8 +51,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BreadcrumbComponent,
     SidebarComponent,
     UploadLectureComponent,
-    MyUploadsComponent
-    VideoPlaybackComponent
+    MyUploadsComponent,
+    VideoPlaybackComponent,
+    HomeComponent,
+    VideoThumbnailComponent
   ],
   imports: [
     CommonModule,
