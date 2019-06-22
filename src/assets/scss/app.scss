@@ -1279,19 +1279,31 @@ Buttons
 
 .btn-primary,
 .btn-primary.disabled {
-    background: $primary;
-    border: 1px solid $primary;
+    // background: $primary;
+    border: solid 1px #009efd;
+    background-color: #009efd;
+    background: #009efd; /* Old browsers */
+    background: -moz-linear-gradient(top,  #009efd 0%, #2af598 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #009efd 0%,#2af598 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #009efd 0%,#2af598 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009efd', endColorstr='#2af598',GradientType=0 ); /* IE6-9 */
     box-shadow: $primary-shadow;
-    transition: 0.2s ease-in;
     &:hover {
-        background: $primary;
+        background: #009efd;
+        border: 1px solid rgba(0, 0, 0, 0.125);
         box-shadow: $primary-shadow-hover;
-        border: 1px solid $primary;
+    }
+    
+    &:active {
+        background: #008EE3 !important; /* Old browsers */
     }
     &.active,
-    &:active,
     &:focus {
-        background: $primary-dark;
+        background: #008EE3; /* Old browsers */
+        background: -moz-linear-gradient(top,  #008EE3 0%, #25dc88 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #008EE3 0%,#25dc88 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #008EE3 0%,#25dc88 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008EE3', endColorstr='#25dc88',GradientType=0 ); /* IE6-9 */
         box-shadow: $primary-shadow-hover;
     }
 }
@@ -2135,9 +2147,9 @@ Layouts
     vertical-align: middle;
 }
 
-.custom-css aw-wizard aw-wizard-navigation-bar.horizontal ul.steps-indicator li.current .step-indicator {
-    color: white;
-    border-width: thin;
+.custom-css aw-wizard aw-wizard-navigation-bar.horizontal ul.steps-indicator li.current .step-indicator, li.done .step-indicator {
+    color: white !important;
+    border-width: thin !important;
     border-color: #009efd !important;
     background: #009efd; /* Old browsers */
     background: -moz-linear-gradient(top,  #009efd 0%, #2af598 100%); /* FF3.6-15 */
@@ -2146,7 +2158,8 @@ Layouts
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009efd', endColorstr='#2af598',GradientType=0 ); /* IE6-9 */
 }
 
-.custom-css aw-wizard-navigation-bar.horizontal ul.steps-indicator li.current:before {
+// li.current:before,
+.custom-css aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done:before {
     background-color: #009efd !important;
 }
 
