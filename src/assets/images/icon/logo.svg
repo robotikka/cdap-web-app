@@ -1,1 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="73.691" height="68.383" viewBox="0 0 73.691 68.383"><defs><style>.a{fill:#fff;}.b{fill:#26344b;}.c{fill:url(#a);}.d{fill:url(#b);}</style><linearGradient id="a" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#009efd"/><stop offset="1" stop-color="#2af598"/></linearGradient><linearGradient id="b" x1="0.172" y1="0.5" x2="0.778" y2="1.978" xlink:href="#a"/></defs><g transform="translate(0 0)"><path class="a" d="M47.284,30.324,12.193,81.206H82.375Z" transform="translate(-10.438 -28.614)"/><path class="b" d="M112.307,133.385,83.266,91.276,54.225,133.385Z" transform="translate(-46.421 -80.793)"/><g transform="translate(0)"><path class="c" d="M71.937,72.789H1.755a1.754,1.754,0,0,1-1.444-2.75L35.4,19.157a1.817,1.817,0,0,1,2.889,0L73.381,70.039a1.754,1.754,0,0,1-1.445,2.75ZM5.1,69.28H68.6L36.846,23.244Z" transform="translate(0 -18.443)"/><path class="d" d="M71.939,472.691H1.757a1.754,1.754,0,0,1,0-3.509H71.939a1.754,1.754,0,0,1,0,3.509Z" transform="translate(-0.003 -404.308)"/></g></g></svg>
+<svg width="274.691" height="86.383" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <style>.a{fill:#fff;}.b{fill:#26344b;}.c{fill:url(#a);}.d{fill:url(#b);}</style>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="88.383" width="276.691" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g stroke="null" id="svg_1">
+   <path stroke="null" id="svg_2" d="m47.846,9.71l-35.091,50.882l70.182,0l-35.091,-50.882z" class="a"/>
+   <path stroke="null" id="svg_3" d="m76.885999,60.592001l-29.041,-42.109l-29.041,42.109l58.082,0z" class="b"/>
+   <g stroke="null" id="svg_4">
+    <path stroke="null" id="svg_5" d="m82.937,62.345999l-70.182,0a1.754,1.754 0 0 1 -1.444,-2.75l35.089,-50.882a1.817,1.817 0 0 1 2.889,0l35.092,50.882a1.754,1.754 0 0 1 -1.445,2.75l0.001,0zm-66.837,-3.509l63.5,0l-31.754,-46.036l-31.746,46.036z" class="c"/>
+    <path stroke="null" id="svg_6" d="m82.936,76.382986l-70.182,0a1.754,1.754 0 0 1 0,-3.509l70.182,0a1.754,1.754 0 0 1 0,3.509z" class="d"/>
+   </g>
+  </g>
+  <text font-weight="normal" stroke="#000" transform="matrix(2.1572143193364055,0,0,2.1572143193364055,-113.08397229367318,-16.26421375000268) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_7" y="32.747515" x="93.359073" stroke-width="0" fill="#009efd">V-Tutor</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="11" id="svg_8" y="70.191498" x="103.84552" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Your classroom bought closer</text>
+ </g>
+</svg>

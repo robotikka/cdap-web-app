@@ -1,14 +1,26 @@
-<p>
-  home works!
-</p>
+<div class="title-container">
+  <div class="row">
+    <div class="logo col">
+      <img src="assets/images/icon/logo.svg" />
+    </div>
+  </div>
+  <div class="tagline row">
+    <div class="col">
+      <h2>Your video lecture platform with improved searchability and interactivity.</h2>
+    </div>
+  </div>
 
-<!-- <app-video-thumbnail
-  videoTitle="Test video"
-  description="test video description"
-  duration="12:00"
-  thumbnailUrl="assets/images/big/img1.jpg"
-></app-video-thumbnail> -->
+  <div class="searchbar-container row">
+    <div class="col-md-3"></div>
+    <div class="searchbar-wrapper col-md-6">
+      <input class="search-box form-control">
+      <button class="search-btn btn btn-primary">FIND MY LECTURE</button>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
 
+<p>Recent Uploads</p>
 <div class="row">
   <div class="col-md-3" *ngFor="let item of videos">
     <app-video-thumbnail
