@@ -24,6 +24,7 @@ import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { VideoThumbnailComponent } from './video-thumbnail/video-thumbnail.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
+import { CodeEditorComponent } from './code-editor/code-editor.component';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
     CardsComponent,
     ButtonsComponent,
     VideoThumbnailComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    CodeEditorComponent
   ]
 })
 export class ComponentsModule {}
