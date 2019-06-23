@@ -12,9 +12,11 @@
   <div class="card-body">
     <app-question
     (answerSubmit)="receiveAnswer($event)"
+    (prevQuestion)="goToPrevQuestion($event)"
     question="{{ currentQustion.questionBody }}"
     [answers]="answers"
     [hasMoreQuestions]="hasMoreQuestions"
+    [hasPrevQuestion]="hasPrevQuestions"
     ></app-question>
   </div>
 </div>

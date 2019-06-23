@@ -11,7 +11,8 @@ export class QuestionAskerComponent implements OnInit {
 
   private currentQuestionNumber = 1;
   private currentQustion;
-  private hasMoreQuestions = false;
+  private hasMoreQuestions: boolean;
+  private hasPrevQuestions: boolean;
 
   question = 'Which was the first object oriented programming language developed?';
   answers: any[] = [
@@ -42,7 +43,9 @@ export class QuestionAskerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.currentQustion = this.questions[this.currentQuestionNumber - 1];
+    this.calcHasMoreQuestions();
+    this.calcHasPrevQuestions();
+    this.setCurrentQuestion();
     console.log(this.currentQustion);
   }
 
@@ -51,12 +54,43 @@ export class QuestionAskerComponent implements OnInit {
     if (this.answer === true) {
       if (this.currentQuestionNumber < +this.questionCount) {
         this.currentQuestionNumber++;
-        this.currentQustion = this.questions[this.currentQuestionNumber - 1];
+        this.setCurrentQuestion();
+        this.calcHasMoreQuestions();
+        this.calcHasPrevQuestions();
       }
-    } else {
-      alert('wrong answer try again');
     }
     console.log(this.answer);
+  }
+
+  goToPrevQuestion($event) {
+    if ($event === true) {
+      if (this.currentQuestionNumber > 1) {
+        this.currentQuestionNumber--;
+        this.setCurrentQuestion();
+        this.calcHasMoreQuestions();
+        this.calcHasPrevQuestions();
+      }
+    }
+  }
+
+  setCurrentQuestion() {
+    this.currentQustion = this.questions[this.currentQuestionNumber - 1];
+  }
+
+  calcHasMoreQuestions() {
+    if (this.currentQuestionNumber === +this.questionCount) {
+      this.hasMoreQuestions = false;
+    } else {
+      this.hasMoreQuestions = true;
+    }
+  }
+
+  calcHasPrevQuestions() {
+    if (this.currentQuestionNumber > 1) {
+      this.hasPrevQuestions = true;
+    } else {
+      this.hasPrevQuestions = false;
+    }
   }
 
 }

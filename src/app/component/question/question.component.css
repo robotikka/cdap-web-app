@@ -29,9 +29,28 @@
 }
 
 .from-wrapper {
-    padding-left: 25px;
+  padding-left: 25px;
 }
 
 .submit-btn-wrapper {
   text-align: end;
+}
+
+.prev-btn-wrapper {
+  margin-left: -25px !important;
+}
+
+.question-btn {
+  background: none;
+  color: #009EFD;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+  /*border is optional*/
+  border-bottom: 1px solid #009EFD;
+  cursor: pointer;
+}
+
+.btn-wrapper {
+  padding-top: 10px !important;
 }

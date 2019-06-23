@@ -23,9 +23,12 @@
     </div>
     <!-- Submit Button -->
 
-    <div class="row" *ngIf="hasMoreQuestions">
-      <div class="submit-btn-wrapper col">
-        <button type="submit" class="btn btn-info btn-rounded">NEXT QUESTION <i class="fa fa-play"></i></button>
+    <div class="btn-wrapper row" >
+      <div class="prev-btn-wrapper col" *ngIf="hasPrevQuestion">
+        <button type="button" class="question-btn" (click)="goToPrevQuestion(myForm)"><i class="fa fa-caret-left"></i> PREVIOUS QUESTION</button>
+      </div>
+      <div class="submit-btn-wrapper col" *ngIf="hasMoreQuestions">
+        <button type="submit" class="question-btn">NEXT QUESTION <i class="fa fa-caret-right"></i></button>
       </div>
     </div>
 
