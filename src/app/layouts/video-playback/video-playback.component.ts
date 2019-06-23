@@ -14,6 +14,14 @@ export class VideoPlaybackComponent implements OnInit {
 
   currentTime: any;
 
+  private _opened = false;
+
+  topics = [{topic: 'Topic 1', time: 1},
+            {topic: 'Topic 2', time: 10},
+            {topic: 'Topic 3', time: 20}];
+
+  selected = this.topics[0]
+
   constructor(private currentTimeService: PlayerCurrentTimeService) { }
 
   ngOnInit() {
@@ -23,9 +31,15 @@ export class VideoPlaybackComponent implements OnInit {
     });
   }
 
-  seekVideo() {
-    this.player.seekVideo(30);
+  seekVideo(time) {
+    this.player.seekVideo(time);
   }
+
+  toggleSidebar() {
+    this._opened = !this._opened;
+  }
+
+
 
   // onPlayerReady(api: VgAPI) {
   //   this.api = api;

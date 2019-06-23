@@ -1,3 +1,27 @@
 .player-container {
     max-width: 800px;
 }
+
+li{
+  padding: 15px 10px;
+  list-style: none;
+  font-size: 15px;
+  color: #6610f2;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+}
+
+li:hover{
+  background: #6610f2;
+  color: white;
+}
+
+#header{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+ng-sidebar{
+  background: #99abb4;
+}
+
+
