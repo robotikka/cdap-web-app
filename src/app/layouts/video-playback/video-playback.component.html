@@ -1,90 +1,110 @@
-<ng-sidebar-container style=" height: 100vh">
-  <ng-sidebar [(opened)]="_opened" position="left" mode="push">
-    <p id="header">Topics</p>
-    <ul>
-      <li *ngFor="let topic of topics" (click)="seekVideo(topic.time)">{{topic.topic}}</li>
-    </ul>
-  </ng-sidebar>
-  <div ng-sidebar-content>
+<div id="mySidebar" [ngClass]="_opened ? 'sidebar-open' : 'sidebar-close'">
+  <div class="topic-content-wrapper">
+    <button class="topics-btn" type="button" (click)="toggleSidebar()">
+      <i *ngIf="_opened" class="fa fa-caret-left"></i> TOPICS
+      <i *ngIf="!_opened" class="fa fa-caret-right"></i>
+    </button>
+  </div>
 
-
-    <div class="row">
-      <div class="col-md-1">
-        <button type="button" class="btn btn-primary btn-circle btn-lg" (click)="toggleSidebar()"><i class="fa fa-list"></i> </button>
+  <div class="btn-list-wrapper">
+    <div class="btn-wrapper" *ngFor="let topic of topics; let i = index">
+      <div (click)="seekVideo(topic.time)">
+        <button
+          type="button"
+          class="btn btn-circle btn-lg btn-primary "
+          
+        >
+          <p>{{ i + 1 }}</p>
+        </button>
+        <strong *ngIf="_opened">{{ topic.topic }}</strong>
       </div>
-      <div class="col-md-6">
+    </div>
+  </div>
+</div>
 
-        <div class="row">
-          <!-- <div class="player-container">
-            <vg-player (onPlayerReady)="onPlayerReady($event)">
-              <video
-                [vgMedia]="media"
-                #media
-                id="singleVideo"
-                preload="auto"
-                controls
-              >
-                <source src="assets/gravity_falls_opening.mp4" type="video/mp4" />
-              </video>
-            </vg-player>
-          </div> -->
-
-          <app-video-player
-            videoSrc="{{src}}"
-            videoType="mp4">
-          </app-video-player>
-
-        </div>
-
-        <div class="row">
-            <div class="question-component-wrapper col">
-                <app-question-asker *ngIf="questions"
-                questionCount="{{ questions.count }}"
-                [questions]="questions.questions"
+<div id="main" [ngClass]="_opened ? 'main-open' : 'main-close'">
+  <div class="row">
+    <!-- <div class="col-md-1">
+          <button type="button" class="btn btn-primary btn-circle btn-lg" (click)="toggleSidebar()"><i class="fa fa-list"></i> </button>
+        </div> -->
+    <div class="col-md-7">
+      <div class="row">
+        <!-- <div class="player-container">
+              <vg-player (onPlayerReady)="onPlayerReady($event)">
+                <video
+                  [vgMedia]="media"
+                  #media
+                  id="singleVideo"
+                  preload="auto"
+                  controls
                 >
-              </app-question-asker>
-              </div>
+                  <source src="assets/gravity_falls_opening.mp4" type="video/mp4" />
+                </video>
+              </vg-player>
+            </div> -->
 
-
-          <!-- <button type="button" class="btn btn-rounded btn-block btn-primary" (click)="seekVideo(30)" style="width:auto; margin-top: 10px">Seek video to 30 seconds</button>
-          <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
-            master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
-            dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
-            iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p> -->
-        </div>
+        <app-video-player videoSrc="{{ src }}" videoType="mp4">
+        </app-video-player>
       </div>
 
+      <div class="row">
+        <div class="question-component-wrapper col">
+          <app-question-asker
+            *ngIf="questions"
+            questionCount="{{ questions.count }}"
+            [questions]="questions.questions"
+          >
+          </app-question-asker>
+        </div>
 
-      <div class="col-md-5">
-        <div class="card">
-          <div class="card-body">
-            <ngb-tabset justify="justified" type="pills">
-              <ngb-tab title="Code Finder" >
-                <ng-template ngbTabContent>
-                  <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
-                    master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
-                    dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
-                    iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-                </ng-template>
-              </ngb-tab>
-              <ngb-tab title="Lecture Slides" >
-                <!--<ng-template ngbTabTitle>Lecture Slides</ng-template>-->
-                <ng-template ngbTabContent>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
-                  <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table
-                    craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl
-                    cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia
-                    yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean
-                    shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero
-                    sint qui sapiente accusamus tattooed echo park.</p>
-                </ng-template>
-              </ngb-tab>
-            </ngb-tabset>
-          </div>
+        <!-- <button type="button" class="btn btn-rounded btn-block btn-primary" (click)="seekVideo(30)" style="width:auto; margin-top: 10px">Seek video to 30 seconds</button>
+            <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+              master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
+              dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+              iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p> -->
+      </div>
+    </div>
 
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <ngb-tabset justify="justified" type="pills">
+            <ngb-tab title="Code Finder">
+              <ng-template ngbTabContent>
+                <p>
+                  Raw denim you probably haven't heard of them jean shorts
+                  Austin. Nesciunt tofu stumptown aliqua, retro synth master
+                  cleanse. Mustache cliche tempor, williamsburg carles vegan
+                  helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher
+                  synth. Cosby sweater eu banh mi, qui irure terry richardson ex
+                  squid. Aliquip placeat salvia cillum iphone. Seitan aliquip
+                  quis cardigan american apparel, butcher voluptate nisi qui.
+                </p>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Lecture Slides">
+              <!--<ng-template ngbTabTitle>Lecture Slides</ng-template>-->
+              <ng-template ngbTabContent
+                >Food truck fixie locavore, accusamus mcsweeney's marfa nulla
+                single-origin coffee squid.
+                <p>
+                  Exercitation +1 labore velit, blog sartorial PBR leggings next
+                  level wes anderson artisan four loko farm-to-table craft beer
+                  twee. Qui photo booth letterpress, commodo enim craft beer
+                  mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo
+                  nostrud organic, assumenda labore aesthetic magna delectus
+                  mollit. Keytar helvetica VHS salvia yr, vero magna velit
+                  sapiente labore stumptown. Vegan fanny pack odio cillum wes
+                  anderson 8-bit, sustainable jean shorts beard ut DIY ethical
+                  culpa terry richardson biodiesel. Art party scenester
+                  stumptown, tumblr butcher vero sint qui sapiente accusamus
+                  tattooed echo park.
+                </p>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
         </div>
       </div>
     </div>
   </div>
-
-</ng-sidebar-container>
-
+</div>
