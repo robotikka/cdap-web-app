@@ -36,18 +36,23 @@
         </div>
 
         <div class="row">
+            <div class="question-component-wrapper col">
+                <app-question-asker *ngIf="questions"
+                questionCount="{{ questions.count }}"
+                [questions]="questions.questions"
+                >
+              </app-question-asker>
+              </div>
 
-          <button type="button" class="btn btn-rounded btn-block btn-primary" (click)="seekVideo(30)"
-            style="width:auto; margin-top: 10px">Seek video to 30 seconds</button>
-          <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro
-            synth
-            master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
-            keffiyeh
-            dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia
-            cillum
-            iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+
+          <!-- <button type="button" class="btn btn-rounded btn-block btn-primary" (click)="seekVideo(30)" style="width:auto; margin-top: 10px">Seek video to 30 seconds</button>
+          <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+            master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
+            dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+            iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p> -->
         </div>
       </div>
+
 
       <div class="col-md-5">
         <div class="card">
@@ -77,6 +82,7 @@
               </ngb-tab>
             </ngb-tabset>
           </div>
+
         </div>
       </div>
     </div>

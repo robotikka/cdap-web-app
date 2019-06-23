@@ -1,0 +1,37 @@
+<div>
+  <p>{{ question }}</p>
+
+  <!-- Form starts -->
+  <form class="from-wrapper" #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
+    <!-- Gender -->
+    <div *ngFor="let answer of answers; let i = index"
+     class="custom-control custom-radio">
+      <input
+        id="{{ answer.id }}"
+        type="radio"
+        class="custom-control-input"
+        value="{{ i }}"
+        name="answer"
+        ngModel
+        required
+      />
+      <label class="custom-control-label" for="{{ answer.id }}">{{ answer.value }}</label>
+    </div>
+
+    <div *ngIf="isSubmitted && myForm.invalid">
+      <p>Please select either value</p>
+    </div>
+    <!-- Submit Button -->
+
+    <div class="btn-wrapper row" >
+      <div class="prev-btn-wrapper col" *ngIf="hasPrevQuestion">
+        <button type="button" class="question-btn" (click)="goToPrevQuestion(myForm)"><i class="fa fa-caret-left"></i> PREVIOUS QUESTION</button>
+      </div>
+      <div class="submit-btn-wrapper col" *ngIf="hasMoreQuestions">
+        <button type="submit" class="question-btn">NEXT QUESTION <i class="fa fa-caret-right"></i></button>
+      </div>
+    </div>
+
+  </form>
+  <!-- Form ends -->
+</div>

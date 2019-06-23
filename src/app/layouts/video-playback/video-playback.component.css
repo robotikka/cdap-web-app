@@ -2,6 +2,7 @@
     max-width: 800px;
 }
 
+
 li{
   padding: 15px 10px;
   list-style: none;
@@ -24,4 +25,8 @@ ng-sidebar{
   background: #99abb4;
 }
 
+.question-component-wrapper {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
 

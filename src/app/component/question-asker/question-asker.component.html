@@ -1,0 +1,22 @@
+<div class="questions-container card m-t-20">
+  <div class="card-header">
+    <div class="card-title-wrapper row">
+      <div class="col">
+        <h3 class="card-title-header">Q&A</h3>
+      </div>
+      <div class="question-count col">
+        <p>{{ currentQuestionNumber }}/{{ questionCount }} QUESTIONS</p>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <app-question
+    (answerSubmit)="receiveAnswer($event)"
+    (prevQuestion)="goToPrevQuestion($event)"
+    question="{{ currentQustion.questionBody }}"
+    [answers]="answers"
+    [hasMoreQuestions]="hasMoreQuestions"
+    [hasPrevQuestion]="hasPrevQuestions"
+    ></app-question>
+  </div>
+</div>
