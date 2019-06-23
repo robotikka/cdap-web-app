@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -36,6 +36,8 @@ import { HomeComponent } from './layouts/home/home.component';
 
 import { VideoThumbnailComponent } from './component/video-thumbnail/video-thumbnail.component';
 import { VideoPlayerComponent } from './component/video-player/video-player.component';
+import { QuestionAskerComponent } from './component/question-asker/question-asker.component';
+import { QuestionComponent } from './component/question/question.component';
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 
@@ -59,7 +61,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HomeComponent,
     VideoThumbnailComponent,
     VideoPlaybackComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    QuestionAskerComponent,
+    QuestionComponent
   ],
   imports: [
     CommonModule,
@@ -75,7 +79,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule
+    VgBufferingModule,
+    ReactiveFormsModule
   ],
   providers: [
     PlayerCurrentTimeService,

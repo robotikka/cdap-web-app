@@ -1,0 +1,18 @@
+.card-title-header {
+    margin-bottom: -10px !important;
+    margin-left: -15px !important;
+}
+
+.card-title-wrapper {
+    margin-bottom: -25px !important;
+}
+
+.questions-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+.question-count {
+    text-align: end;
+    padding-right: 0px !important;
+}
