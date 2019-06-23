@@ -8,20 +8,49 @@
   <div ng-sidebar-content>
 
 
-    <div class="col-md-6">
-      <div class="row">
-        <app-video-player videoSrc="{{ src }}" videoType="mp4">
-        </app-video-player>
+    <div class="row">
+      <div class="col-md-1">
+        <button type="button" class="btn btn-primary btn-circle btn-lg" (click)="toggleSidebar()"><i class="fa fa-list"></i> </button>
       </div>
+      <div class="col-md-6">
 
-      <div class="row">
-        <div class="question-component-wrapper col">
-          <app-question-asker *ngIf="questions"
-          questionCount="{{ questions.count }}"
-          [questions]="questions.questions"
-          >
-        </app-question-asker>
+        <div class="row">
+          <!-- <div class="player-container">
+            <vg-player (onPlayerReady)="onPlayerReady($event)">
+              <video
+                [vgMedia]="media"
+                #media
+                id="singleVideo"
+                preload="auto"
+                controls
+              >
+                <source src="assets/gravity_falls_opening.mp4" type="video/mp4" />
+              </video>
+            </vg-player>
+          </div> -->
 
+          <app-video-player
+            videoSrc="{{src}}"
+            videoType="mp4">
+          </app-video-player>
+
+        </div>
+
+        <div class="row">
+            <div class="question-component-wrapper col">
+                <app-question-asker *ngIf="questions"
+                questionCount="{{ questions.count }}"
+                [questions]="questions.questions"
+                >
+              </app-question-asker>
+              </div>
+
+
+          <!-- <button type="button" class="btn btn-rounded btn-block btn-primary" (click)="seekVideo(30)" style="width:auto; margin-top: 10px">Seek video to 30 seconds</button>
+          <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+            master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
+            dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+            iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p> -->
         </div>
       </div>
 

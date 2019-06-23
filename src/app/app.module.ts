@@ -43,6 +43,7 @@ import { QuestionAskerComponent } from './component/question-asker/question-aske
 import { QuestionComponent } from './component/question/question.component';
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
+import { SidebarModule } from 'ng-sidebar';
 import { HttpModule } from '@angular/http';
 import { SidebarModule } from 'ng-sidebar';
 
@@ -88,7 +89,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
-    ReactiveFormsModule,
+    SidebarModule.forRoot(),
     HttpModule
     SidebarModule.forRoot()
   ],

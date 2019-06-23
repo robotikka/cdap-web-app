@@ -24,7 +24,7 @@ export class VideoPlaybackComponent implements OnInit {
             {topic: 'Topic 2', time: 10},
             {topic: 'Topic 3', time: 20}];
 
-  selected = this.topics[0]
+  selected = this.topics[0];
 
   constructor(private currentTimeService: PlayerCurrentTimeService, private http: Http) { }
 
@@ -43,7 +43,6 @@ export class VideoPlaybackComponent implements OnInit {
   seekVideo(time) {
     this.player.seekVideo(time);
   }
-
 
   toggleSidebar() {
     this._opened = !this._opened;
