@@ -1,0 +1,4 @@
+.hoverable-tr:hover {
+    color: red;
+    cursor: pointer;
+}
