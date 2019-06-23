@@ -32,6 +32,9 @@ import { VgBufferingModule } from 'videogular2/buffering';
 import { UploadLectureComponent } from './layouts/upload-lecture/upload-lecture.component';
 import { MyUploadsComponent } from './layouts/my-uploads/my-uploads.component';
 import { VideoPlaybackComponent } from './layouts/video-playback/video-playback.component';
+import { ProcessingTabComponent } from './layouts/my-uploads/tabs/processing-tab/processing-tab.component';
+import { PublishedTabComponent } from './layouts/my-uploads/tabs/published-tab/published-tab.component';
+import { ReviewTabComponent } from './layouts/my-uploads/tabs/review-tab/review-tab.component';
 import { HomeComponent } from './layouts/home/home.component';
 
 import { VideoThumbnailComponent } from './component/video-thumbnail/video-thumbnail.component';
@@ -57,6 +60,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     UploadLectureComponent,
     MyUploadsComponent,
     VideoPlaybackComponent,
+    ProcessingTabComponent,
+    PublishedTabComponent,
+    ReviewTabComponent,
     HomeComponent,
     VideoThumbnailComponent,
     VideoPlaybackComponent,

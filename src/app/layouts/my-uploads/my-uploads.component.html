@@ -1,28 +1,31 @@
-
 <div class="row">
   <div class="col-md-12">
-    <div class="card">
-      <div class="card-body">
-        <h3 class="card-title">My Uploads</h3>
-        <ngb-tabset type="pills">
-          <ngb-tab title="Processing">
-            <ng-template ngbTabContent>
-              <p  class="p-t-20"> Processing </p>
-            </ng-template>
-          </ngb-tab>
-          <ngb-tab title="Published">
-            <ng-template ngbTabContent>
-              
-            </ng-template>
-          </ngb-tab>
-          <ngb-tab title="Up For Review">
-            <ng-template ngbTabContent>
-
-            </ng-template>
-          </ngb-tab>
-        </ngb-tabset>
-      </div>
+    <div style="min-height: 100vh;">
+      <h3>My Uploads</h3>
+      <ngb-tabset>
+        <ngb-tab title="Processing">
+          <ng-template ngbTabContent>
+            <div class="tab-wrapper">
+              <app-processing-tab></app-processing-tab>
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Published">
+          <ng-template ngbTabContent>
+            <div class="tab-wrapper">
+              <app-published-tab></app-published-tab>
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Up For Review">
+          <ng-template ngbTabContent>
+            <div class="tab-wrapper">
+              <app-review-tab></app-review-tab>
+            </div>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
     </div>
-    <br>
   </div>
+  <br>
 </div>
