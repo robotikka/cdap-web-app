@@ -7,7 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProcessingTabComponent implements OnInit {
 
-  constructor() { }
+  videos: any[];
+
+  constructor() {
+    this.videos = [
+      {
+        videoTitle: 'Video 001',
+        options: ['match slides', 'match code']
+      },
+      {
+        videoTitle: 'Video 002',
+        options: ['match slides']
+      },
+      {
+        videoTitle: 'Video 003',
+        options: ['match slides', 'match code']
+      },
+      {
+        videoTitle: 'Video 004',
+        options: ['denoise', 'match code'] 
+      }
+    ];
+   }
 
   ngOnInit() {
   }

@@ -1,3 +1,16 @@
-<p>
-  review-tab works!
-</p>
+<div class="row">
+    <div class="col-12">
+        <h4 class="d-inline">Review these videos before publishing</h4>
+        <div class="row pad-30">
+            <div class="col-md-3" *ngFor="let video of videos">
+                <app-video-thumbnail
+                  videoTitle="{{ video.videoTitle }}"
+                  description="{{ video.description }}"
+                  duration="{{ video.duration }}"
+                  thumbnailUrl="{{ video.thumbnailUrl }}"
+                >
+              </app-video-thumbnail>
+              </div>
+        </div>
+    </div>
+  </div>
