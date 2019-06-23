@@ -1,0 +1,11 @@
+<h4 class="m-b-0">{{sourceCode.title}}</h4>
+<div class="card">
+  <div class="card-body">
+    <table class="card-text" style="width:100%">
+      <tr class="hoverable-tr" *ngFor="let line of sourceCode.lines" (click)="onSelect(line)">
+        <td>{{line.content}}</td>
+        <td>{{line.timestamp}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -39,13 +39,13 @@ import { HomeComponent } from './layouts/home/home.component';
 
 import { VideoThumbnailComponent } from './component/video-thumbnail/video-thumbnail.component';
 import { VideoPlayerComponent } from './component/video-player/video-player.component';
+import { CodeEditorComponent } from './component/code-editor/code-editor.component';
 import { QuestionAskerComponent } from './component/question-asker/question-asker.component';
 import { QuestionComponent } from './component/question/question.component';
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
 import { HttpModule } from '@angular/http';
-import { SidebarModule } from 'ng-sidebar';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -71,6 +71,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VideoThumbnailComponent,
     VideoPlaybackComponent,
     VideoPlayerComponent,
+    CodeEditorComponent,
     QuestionAskerComponent,
     QuestionComponent
   ],
@@ -91,7 +92,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VgBufferingModule,
     SidebarModule.forRoot(),
     HttpModule
-    SidebarModule.forRoot()
   ],
   providers: [
     PlayerCurrentTimeService,
