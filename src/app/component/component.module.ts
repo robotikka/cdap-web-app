@@ -25,6 +25,8 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { CodeCompareComponent } from './code-compare/code-compare.component';
 import { VideoThumbnailComponent } from './video-thumbnail/video-thumbnail.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
+import { QuestionAskerComponent } from './question-asker/question-asker.component';
+import { QuestionComponent } from './question/question.component';
 
 @NgModule({
   imports: [
@@ -53,7 +55,9 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
     ButtonsComponent,
     CodeCompareComponent,
     VideoThumbnailComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    QuestionAskerComponent,
+    QuestionComponent
   ]
 })
 export class ComponentsModule {}

@@ -1,0 +1,56 @@
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #e91e63;
+  background-color: #e91e63;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: none;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #e91e63;
+  background-color: #e91e63;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: none;
+}
+
+.custom-control-label {
+  cursor: pointer;
+}
+
+.custom-control {
+  margin-bottom: 5px;
+}
+
+.custom-control label {
+  font-weight: 400;
+}
+
+.from-wrapper {
+  padding-left: 25px;
+}
+
+.submit-btn-wrapper {
+  text-align: end;
+}
+
+.prev-btn-wrapper {
+  margin-left: -25px !important;
+}
+
+.question-btn {
+  background: none;
+  color: #009EFD;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+  /*border is optional*/
+  border-bottom: 1px solid #009EFD;
+  cursor: pointer;
+}
+
+.btn-wrapper {
+  padding-top: 10px !important;
+}
