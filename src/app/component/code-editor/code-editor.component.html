@@ -1,3 +1,11 @@
-<p>
-  code-editor works!
-</p>
+<h4 class="m-b-0">{{sourceCode.title}}</h4>
+<div class="card">
+  <div class="card-body">
+    <table class="card-text" style="width:100%">
+      <tr *ngFor="let line of sourceCode.lines">
+        <td>{{line.content}}</td>
+        <td>{{line.timestamp}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
