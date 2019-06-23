@@ -39,6 +39,7 @@ import { HomeComponent } from './layouts/home/home.component';
 
 import { VideoThumbnailComponent } from './component/video-thumbnail/video-thumbnail.component';
 import { VideoPlayerComponent } from './component/video-player/video-player.component';
+import { CodeEditorComponent } from './component/code-editor/code-editor.component';
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
@@ -66,7 +67,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HomeComponent,
     VideoThumbnailComponent,
     VideoPlaybackComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    CodeEditorComponent
   ],
   imports: [
     CommonModule,
