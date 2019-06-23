@@ -45,6 +45,7 @@ import { QuestionComponent } from './component/question/question.component';
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
 import { HttpModule } from '@angular/http';
+import { SidebarModule } from 'ng-sidebar';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -90,6 +91,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VgBufferingModule,
     SidebarModule.forRoot(),
     HttpModule
+    SidebarModule.forRoot()
   ],
   providers: [
     PlayerCurrentTimeService,
