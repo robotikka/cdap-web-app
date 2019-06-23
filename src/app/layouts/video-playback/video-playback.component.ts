@@ -46,6 +46,7 @@ export class VideoPlaybackComponent implements OnInit {
 
   toggleSidebar() {
     this._opened = !this._opened;
+
   }
 
 
