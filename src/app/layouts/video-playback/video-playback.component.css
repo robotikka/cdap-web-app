@@ -25,3 +25,7 @@ ng-sidebar{
 }
 
 
+.question-component-wrapper {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
