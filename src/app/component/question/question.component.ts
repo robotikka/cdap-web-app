@@ -9,6 +9,7 @@ import { FormGroup, NgForm } from '@angular/forms';
 export class QuestionComponent implements OnInit {
   @Input() question: string;
   @Input() answers: [{ id: string, value: string, correct: boolean }];
+  @Input() hasMoreQuestions: boolean;
 
   @Output() answerSubmit = new EventEmitter<boolean>();
 

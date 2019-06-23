@@ -5,15 +5,16 @@
         <h3 class="card-title-header">Q&A</h3>
       </div>
       <div class="question-count col">
-        <p>1/20 QUESTIONS</p>
+        <p>{{ currentQuestionNumber }}/{{ questionCount }} QUESTIONS</p>
       </div>
     </div>
   </div>
   <div class="card-body">
     <app-question
     (answerSubmit)="receiveAnswer($event)"
-    question="{{ question }}"
+    question="{{ currentQustion.questionBody }}"
     [answers]="answers"
+    [hasMoreQuestions]="hasMoreQuestions"
     ></app-question>
   </div>
 </div>

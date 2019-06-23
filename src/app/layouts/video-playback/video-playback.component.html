@@ -15,7 +15,11 @@
 
       <div class="row">
         <div class="question-component-wrapper col">
-          <app-question-asker></app-question-asker>
+          <app-question-asker *ngIf="questions"
+          questionCount="{{ questions.count }}"
+          [questions]="questions.questions"
+          >
+        </app-question-asker>
         </div>
       </div>
     </div>

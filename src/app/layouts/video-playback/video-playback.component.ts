@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlayerCurrentTimeService } from '../../services/player-current-time.service';
 import { VideoPlayerComponent } from '../../component/video-player/video-player.component';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-video-playback',
@@ -10,37 +11,29 @@ import { VideoPlayerComponent } from '../../component/video-player/video-player.
 export class VideoPlaybackComponent implements OnInit {
   @ViewChild(VideoPlayerComponent) player;
 
+  questions;
+
+
   src = 'assets/gravity_falls_opening.mp4';
 
   currentTime: any;
 
-  constructor(private currentTimeService: PlayerCurrentTimeService) { }
+  constructor(private currentTimeService: PlayerCurrentTimeService, private http: Http) { }
 
   ngOnInit() {
+    this.http.get('assets/questions/mock-questions.json').map(data => data.json()).subscribe(data => {
+      this.questions = data;
+      console.log(data);
+    });
+
+
     this.currentTimeService.currentTime.subscribe(time => {
       this.currentTime = time;
-
     });
   }
 
   seekVideo() {
     this.player.seekVideo(30);
   }
-
-  // onPlayerReady(api: VgAPI) {
-  //   this.api = api;
-
-  //   this.api.getDefaultMedia().subscriptions.pause.subscribe(() => {
-  //     console.log('paused');
-  //   });
-
-  //   this.api.getDefaultMedia().subscriptions.timeUpdate.subscribe((data) => {
-  //     console.log(data.srcElement.currentTime);
-  //     if (Math.floor(data.srcElement.currentTime) === 5) {
-  //       // console.log('current time fired');
-  //       this.api.getDefaultMedia().pause();
-  //     }
-  //   });
-  // }
 
 }

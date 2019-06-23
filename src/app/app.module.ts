@@ -40,6 +40,7 @@ import { QuestionAskerComponent } from './component/question-asker/question-aske
 import { QuestionComponent } from './component/question/question.component';
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
+import { HttpModule } from '@angular/http';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -80,7 +81,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [
     PlayerCurrentTimeService,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-question-asker',
@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question-asker.component.css']
 })
 export class QuestionAskerComponent implements OnInit {
+  @Input() questionCount: string;
+  @Input() questions: any;
+
+  private currentQuestionNumber = 1;
+  private currentQustion;
+  private hasMoreQuestions = false;
+
   question = 'Which was the first object oriented programming language developed?';
   answers: any[] = [
     {
@@ -35,10 +42,20 @@ export class QuestionAskerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.currentQustion = this.questions[this.currentQuestionNumber - 1];
+    console.log(this.currentQustion);
   }
 
   receiveAnswer($event) {
     this.answer = $event;
+    if (this.answer === true) {
+      if (this.currentQuestionNumber < +this.questionCount) {
+        this.currentQuestionNumber++;
+        this.currentQustion = this.questions[this.currentQuestionNumber - 1];
+      }
+    } else {
+      alert('wrong answer try again');
+    }
     console.log(this.answer);
   }
 
