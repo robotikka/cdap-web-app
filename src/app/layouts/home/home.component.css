@@ -1,0 +1,34 @@
+.title-container {
+    background-color: white;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    margin-top: -55px !important;
+    margin-bottom: 20px;
+}
+
+.tagline {
+    text-align: center;
+}
+
+.logo {
+    text-align: center;
+}
+
+.searchbar-wrapper {
+    width: 500px;
+    overflow: hidden;
+    /* text-align: center; */
+}
+
+.search-box {
+    width: 500px;
+    float: left;
+}
+
+.search-btn {
+    overflow: hidden;
+}
+
+/* .searchbar-container {
+    text-align: center;
+} */

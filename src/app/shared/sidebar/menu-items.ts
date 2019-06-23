@@ -2,7 +2,7 @@ import { RouteInfo } from './sidebar.metadata';
 
 export const ROUTES: RouteInfo[] = [
   {
-    path: '/starter',
+    path: '/home',
     title: 'Home',
     icon: 'mdi mdi-gauge',
     class: '',
@@ -32,7 +32,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
-    path: '/myupload',
+    path: '/myuploads',
     title: 'My Uploads',
     icon: 'mdi mdi-view-carousel',
     class: '',

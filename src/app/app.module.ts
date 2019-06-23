@@ -35,6 +35,12 @@ import { VideoPlaybackComponent } from './layouts/video-playback/video-playback.
 import { ProcessingTabComponent } from './layouts/my-uploads/tabs/processing-tab/processing-tab.component';
 import { PublishedTabComponent } from './layouts/my-uploads/tabs/published-tab/published-tab.component';
 import { ReviewTabComponent } from './layouts/my-uploads/tabs/review-tab/review-tab.component';
+import { HomeComponent } from './layouts/home/home.component';
+
+import { VideoThumbnailComponent } from './component/video-thumbnail/video-thumbnail.component';
+import { VideoPlayerComponent } from './component/video-player/video-player.component';
+
+import { PlayerCurrentTimeService } from './services/player-current-time.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -55,7 +61,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VideoPlaybackComponent,
     ProcessingTabComponent,
     PublishedTabComponent,
-    ReviewTabComponent
+    ReviewTabComponent,
+    HomeComponent,
+    VideoThumbnailComponent,
+    VideoPlaybackComponent,
+    VideoPlayerComponent
   ],
   imports: [
     CommonModule,
@@ -74,6 +84,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VgBufferingModule
   ],
   providers: [
+    PlayerCurrentTimeService,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG

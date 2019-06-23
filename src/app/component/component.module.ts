@@ -23,6 +23,8 @@ import { NgbdtypeheadBasicComponent } from './typehead/typehead.component';
 import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { CodeCompareComponent } from './code-compare/code-compare.component';
+import { VideoThumbnailComponent } from './video-thumbnail/video-thumbnail.component';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 @NgModule({
   imports: [
@@ -49,7 +51,9 @@ import { CodeCompareComponent } from './code-compare/code-compare.component';
     NgbdtypeheadBasicComponent,
     CardsComponent,
     ButtonsComponent,
-    CodeCompareComponent
+    CodeCompareComponent,
+    VideoThumbnailComponent,
+    VideoPlayerComponent
   ]
 })
 export class ComponentsModule {}
