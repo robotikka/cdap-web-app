@@ -39,6 +39,7 @@ import { HomeComponent } from './layouts/home/home.component';
 
 import { VideoThumbnailComponent } from './component/video-thumbnail/video-thumbnail.component';
 import { VideoPlayerComponent } from './component/video-player/video-player.component';
+import { CodeEditorComponent } from './component/code-editor/code-editor.component';
 import { QuestionAskerComponent } from './component/question-asker/question-asker.component';
 import { QuestionComponent } from './component/question/question.component';
 
@@ -70,6 +71,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VideoThumbnailComponent,
     VideoPlaybackComponent,
     VideoPlayerComponent,
+    CodeEditorComponent,
     QuestionAskerComponent,
     QuestionComponent
   ],

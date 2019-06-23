@@ -22,9 +22,9 @@ import { NgbdtimepickerBasicComponent } from './timepicker/timepicker.component'
 import { NgbdtypeheadBasicComponent } from './typehead/typehead.component';
 import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
-import { CodeCompareComponent } from './code-compare/code-compare.component';
 import { VideoThumbnailComponent } from './video-thumbnail/video-thumbnail.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
+import { CodeEditorComponent } from './code-editor/code-editor.component';
 import { QuestionAskerComponent } from './question-asker/question-asker.component';
 import { QuestionComponent } from './question/question.component';
 
@@ -53,9 +53,9 @@ import { QuestionComponent } from './question/question.component';
     NgbdtypeheadBasicComponent,
     CardsComponent,
     ButtonsComponent,
-    CodeCompareComponent,
     VideoThumbnailComponent,
     VideoPlayerComponent,
+    CodeEditorComponent,
     QuestionAskerComponent,
     QuestionComponent
   ]
