@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VideoDataService } from '../../services/video-data.service';
 
 @Component({
   selector: 'app-explore',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExploreComponent implements OnInit {
 
-  constructor() { }
+  videos;
+
+  constructor(private videoDataService: VideoDataService) { }
 
   ngOnInit() {
+    this.getVideos();
+  }
+
+  getVideos(): void {
+    this.videos - this.videoDataService.getVideos()
+      .subscribe(v => this.videos = v);;
   }
 
 }

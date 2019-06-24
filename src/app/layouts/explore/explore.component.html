@@ -1,20 +1,14 @@
-<div class="row">
-    <div class="col-12 m-t-30">
-        <h4 class="m-b-0">Explore</h4>
-        <p class="text-muted m-t-0 font-12">Add an optional header and/or footer within a card.</p>
-        <!-- Card -->
-        <div class="card">
-            <div class="card-header">
-                Featured
-            </div>
-            <div class="card-body">
-                <h4 class="card-title">Special title treatment</h4>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                <a routerLink="/videoplayer/1" class="btn btn-primary">Go somewhere</a>
-                <!-- <a  routerLinkActive="active" [state]="{ hello: 'world' }"></a> -->
-            </div>
+<h4 class="m-b-0">Explore</h4>
+<div *ngIf="videos">
+  <div class="row">
+    <div class="col-12" *ngFor="let video of videos">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{video.videoTitle}}</h4>
+          <p class="card-text">{{video.description}}</p>
+          <a routerLink="/videoplayer/{{video.id}}" class="btn btn-primary">View Details</a>
         </div>
-        <!-- Card -->
+      </div>
     </div>
+  </div>
 </div>

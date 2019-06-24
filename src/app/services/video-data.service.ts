@@ -40,13 +40,13 @@ export class VideoDataService {
 
   constructor() { }
 
-  getContacts() {
+  getVideos() {
     return Observable.create(observer => {
       observer.next(videos);
     })
   }
   
-  getContact(id) {
+  getVideo(id) {
     return Observable.create(observer => {
       setTimeout(() => {
         observer.next(videos.find((video) => video.id == id))

@@ -8,6 +8,6 @@ export class VideoDataResolve implements Resolve<any> {
   constructor(private videoDataService: VideoDataService) {}
   
   resolve(route: ActivatedRouteSnapshot) {
-    return this.videoDataService.getContact(route.params['id']);
+    return this.videoDataService.getVideo(route.params['id']);
   }
 }
