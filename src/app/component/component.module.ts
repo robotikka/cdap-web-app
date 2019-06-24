@@ -28,6 +28,8 @@ import { CodeEditorComponent } from './code-editor/code-editor.component';
 import { QuestionAskerComponent } from './question-asker/question-asker.component';
 import { QuestionComponent } from './question/question.component';
 import { SlideMatchComponent } from './slide-match/slide-match.component';
+import { QuestionEditorComponent } from './question-editor/question-editor.component';
+import { InlineEditComponent } from './inline-edit/inline-edit.component';
 
 @NgModule({
   imports: [
@@ -59,7 +61,9 @@ import { SlideMatchComponent } from './slide-match/slide-match.component';
     CodeEditorComponent,
     QuestionAskerComponent,
     QuestionComponent,
-    SlideMatchComponent
+    SlideMatchComponent,
+    QuestionEditorComponent,
+    InlineEditComponent
   ]
 })
 export class ComponentsModule {}

@@ -42,7 +42,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
-    path: '/component/dropdown',
+    path: '/question',
     title: 'Contact',
     icon: 'mdi mdi-arrange-bring-to-front',
     class: '',

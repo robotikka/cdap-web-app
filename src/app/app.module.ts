@@ -43,6 +43,8 @@ import { CodeEditorComponent } from './component/code-editor/code-editor.compone
 import { QuestionAskerComponent } from './component/question-asker/question-asker.component';
 import { QuestionComponent } from './component/question/question.component';
 import { SlideMatchComponent} from './component/slide-match/slide-match.component';
+import { QuestionEditorComponent } from './component/question-editor/question-editor.component';
+import { InlineEditComponent } from './component/inline-edit/inline-edit.component';
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
@@ -75,7 +77,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CodeEditorComponent,
     QuestionAskerComponent,
     QuestionComponent,
-    SlideMatchComponent
+    SlideMatchComponent,
+    QuestionEditorComponent,
+    InlineEditComponent
   ],
   imports: [
     CommonModule,
