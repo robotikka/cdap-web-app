@@ -1,0 +1,83 @@
+<div class="questions-container card m-t-20">
+  <!--<div class="card-header">-->
+  <div class="card-title-wrapper row">
+    <div class="col">
+      <h4 class="card-title-header"> Currently discussing on video </h4>
+    </div>
+    <div class="question-count col" style="float: right; width: 70px">
+      <p style="text-align: end">{{ currentSlide }}/{{ noOfSlides }} SLIDES </p>
+    </div>
+  </div>
+  <!--</div>-->
+  <div class="container-fluid" id="test">
+    <ngb-carousel *ngIf="product" [showNavigationArrows]="true" [pauseOnHover]="false" [interval]="5000" [wrap]="true" [keyboard]="true">
+      <ng-template ngbSlide>
+        <img [src]="product[0].url" alt="Random first slide" (click)="getTime(product[0].id)" style="max-height:400px; width: 100%; margin: 0;">
+        <div class="carousel-caption">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="product[1].url" alt="Random second slide" (click)="getTime(product[1].id)" style="max-height:400px; width: 100%; margin: 0;">
+        <div class="carousel-caption">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="product[2].url" alt="Random first slide" (click)="getTime(product[2].id)" style="max-height:400px; width: 100%; margin: 0;">
+        <div class="carousel-caption">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="product[3].url" alt="Random second slide" (click)="getTime(product[3].id)" style="max-height:400px; width: 100%; margin: 0;">
+        <div class="carousel-caption">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="product[4].url" alt="Random first slide" (click)="seekVideo(product[4].id)" style="max-height:400px; width: 100%; margin: 0;">
+        <div class="carousel-caption">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="product[5].url" alt="Random second slide" (click)="getTime(product[5].id)" style="max-height:400px; width: 100%; margin: 0;">">
+        <div class="carousel-caption">
+        </div>
+      </ng-template>
+      <!--<ng-template ngbSlide>-->
+      <!--<img [src]="images[2]" alt="Random third slide">-->
+      <!--<div class="carousel-caption">-->
+      <!--<h3>Third slide label</h3>-->
+      <!--<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>-->
+      <!--</div>-->
+      <!--</ng-template>-->
+    </ngb-carousel>
+  </div>
+
+  <!--test-->
+
+
+  <div id="container-fluid">
+    <div
+      ng2-carouselamos
+      class="slides-wrapper"
+      [items]="product"
+      [width]="850"
+      [$prev]="prev"
+      [$next]="next"
+      [$item]="item"
+    >
+    </div>
+
+
+    <ng-template #prev>
+      <img src="assets/images/prev.jpg" id="left" style="width: 15px; height: 15px" />
+    </ng-template>
+    <ng-template #next>
+      <img src="assets/images/prev - Copy.jpg" id="right" style="height: 15px; width: 15px" />
+    </ng-template>
+    <ng-template #item let-item let-i="index">
+      <div class="slide-items">
+        <img src="{{ item.url }}" style="width: 70px; height: 70px" (click)="setImage(item.url)">
+      </div>
+    </ng-template>
+  </div>
+</div>
+

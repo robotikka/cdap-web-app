@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -22,6 +22,7 @@ import { SpinnerComponent } from './shared/spinner.component';
 
 import { ArchwizardModule } from 'angular-archwizard';
 import { FileDropModule } from 'ngx-file-drop';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 // videogular
 import { VgCoreModule } from 'videogular2/core';
@@ -32,15 +33,23 @@ import { VgBufferingModule } from 'videogular2/buffering';
 import { UploadLectureComponent } from './layouts/upload-lecture/upload-lecture.component';
 import { MyUploadsComponent } from './layouts/my-uploads/my-uploads.component';
 import { VideoPlaybackComponent } from './layouts/video-playback/video-playback.component';
+import { ProcessingTabComponent } from './layouts/my-uploads/tabs/processing-tab/processing-tab.component';
+import { PublishedTabComponent } from './layouts/my-uploads/tabs/published-tab/published-tab.component';
+import { ReviewTabComponent } from './layouts/my-uploads/tabs/review-tab/review-tab.component';
 import { HomeComponent } from './layouts/home/home.component';
 
 import { VideoThumbnailComponent } from './component/video-thumbnail/video-thumbnail.component';
 import { VideoPlayerComponent } from './component/video-player/video-player.component';
+import { CodeEditorComponent } from './component/code-editor/code-editor.component';
+import { QuestionAskerComponent } from './component/question-asker/question-asker.component';
+import { QuestionComponent } from './component/question/question.component';
+import { SlideMatchComponent} from './component/slide-match/slide-match.component';
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
 import { TopicModelComponent } from './layouts/topic-model/topic-model.component';
 import { NgxLoadingModule } from 'ngx-loading';
+import { HttpModule } from '@angular/http';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -59,11 +68,19 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     UploadLectureComponent,
     MyUploadsComponent,
     VideoPlaybackComponent,
+    ProcessingTabComponent,
+    PublishedTabComponent,
+    ReviewTabComponent,
     HomeComponent,
     VideoThumbnailComponent,
     VideoPlaybackComponent,
     VideoPlayerComponent,
-    TopicModelComponent
+    TopicModelComponent,
+    VideoPlayerComponent,
+    CodeEditorComponent,
+    QuestionAskerComponent,
+    QuestionComponent,
+    SlideMatchComponent
   ],
   imports: [
     CommonModule,
@@ -81,7 +98,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VgOverlayPlayModule,
     VgBufferingModule,
     SidebarModule.forRoot(),
-    NgxLoadingModule.forRoot({})
+    NgxLoadingModule.forRoot({}),
+    HttpModule,
+    Ng2CarouselamosModule
   ],
   providers: [
     PlayerCurrentTimeService,
