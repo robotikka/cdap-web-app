@@ -1,28 +1,36 @@
-<div *ngIf="questions">
-  <div *ngFor="let item of questions.questions" class="card">
+<!-- <p>Click on a question or an answer to edit.</p>
+<p>Check on an aswer to select as a correct answer.</p> -->
+
+<div class="question-container" *ngIf="questions">
+  <div *ngFor="let item of questions.questions" class="question-wrapper card">
     <div class="card-body">
-  
       <div class="question-wrapper">
         <app-inline-edit
-        [(ngModel)]="item.questionBody"
-        label="{{ item.questionNo }}"
-        [required]="true"
-        type="text"
-        [isQuestion]="true"
-        ></app-inline-edit>
-      </div>
-  
-      <div *ngFor="let answer of item.answers" class="answers-wrapper">
-          <app-inline-edit
-          [(ngModel)]="answer.value"
-          label="Name"
+          [(ngModel)]="item.questionBody"
+          
           [required]="true"
           type="text"
-          [isQuestion]="false"
+          [isQuestion]="true"
+        ></app-inline-edit>
+      </div>
+
+      <div *ngFor="let answer of item.answers" class="answers-wrapper">
+        <label class="container">
+            <app-inline-edit
+            [(ngModel)]="answer.value"
+            label="Name"
+            [required]="true"
+            type="text"
+            [isQuestion]="false"
           ></app-inline-edit>
+          <input type="checkbox" [(ngModel)]="answer.correct" />
+          <span class="checkmark"></span>
+        </label>
       </div>
     </div>
   </div>
 </div>
 
-<button (click)="logQuestions()">Log</button>
+<div class="save-btn-wrapper">
+  <button class="save-btn btn btn-info" (click)="logQuestions()">Save</button>
+</div>

@@ -25,16 +25,16 @@
       [placeholder]="label"
       autofocus
       (focusout)="onBlur($event)"
+      focus="editing"
     ></textarea>
   </div>
   <div *ngIf="!editing">
-    <label *ngIf="isQuestion" class="block bold">{{ label }}</label>
+    <!-- <label *ngIf="isQuestion" class="block bold">{{ label }}</label> -->
     <div
       title="Click to edit"
       (click)="edit(value)"
       (focus)="edit(value)"
-      tabindex="0"
-      class="inline-edit"
+      tabindex="0"     
     >
       {{ value }}&nbsp;
     </div>

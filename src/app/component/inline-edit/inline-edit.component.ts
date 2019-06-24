@@ -78,10 +78,12 @@ export class InlineEditComponent implements ControlValueAccessor, OnInit {
     if (this.isQuestion) {
       setTimeout(_ => this._renderer.invokeElementMethod(this.inlineEditControlTextarea,
         'focus', []));
-      } else if (!this.isQuestion) {
-        setTimeout(_ => this._renderer.invokeElementMethod(this.inlineEditControlInput,
-          'focus', []));
+    } else if (!this.isQuestion) {
+      setTimeout(_ => this._renderer.invokeElementMethod(this.inlineEditControlInput,
+        'focus', []));
     }
+    // setTimeout(_ => this._renderer.invokeElementMethod(controlInputVariable,
+    //   'focus', []));
   }
 
 }
