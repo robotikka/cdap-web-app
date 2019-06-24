@@ -47,7 +47,10 @@ import { SlideMatchComponent} from './component/slide-match/slide-match.componen
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
+import { TopicModelComponent } from './layouts/topic-model/topic-model.component';
+import { NgxLoadingModule } from 'ngx-loading';
 import { HttpModule } from '@angular/http';
+import { ReviewVideoComponent } from './layouts/review-video/review-video.component';
 import { ExploreComponent } from './layouts/explore/explore.component';
 import { VideoDataResolve } from './services/video-data.resolve';
 import { VideoDataService } from './services/video-data.service';
@@ -76,9 +79,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VideoThumbnailComponent,
     VideoPlaybackComponent,
     VideoPlayerComponent,
+    TopicModelComponent,
+    VideoPlayerComponent,
     CodeEditorComponent,
     QuestionAskerComponent,
     QuestionComponent,
+    SlideMatchComponent,
+    ReviewVideoComponent,
     SlideMatchComponent,
     ExploreComponent
   ],
@@ -98,6 +105,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VgOverlayPlayModule,
     VgBufferingModule,
     SidebarModule.forRoot(),
+    NgxLoadingModule.forRoot({}),
     HttpModule,
     Ng2CarouselamosModule
   ],

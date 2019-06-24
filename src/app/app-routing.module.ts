@@ -7,6 +7,8 @@ import { UploadLectureComponent } from './layouts/upload-lecture/upload-lecture.
 import { MyUploadsComponent } from './layouts/my-uploads/my-uploads.component';
 import { VideoPlaybackComponent } from './layouts/video-playback/video-playback.component';
 import { HomeComponent } from './layouts/home/home.component';
+import {TopicModelComponent} from './layouts/topic-model/topic-model.component';
+import {ReviewVideoComponent} from './layouts/review-video/review-video.component';
 import { ExploreComponent } from './layouts/explore/explore.component';
 import { VideoDataResolve } from './services/video-data.resolve';
 
@@ -34,6 +36,17 @@ export const Approutes: Routes = [
       {
         path: 'myuploads',
         component: MyUploadsComponent
+      },
+      {
+        path: 'videoplayer',
+        component: VideoPlaybackComponent
+      },
+      {
+        path: 'review-video',
+        component: ReviewVideoComponent,
+        data: {
+          title: 'Review Video'
+        }
       },
       {
         path: 'videoplayer/:id',

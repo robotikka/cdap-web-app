@@ -18,7 +18,7 @@ export class ExploreComponent implements OnInit {
 
   getVideos(): void {
     this.videos - this.videoDataService.getVideos()
-      .subscribe(v => this.videos = v);;
+      .subscribe(v => this.videos = v);
   }
 
 }
