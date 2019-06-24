@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { VideoPlayerComponent } from '../video-player/video-player.component';
+import {VideoPlaybackComponent} from '../../layouts/video-playback/video-playback.component';
 
 @Component({
   selector: 'app-slide-match',
@@ -17,12 +18,15 @@ export class SlideMatchComponent implements OnInit {
     {id: 117, url: '../../../assets/slides/frame0117.jpg'},
     {id: 483, url: '../../../assets/slides/frame0483.jpg'}];
 
-  constructor() { }
+  constructor(private vpb: VideoPlaybackComponent) {
+  }
 
   ngOnInit() {
   }
 
-  getTime(id: number): void {
-    this.player.seekVideo(id);
+  getTime(time: number): void {
+    // alert(time);
+    this.vpb.seekVideo(time);
   }
 }
+
