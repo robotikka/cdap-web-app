@@ -43,8 +43,6 @@
                 >
               </app-question-asker>
               </div>
-
-
           <!-- <button type="button" class="btn btn-rounded btn-block btn-primary" (click)="seekVideo(30)" style="width:auto; margin-top: 10px">Seek video to 30 seconds</button>
           <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
             master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
@@ -52,37 +50,22 @@
             iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p> -->
         </div>
       </div>
-
-
-      <div class="col-md-5">
-        <div class="card">
-          <div class="card-body">
-            <ngb-tabset justify="justified" type="pills">
-              <ngb-tab title="Code Finder">
-                <ng-template ngbTabContent>
-                  <app-code-editor></app-code-editor>
-                </ng-template>
-              </ngb-tab>
-              <ngb-tab title="Lecture Slides">
-                <!--<ng-template ngbTabTitle>Lecture Slides</ng-template>-->
-                <ng-template ngbTabContent>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin
-                  coffee squid.
-                  <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
-                    farm-to-table
-                    craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-                    ullamco ad vinyl
-                    cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica
-                    VHS salvia
-                    yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
-                    sustainable jean
-                    shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr
-                    butcher vero
-                    sint qui sapiente accusamus tattooed echo park.</p>
-                </ng-template>
-              </ngb-tab>
-            </ngb-tabset>
-          </div>
-
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <ngb-tabset justify="justified" type="pills">
+            <ngb-tab title="Code Finder">
+              <ng-template ngbTabContent>
+                  <app-code-editor [seekVideo]="getSeekFunction"></app-code-editor>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Lecture Slides">
+              <!--<ng-template ngbTabTitle>Lecture Slides</ng-template>-->
+              <ng-template ngbTabContent>
+                <app-slide-match></app-slide-match>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
         </div>
       </div>
     </div>
