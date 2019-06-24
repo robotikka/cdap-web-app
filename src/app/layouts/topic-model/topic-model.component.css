@@ -1,0 +1,133 @@
+.card-title{
+  text-align: center;
+  color: #6610f2;
+  padding-top: 15px;
+}
+#placeholder{
+  text-align: center;
+  font-style: italic;
+  color: #798699;
+  margin: auto;
+}
+
+#subtopics{
+  height: inherit;
+}
+
+#segment-topics{
+  width: 60%;
+  margin: auto;
+}
+
+#save-topics{
+  margin: auto;
+  width: auto;
+}
+
+.topic-details{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.group 			  {
+  position:relative;
+  margin-bottom:45px;
+}
+
+#subtopics-body{
+
+  margin: 10px;
+  border-radius: 10px;
+}
+
+#subtopics-title{
+  background: #E0E0E0;
+  padding: 10px;
+}
+input 				{
+  font-size:15px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #6610f2;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#6610f2;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#6610f2;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from { background:#6610f2; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#6610f2; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#6610f2; }
+  to 	{ width:0; background:transparent; }
+}

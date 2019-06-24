@@ -39,6 +39,8 @@ import { VideoPlayerComponent } from './component/video-player/video-player.comp
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
+import { TopicModelComponent } from './layouts/topic-model/topic-model.component';
+import { NgxLoadingModule } from 'ngx-loading';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -60,7 +62,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HomeComponent,
     VideoThumbnailComponent,
     VideoPlaybackComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    TopicModelComponent
   ],
   imports: [
     CommonModule,
@@ -77,7 +80,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
-    SidebarModule.forRoot()
+    SidebarModule.forRoot(),
+    NgxLoadingModule.forRoot({})
   ],
   providers: [
     PlayerCurrentTimeService,

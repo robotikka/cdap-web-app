@@ -7,6 +7,7 @@ import { UploadLectureComponent } from './layouts/upload-lecture/upload-lecture.
 import { MyUploadsComponent } from './layouts/my-uploads/my-uploads.component';
 import { VideoPlaybackComponent } from './layouts/video-playback/video-playback.component';
 import { HomeComponent } from './layouts/home/home.component';
+import {TopicModelComponent} from './layouts/topic-model/topic-model.component';
 
 export const Approutes: Routes = [
   {
@@ -36,6 +37,13 @@ export const Approutes: Routes = [
       {
         path: 'videoplayer',
         component: VideoPlaybackComponent
+      },
+      {
+        path: 'topic-model',
+        component: TopicModelComponent,
+        data: {
+          title: 'Segment Topics'
+        }
       }
     ]
   },
