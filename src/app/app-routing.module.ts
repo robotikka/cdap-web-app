@@ -9,6 +9,8 @@ import { VideoPlaybackComponent } from './layouts/video-playback/video-playback.
 import { HomeComponent } from './layouts/home/home.component';
 import {TopicModelComponent} from './layouts/topic-model/topic-model.component';
 import {ReviewVideoComponent} from './layouts/review-video/review-video.component';
+import { ExploreComponent } from './layouts/explore/explore.component';
+import { VideoDataResolve } from './services/video-data.resolve';
 
 export const Approutes: Routes = [
   {
@@ -46,6 +48,17 @@ export const Approutes: Routes = [
           title: 'Review Video'
         }
       },
+      {
+        path: 'videoplayer/:id',
+        component: VideoPlaybackComponent,
+        resolve: {
+          video: VideoDataResolve
+        }
+      },
+      {
+        path: 'explore',
+        component: ExploreComponent
+      }
     ]
   },
   {

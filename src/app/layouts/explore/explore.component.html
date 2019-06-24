@@ -1,0 +1,14 @@
+<h4 class="p-30">Explore</h4>
+<div *ngIf="videos">
+  <div class="row">
+    <div class="col-4" *ngFor="let video of videos">
+      <div class="card shadow">
+        <div class="card-body">
+          <h4 class="card-title">{{video.videoTitle}}</h4>
+          <p class="card-text">{{video.description}}</p>
+          <a routerLink="/videoplayer/{{video.id}}" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

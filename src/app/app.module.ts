@@ -51,6 +51,9 @@ import { TopicModelComponent } from './layouts/topic-model/topic-model.component
 import { NgxLoadingModule } from 'ngx-loading';
 import { HttpModule } from '@angular/http';
 import { ReviewVideoComponent } from './layouts/review-video/review-video.component';
+import { ExploreComponent } from './layouts/explore/explore.component';
+import { VideoDataResolve } from './services/video-data.resolve';
+import { VideoDataService } from './services/video-data.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -82,7 +85,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     QuestionAskerComponent,
     QuestionComponent,
     SlideMatchComponent,
-    ReviewVideoComponent
+    ReviewVideoComponent,
+    SlideMatchComponent,
+    ExploreComponent
   ],
   imports: [
     CommonModule,
@@ -105,6 +110,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     Ng2CarouselamosModule
   ],
   providers: [
+    VideoDataService,
+    VideoDataResolve,
     PlayerCurrentTimeService,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
