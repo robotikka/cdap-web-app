@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Component({
@@ -7,14 +7,12 @@ import { Http } from '@angular/http';
   styleUrls: ['./question-editor.component.css']
 })
 export class QuestionEditorComponent implements OnInit {
-  questions;
+  @Input() questions: any;
+  // questions;
 
-  constructor(private http: Http) { }
+  constructor() { }
 
   ngOnInit() {
-    this.http.get('assets/questions/mock-questions.json').map(data => data.json()).subscribe(data => {
-      this.questions = data;
-    });
   }
 
   logQuestions() {
