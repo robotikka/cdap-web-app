@@ -27,6 +27,7 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
 import { CodeEditorComponent } from './code-editor/code-editor.component';
 import { QuestionAskerComponent } from './question-asker/question-asker.component';
 import { QuestionComponent } from './question/question.component';
+import { SlideMatchComponent } from './slide-match/slide-match.component';
 
 @NgModule({
   imports: [
@@ -57,7 +58,8 @@ import { QuestionComponent } from './question/question.component';
     VideoPlayerComponent,
     CodeEditorComponent,
     QuestionAskerComponent,
-    QuestionComponent
+    QuestionComponent,
+    SlideMatchComponent
   ]
 })
 export class ComponentsModule {}
