@@ -117,6 +117,7 @@ export class CodeEditorComponent implements OnInit {
   };
 
   @Input() seekVideo: Function;
+  @Input() code;
 
   constructor() { }
 
