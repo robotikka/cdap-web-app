@@ -22,6 +22,7 @@ import { SpinnerComponent } from './shared/spinner.component';
 
 import { ArchwizardModule } from 'angular-archwizard';
 import { FileDropModule } from 'ngx-file-drop';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 // videogular
 import { VgCoreModule } from 'videogular2/core';
@@ -93,7 +94,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VgOverlayPlayModule,
     VgBufferingModule,
     SidebarModule.forRoot(),
-    HttpModule
+    HttpModule,
+    Ng2CarouselamosModule
   ],
   providers: [
     PlayerCurrentTimeService,
