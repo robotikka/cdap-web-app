@@ -48,6 +48,9 @@ import { SlideMatchComponent} from './component/slide-match/slide-match.componen
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
 import { HttpModule } from '@angular/http';
+import { ExploreComponent } from './layouts/explore/explore.component';
+import { VideoDataResolve } from './services/video-data.resolve';
+import { VideoDataService } from './services/video-data.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -76,7 +79,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CodeEditorComponent,
     QuestionAskerComponent,
     QuestionComponent,
-    SlideMatchComponent
+    SlideMatchComponent,
+    ExploreComponent
   ],
   imports: [
     CommonModule,
@@ -98,6 +102,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     Ng2CarouselamosModule
   ],
   providers: [
+    VideoDataService,
+    VideoDataResolve,
     PlayerCurrentTimeService,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
