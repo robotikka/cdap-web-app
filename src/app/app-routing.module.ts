@@ -7,7 +7,10 @@ import { UploadLectureComponent } from './layouts/upload-lecture/upload-lecture.
 import { MyUploadsComponent } from './layouts/my-uploads/my-uploads.component';
 import { VideoPlaybackComponent } from './layouts/video-playback/video-playback.component';
 import { HomeComponent } from './layouts/home/home.component';
-import { QuestionEditorComponent } from './component/question-editor/question-editor.component';
+import {TopicModelComponent} from './layouts/topic-model/topic-model.component';
+import {ReviewVideoComponent} from './layouts/review-video/review-video.component';
+import { ExploreComponent } from './layouts/explore/explore.component';
+import { VideoDataResolve } from './services/video-data.resolve';
 
 export const Approutes: Routes = [
   {
@@ -39,8 +42,22 @@ export const Approutes: Routes = [
         component: VideoPlaybackComponent
       },
       {
-        path: 'question',
-        component: QuestionEditorComponent
+        path: 'review-video',
+        component: ReviewVideoComponent,
+        data: {
+          title: 'Review Video'
+        }
+      },
+      {
+        path: 'videoplayer/:id',
+        component: VideoPlaybackComponent,
+        resolve: {
+          video: VideoDataResolve
+        }
+      },
+      {
+        path: 'explore',
+        component: ExploreComponent
       }
     ]
   },

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VideoDataService } from '../../../../services/video-data.service';
+
 
 @Component({
   selector: 'app-processing-tab',
@@ -9,28 +11,16 @@ export class ProcessingTabComponent implements OnInit {
 
   videos: any[];
 
-  constructor() {
-    this.videos = [
-      {
-        videoTitle: 'Video 001',
-        options: ['match slides', 'match code']
-      },
-      {
-        videoTitle: 'Video 002',
-        options: ['match slides']
-      },
-      {
-        videoTitle: 'Video 003',
-        options: ['match slides', 'match code']
-      },
-      {
-        videoTitle: 'Video 004',
-        options: ['denoise', 'match code'] 
-      }
-    ];
-   }
+  constructor(private videoDataService: VideoDataService) { 
+  }
 
   ngOnInit() {
+    this.getVideos();
+  }
+
+  getVideos(): void {
+    this.videoDataService.getProcessingVideos()
+      .subscribe(v => this.videos = v);
   }
 
 }

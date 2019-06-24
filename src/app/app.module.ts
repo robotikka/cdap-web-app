@@ -22,6 +22,7 @@ import { SpinnerComponent } from './shared/spinner.component';
 
 import { ArchwizardModule } from 'angular-archwizard';
 import { FileDropModule } from 'ngx-file-drop';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 // videogular
 import { VgCoreModule } from 'videogular2/core';
@@ -48,7 +49,13 @@ import { InlineEditComponent } from './component/inline-edit/inline-edit.compone
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
+import { TopicModelComponent } from './layouts/topic-model/topic-model.component';
+import { NgxLoadingModule } from 'ngx-loading';
 import { HttpModule } from '@angular/http';
+import { ReviewVideoComponent } from './layouts/review-video/review-video.component';
+import { ExploreComponent } from './layouts/explore/explore.component';
+import { VideoDataResolve } from './services/video-data.resolve';
+import { VideoDataService } from './services/video-data.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -74,12 +81,17 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VideoThumbnailComponent,
     VideoPlaybackComponent,
     VideoPlayerComponent,
+    TopicModelComponent,
+    VideoPlayerComponent,
     CodeEditorComponent,
     QuestionAskerComponent,
     QuestionComponent,
     SlideMatchComponent,
     QuestionEditorComponent,
-    InlineEditComponent
+    InlineEditComponent,
+    ReviewVideoComponent,
+    SlideMatchComponent,
+    ExploreComponent
   ],
   imports: [
     CommonModule,
@@ -97,9 +109,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VgOverlayPlayModule,
     VgBufferingModule,
     SidebarModule.forRoot(),
-    HttpModule
+    NgxLoadingModule.forRoot({}),
+    HttpModule,
+    Ng2CarouselamosModule
   ],
   providers: [
+    VideoDataService,
+    VideoDataResolve,
     PlayerCurrentTimeService,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

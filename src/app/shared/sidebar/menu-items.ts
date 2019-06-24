@@ -21,8 +21,18 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
+  // {
+  //   path: '/videoplayer',
+  //   title: 'Explore',
+  //   icon: 'mdi mdi-message-bulleted',
+  //   class: '',
+  //   label: '',
+  //   labelClass: '',
+  //   extralink: false,
+  //   submenu: []
+  // },
   {
-    path: '/videoplayer',
+    path: '/explore',
     title: 'Explore',
     icon: 'mdi mdi-message-bulleted',
     class: '',

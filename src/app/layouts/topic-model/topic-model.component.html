@@ -1,0 +1,54 @@
+<div class="row" style="margin-top: 10px">
+  <div class="col-md-8" style="align-items: center; justify-content: center;">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">OOP Concepts - Lecture 1</h1>
+        <div>
+          <app-video-player
+            videoSrc="{{src}}"
+            videoType="mp4">
+          </app-video-player>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="col-md-4" id="subtopics">
+    <div class="card">
+      <h3 class="card-title" id="subtopics-title">Sub Topics</h3>
+      <div class="card-body" style="position: relative;" id="subtopics-body">
+        <ngb-accordion #acc="ngbAccordion" >
+          <ngb-panel *ngFor="let item of topic_models" id={{item.keywords[1]}} title={{item.topic}}>
+            <ng-template ngbPanelContent>
+
+              <p  class="topic-details">Keywords :
+                <span>
+                  <button *ngFor="let keyword of item.keywords" type="button" class="btn btn-rounded btn-sm btn-success" style="margin: 0 5px;" (click)="item.topic = keyword">{{keyword}}</button>
+                </span>
+              </p>
+              <p class="topic-details" > Time : <span>{{item.time}} seconds
+                <button type="button" class="btn btn-sm btn-rounded btn-info" style="width: 45px; margin: 0 5px;" (click)="seekVideo(item.time)"><i class="fa fa-play"></i></button></span></p>
+              <form>
+                <div class="group">
+                  <input type="text" value="{{item.topic}}" required>
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Topic</label>
+                </div>
+              </form>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="button" class="btn btn-block btn-primary" id = "save-topics" ><i class="fa fa-check"></i> Save Topics </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

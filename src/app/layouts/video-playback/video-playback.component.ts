@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlayerCurrentTimeService } from '../../services/player-current-time.service';
 import { VideoPlayerComponent } from '../../component/video-player/video-player.component';
+import { ActivatedRoute } from '@angular/router';
+import { VideoDataService } from '../../services/video-data.service';
 import { Http } from '@angular/http';
 
 @Component({
@@ -12,6 +14,7 @@ export class VideoPlaybackComponent implements OnInit {
   @ViewChild(VideoPlayerComponent) player;
 
   questions;
+  video;
 
 
   src = 'assets/gravity_falls_opening.mp4';
@@ -26,9 +29,13 @@ export class VideoPlaybackComponent implements OnInit {
 
   selected = this.topics[0];
 
-  constructor(private currentTimeService: PlayerCurrentTimeService, private http: Http) { }
+  constructor(private route: ActivatedRoute, 
+    private currentTimeService: PlayerCurrentTimeService, private http: Http) { }
 
   ngOnInit() {
+
+    this.video = this.route.snapshot.data['video'];
+
     this.http.get('assets/questions/mock-questions.json').map(data => data.json()).subscribe(data => {
       this.questions = data;
       console.log(data);
@@ -38,6 +45,10 @@ export class VideoPlaybackComponent implements OnInit {
     this.currentTimeService.currentTime.subscribe(time => {
       this.currentTime = time;
     });
+  }
+
+  get getSeekFunction() {
+    return this.seekVideo.bind(this);
   }
 
   seekVideo(time) {
