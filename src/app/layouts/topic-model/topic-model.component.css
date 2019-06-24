@@ -46,7 +46,21 @@
   background: #E0E0E0;
   padding: 10px;
 }
-input 				{
+
+#topic-form{
+  margin-top: 25px;
+}
+
+.time-selector{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#time-form{
+  font-weight: bold;
+  font-size: 15px;
+}
+#topic 				{
   font-size:15px;
   padding:10px 10px 10px 5px;
   display:block;
@@ -54,7 +68,7 @@ input 				{
   border:none;
   border-bottom:1px solid #6610f2;
 }
-input:focus 		{ outline:none; }
+#topic:focus 		{ outline:none; }
 
 /* LABEL ======================================= */
 label 				 {
@@ -71,7 +85,7 @@ label 				 {
 }
 
 /* active state */
-input:focus ~ label, input:valid ~ label 		{
+#topic:focus ~ label, #topic:valid ~ label 		{
   top:-20px;
   font-size:14px;
   color:#6610f2;
@@ -98,7 +112,7 @@ input:focus ~ label, input:valid ~ label 		{
 }
 
 /* active state */
-input:focus ~ .bar:before, input:focus ~ .bar:after {
+#topic:focus ~ .bar:before, #topic:focus ~ .bar:after {
   width:50%;
 }
 
@@ -114,7 +128,7 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 }
 
 /* active state */
-input:focus ~ .highlight {
+#topic:focus ~ .highlight {
   -webkit-animation:inputHighlighter 0.3s ease;
   -moz-animation:inputHighlighter 0.3s ease;
   animation:inputHighlighter 0.3s ease;
