@@ -138,6 +138,51 @@ let videos = [
     thumbnailUrl: 'assets/images/big/img1.jpg'
   }
 ];
+let reviewVideos = [
+  {
+    videoTitle: 'test title1',
+    description: 'test description long long long very long',
+    duration: '12:00',
+    thumbnailUrl: 'assets/images/big/img1.jpg'
+  },
+  {
+    videoTitle: 'test title2',
+    description: 'test description long long long very long',
+    duration: '12:00',
+    thumbnailUrl: 'assets/images/big/img1.jpg'
+  },
+  {
+    videoTitle: 'test title3',
+    description: 'test description long long long very long',
+    duration: '12:00',
+    thumbnailUrl: 'assets/images/big/img1.jpg'
+  },
+  {
+    videoTitle: 'test title4',
+    // tslint:disable-next-line:max-line-length
+    description: 'test description long long long very long test description long long long very long test description long long long very long test description long long long very long',
+    duration: '12:00',
+    thumbnailUrl: 'assets/images/big/img1.jpg'
+  }
+];
+let processingVideos = [
+  {
+    videoTitle: 'Video 001',
+    options: ['match slides', 'match code']
+  },
+  {
+    videoTitle: 'Video 002',
+    options: ['match slides']
+  },
+  {
+    videoTitle: 'Video 003',
+    options: ['match slides', 'match code']
+  },
+  {
+    videoTitle: 'Video 004',
+    options: ['denoise', 'match code'] 
+  }
+];
 
 @Injectable({
   providedIn: 'root'
@@ -149,6 +194,18 @@ export class VideoDataService {
   getVideos() {
     return Observable.create(observer => {
       observer.next(videos);
+    })
+  }
+
+  getVideosUpForReview() {
+    return Observable.create(observer => {
+      observer.next(reviewVideos);
+    })
+  }
+
+  getProcessingVideos() {
+    return Observable.create(observer => {
+      observer.next(processingVideos);
     })
   }
 
