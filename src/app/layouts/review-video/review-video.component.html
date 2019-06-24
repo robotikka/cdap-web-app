@@ -18,8 +18,11 @@
         </ngb-tab>
         <ngb-tab title="Questions">
           <ng-template ngbTabContent>
-            <div class="tab-wrapper">
-
+            <div class="question-tab-container tab-wrapper">
+              <app-question-editor
+                [questions]="questions"
+              >
+            </app-question-editor>
             </div>
           </ng-template>
         </ngb-tab>
