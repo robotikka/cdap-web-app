@@ -19,7 +19,7 @@
     <div class="card">
       <h3 class="card-title" id="subtopics-title">Sub Topics</h3>
       <div class="card-body" style="position: relative;" id="subtopics-body">
-        <div *ngIf="topics === false" id="placeholder" style="height: 250px;">
+        <div *ngIf="topics === false" id="placeholder">
           <!--<p *ngIf="loading === false" style="margin-top: 50%;">No sub topics have been identified yet</p>-->
           <div *ngIf="loading === false">
             <ngb-alert [dismissible]="false" style="margin-top: 50%;">
@@ -59,13 +59,14 @@
           </ngb-panel>
         </ngb-accordion>
         <ngx-loading [show]="loading" [config]="{primaryColour: primaryColour, secondaryColour: secondaryColour, tertiaryColour: primaryColour, backdropBorderRadius: '3px'}"></ngx-loading>
-      </div>
-      <div class="row" *ngIf="topics === true && loading === false">
-        <div class="col-md-12">
-          <button type="button" class="btn btn-block btn-primary" id = "save-topics" ><i class="fa fa-check"></i> Save Topics </button>
-        </div>
+        <div class="row" *ngIf="topics === true && loading === false">
+          <div class="col-md-12">
+            <button type="button" class="btn btn-block btn-primary" id = "save-topics" ><i class="fa fa-check"></i> Save Topics </button>
+          </div>
 
+        </div>
       </div>
+
     </div>
 
   </div>

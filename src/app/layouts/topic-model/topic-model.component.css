@@ -8,6 +8,8 @@
   font-style: italic;
   color: #798699;
   margin: auto;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 #subtopics{
@@ -20,7 +22,7 @@
 }
 
 #save-topics{
-  margin: auto;
+  margin: 20px auto;
   width: auto;
 }
 
@@ -35,9 +37,9 @@
 }
 
 #subtopics-body{
-
   margin: 10px;
   border-radius: 10px;
+  min-height: 450px;
 }
 
 #subtopics-title{
