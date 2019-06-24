@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Line } from './line';
 
 @Component({
@@ -105,7 +105,7 @@ export class CodeEditorComponent implements OnInit {
       seconds: 535
     },
     {
-      content: '&nbsp;&nbsp;List<Integer> l9 = new ArrayList();',
+      content: 'List<Integer> l9 = new ArrayList();',
       timestamp: '0:08:55',
       seconds: 535
     }
@@ -116,13 +116,16 @@ export class CodeEditorComponent implements OnInit {
     title: 'Main.java'
   };
 
+  @Input() seekVideo: Function;
+
   constructor() { }
 
   ngOnInit() {
   }
 
   onSelect(line: Line): void {
-    console.log(line.timestamp);
+    this.seekVideo((line.seconds))
+    console.log(line.seconds);
   }
 
 }

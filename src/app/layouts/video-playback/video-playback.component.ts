@@ -40,6 +40,10 @@ export class VideoPlaybackComponent implements OnInit {
     });
   }
 
+  get getSeekFunction() {
+    return this.seekVideo.bind(this);
+  }
+
   seekVideo(time) {
     this.player.seekVideo(time);
   }
