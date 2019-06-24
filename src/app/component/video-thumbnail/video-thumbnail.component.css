@@ -54,3 +54,12 @@
 .duration-tag {
   margin-top: -15px !important;
 }
+
+.btn{
+  width: fit-content;
+  margin: auto;
+}
+
+a{
+  margin: auto;
+}

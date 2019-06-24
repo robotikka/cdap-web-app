@@ -8,6 +8,7 @@ import { MyUploadsComponent } from './layouts/my-uploads/my-uploads.component';
 import { VideoPlaybackComponent } from './layouts/video-playback/video-playback.component';
 import { HomeComponent } from './layouts/home/home.component';
 import {TopicModelComponent} from './layouts/topic-model/topic-model.component';
+import {ReviewVideoComponent} from './layouts/review-video/review-video.component';
 
 export const Approutes: Routes = [
   {
@@ -39,12 +40,12 @@ export const Approutes: Routes = [
         component: VideoPlaybackComponent
       },
       {
-        path: 'topic-model',
-        component: TopicModelComponent,
+        path: 'review-video',
+        component: ReviewVideoComponent,
         data: {
-          title: 'Segment Topics'
+          title: 'Review Video'
         }
-      }
+      },
     ]
   },
   {

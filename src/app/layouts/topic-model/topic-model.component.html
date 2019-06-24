@@ -1,15 +1,14 @@
-<div class="row" style="height: auto">
+<div class="row" style="margin-top: 10px">
   <div class="col-md-8" style="align-items: center; justify-content: center;">
     <div class="card">
       <div class="card-body">
-        <h1 class="card-title">Lecture Topic</h1>
+        <h1 class="card-title">OOP Concepts - Lecture 1</h1>
         <div>
           <app-video-player
             videoSrc="{{src}}"
             videoType="mp4">
           </app-video-player>
         </div>
-
       </div>
 
     </div>
@@ -19,37 +18,20 @@
     <div class="card">
       <h3 class="card-title" id="subtopics-title">Sub Topics</h3>
       <div class="card-body" style="position: relative;" id="subtopics-body">
-        <div *ngIf="topics === false" id="placeholder">
-          <!--<p *ngIf="loading === false" style="margin-top: 50%;">No sub topics have been identified yet</p>-->
-          <div *ngIf="loading === false">
-            <ngb-alert [dismissible]="false" style="margin-top: 50%;">
-              <button type="button" class="btn btn-sm btn-rounded btn-warning" style="margin: 0 5px;"><i class="fa fa-info"></i></button>
-              <strong>Info!</strong> No sub topics have been identified yet
-            </ngb-alert>
-            <div class="row">
-              <div class="col-md-12" >
-                <button type="button" class="btn btn-rounded btn-block btn-primary" id="segment-topics"(click)="onLoad()">Identify subtopics</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <ngb-accordion #acc="ngbAccordion" *ngIf="topics === true && loading === false">
+        <ngb-accordion #acc="ngbAccordion" >
           <ngb-panel *ngFor="let item of topic_models" id={{item.keywords[1]}} title={{item.topic}}>
             <ng-template ngbPanelContent>
 
               <p  class="topic-details">Keywords :
                 <span>
-                  <button type="button" class="btn btn-rounded btn-sm btn-success" style="margin: 0 5px;">{{item.keywords[0]}}</button>
-                <button type="button" class="btn btn-rounded btn-sm btn-success" style="margin: 0 5px;">{{item.keywords[1]}}</button>
-                <button type="button" class="btn btn-rounded btn-sm btn-success" style="margin: 0 5px;">{{item.keywords[2]}}</button>
+                  <button *ngFor="let keyword of item.keywords" type="button" class="btn btn-rounded btn-sm btn-success" style="margin: 0 5px;" (click)="item.topic = keyword">{{keyword}}</button>
                 </span>
               </p>
               <p class="topic-details" > Time : <span>{{item.time}} seconds
                 <button type="button" class="btn btn-sm btn-rounded btn-info" style="width: 45px; margin: 0 5px;" (click)="seekVideo(item.time)"><i class="fa fa-play"></i></button></span></p>
               <form>
                 <div class="group">
-                  <input type="text" required>
+                  <input type="text" value="{{item.topic}}" required>
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Topic</label>
@@ -58,8 +40,7 @@
             </ng-template>
           </ngb-panel>
         </ngb-accordion>
-        <ngx-loading [show]="loading" [config]="{primaryColour: primaryColour, secondaryColour: secondaryColour, tertiaryColour: primaryColour, backdropBorderRadius: '3px'}"></ngx-loading>
-        <div class="row" *ngIf="topics === true && loading === false">
+        <div class="row">
           <div class="col-md-12">
             <button type="button" class="btn btn-block btn-primary" id = "save-topics" ><i class="fa fa-check"></i> Save Topics </button>
           </div>

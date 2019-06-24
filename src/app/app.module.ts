@@ -50,6 +50,7 @@ import { SidebarModule } from 'ng-sidebar';
 import { TopicModelComponent } from './layouts/topic-model/topic-model.component';
 import { NgxLoadingModule } from 'ngx-loading';
 import { HttpModule } from '@angular/http';
+import { ReviewVideoComponent } from './layouts/review-video/review-video.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -80,7 +81,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CodeEditorComponent,
     QuestionAskerComponent,
     QuestionComponent,
-    SlideMatchComponent
+    SlideMatchComponent,
+    ReviewVideoComponent
   ],
   imports: [
     CommonModule,

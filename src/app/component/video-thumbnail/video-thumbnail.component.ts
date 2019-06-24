@@ -11,6 +11,7 @@ export class VideoThumbnailComponent implements OnInit {
   @Input() duration: string;
   @Input() thumbnailUrl: string;
   @Input() thumbnailAltText: string;
+  @Input() reviewBtn: boolean;
 
   constructor() { }
 
