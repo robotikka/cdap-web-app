@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 let videos = [
   {
     id: '1',
+    src: 'assets/gravity_falls_opening.mp4',
     videoTitle: 'Test Video 1',
     description: 'test description long long long very long',
     duration: '12:00',
@@ -117,6 +118,7 @@ let videos = [
   },
   {
     id: '2',
+    src: 'assets/gravity_falls_opening.mp4',
     videoTitle: 'test title2',
     description: 'test description long long long very long',
     duration: '12:00',
@@ -124,6 +126,7 @@ let videos = [
   },
   {
     id: '3',
+    src: 'assets/gravity_falls_opening.mp4',
     videoTitle: 'test title3',
     description: 'test description long long long very long',
     duration: '12:00',
@@ -131,6 +134,7 @@ let videos = [
   },
   {
     id: '4',
+    src: 'assets/gravity_falls_opening.mp4',
     videoTitle: 'test title4',
     // tslint:disable-next-line:max-line-length
     description: 'test description long',
