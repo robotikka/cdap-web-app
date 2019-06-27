@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 
 @Component({
@@ -9,8 +10,10 @@ import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry 
 export class UploadLectureComponent implements OnInit {
 
   public files: UploadFile[] = [];
+  file;
+  droppedFile;
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
   }
@@ -25,24 +28,11 @@ export class UploadLectureComponent implements OnInit {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
 
+          this.file = file;
+          this.droppedFile = droppedFile;
+
           // Here you can access the real file
           console.log(droppedFile.relativePath, file);
-
-          /**
-          // You could upload it like this:
-          const formData = new FormData()
-          formData.append('logo', file, relativePath)
-
-          // Headers
-          const headers = new HttpHeaders({
-            'security-token': 'mytoken'
-          })
-
-          this.http.post('https://mybackend.com/api/upload/sanitize-and-save-logo', formData, { headers: headers, responseType: 'blob' })
-          .subscribe(data => {
-            // Sanitized logo returned from backend
-          })
-          **/
 
         });
       } else {
@@ -60,6 +50,27 @@ export class UploadLectureComponent implements OnInit {
 
   public fileLeave(event) {
     console.log(event);
+  }
+
+  public upload(file, droppedFile) {
+    // You could upload it like this:
+    const formData = new FormData();
+    const headers = new Headers({
+      'security-token': 'mytoken'
+    });
+    formData.append('file', file, droppedFile.relativePath);
+    this.http.post('http://localhost:3000/v1/videos/upload', formData, { headers: headers })
+      .subscribe(data => {
+        console.log('data : ' + data);
+      });
+  }
+
+  public onClick() {
+    if (this.file && this.droppedFile) {
+      this.upload(this.file, this.droppedFile);
+    } else {
+      console.log('file not selected');
+    }
   }
 
 }
