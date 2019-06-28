@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-upload-lecture',
@@ -59,7 +60,7 @@ export class UploadLectureComponent implements OnInit {
       'security-token': 'mytoken'
     });
     formData.append('file', file, droppedFile.relativePath);
-    this.http.post('http://localhost:3000/v1/videos/upload', formData, { headers: headers })
+    this.http.post(environment.upload_url, formData, { headers: headers })
       .subscribe(data => {
         console.log('data : ' + data);
       });
