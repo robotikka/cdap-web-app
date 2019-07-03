@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { environment } from '../../../environments/environment';
+import { UploadService } from '../../services/upload.service';
 
 @Component({
   selector: 'app-upload-lecture',
@@ -10,17 +11,26 @@ import { environment } from '../../../environments/environment';
 })
 export class UploadLectureComponent implements OnInit {
 
-  public files: UploadFile[] = [];
-  file;
-  droppedFile;
+  public videoFiles: UploadFile[] = [];
+  videoFile;
+  droppedVideoFile;
 
-  constructor(private http: Http) { }
+  public lectureMaterials: UploadFile[] = [];
+  lectureMaterial = [];
+  droppedLectureMaterial = [];
+
+  formData = new FormData();
+
+  error: string;
+  uploadResponse: {status: '', message: '', filePath: ''};
+
+  constructor(private uploadService: UploadService ) { }
 
   ngOnInit() {
   }
 
-  public dropped(event: UploadEvent) {
-    this.files = event.files;
+  public videoDropped(event: UploadEvent) {
+    this.videoFiles = event.files;
 
     for (const droppedFile of event.files) {
 
@@ -29,8 +39,8 @@ export class UploadLectureComponent implements OnInit {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
 
-          this.file = file;
-          this.droppedFile = droppedFile;
+          this.videoFile = file;
+          this.droppedVideoFile = droppedFile;
 
           // Here you can access the real file
           console.log(droppedFile.relativePath, file);
@@ -45,6 +55,26 @@ export class UploadLectureComponent implements OnInit {
     }
   }
 
+  public lectureMaterialsDropped(event: UploadEvent) {
+    this.lectureMaterial = [];
+    this.droppedLectureMaterial = [];
+    this.lectureMaterials = event.files;
+
+    for (const droppedFile of event.files) {
+
+      if (droppedFile.fileEntry.isFile) {
+        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+        fileEntry.file((file: File) => {
+          this.lectureMaterial.push(file);
+          this.droppedLectureMaterial.push(droppedFile);
+        });
+      } else {
+        const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
+        console.log(droppedFile.relativePath, fileEntry);
+      }
+    }
+  }
+
   public fileOver(event) {
     console.log(event);
   }
@@ -53,25 +83,32 @@ export class UploadLectureComponent implements OnInit {
     console.log(event);
   }
 
-  public upload(file, droppedFile) {
+  public upload() {
+
+    console.log('uploading');
     // You could upload it like this:
-    const formData = new FormData();
-    const headers = new Headers({
-      'security-token': 'mytoken'
+    this.formData.append('lecture', this.videoFile, this.droppedVideoFile.relativePath);
+
+    this.lectureMaterial.forEach((item, index) => {
+      this.formData.append('materials', item, this.droppedLectureMaterial[index]);
     });
-    formData.append('file', file, droppedFile.relativePath);
-    this.http.post(environment.upload_url, formData, { headers: headers })
-      .subscribe(data => {
-        console.log('data : ' + data);
-      });
+
+    this.uploadService.upload(this.formData).subscribe(
+      (res) => this.uploadResponse = res,
+      (err) => this.error = err
+    );
+
+    console.log(this.uploadResponse);
+    console.log(this.error);
+
   }
 
-  public onClick() {
-    if (this.file && this.droppedFile) {
-      this.upload(this.file, this.droppedFile);
-    } else {
-      console.log('file not selected');
-    }
-  }
+  // public onClick() {
+  //   if (this.file && this.droppedFile) {
+  //     this.upload(this.file, this.droppedFile);
+  //   } else {
+  //     console.log('file not selected');
+  //   }
+  // }
 
 }

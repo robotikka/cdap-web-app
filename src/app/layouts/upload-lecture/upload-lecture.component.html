@@ -2,18 +2,26 @@
   <div class="card-body">
     <div class="custom-css">
       <aw-wizard navBarLayout="large-empty-symbols">
-        <aw-wizard-step stepTitle="Upload Video" [navigationSymbol]="{ symbol: '1' }">
+        <aw-wizard-step
+          stepTitle="Upload Video"
+          [navigationSymbol]="{ symbol: '1' }"
+        >
           <div class="upload-container row">
             <div class="col-md-6">
               <div class="drop-zone">
-                <h2>Upload Video</h2>
-                <file-drop multiple="false" dropZoneLabel="Drag and drop your files here" (onFileDrop)="dropped($event)"
-                  (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                <h2>Add Video</h2>
+                <file-drop
+                  multiple="false"
+                  dropZoneLabel="Drag and drop your files here"
+                  (onFileDrop)="videoDropped($event)"
+                  (onFileOver)="fileOver($event)"
+                  (onFileLeave)="fileLeave($event)"
+                >
                   <table>
                     <tr *ngFor="let item of files; let i = index">
                       {{
-                              item.relativePath
-                            }}
+                        item.relativePath
+                      }}
                     </tr>
                   </table>
 
@@ -33,27 +41,35 @@
                 <input class="form-control form-control" />
               </div>
               <div class="save-video-button">
-                <button class="btn btn-primary" (click)="onClick()" awNextStep>
-                  NEXT: UPLOAD SLIDES
+                <button class="btn btn-primary" awNextStep>
+                  NEXT: ADD SLIDES
                 </button>
               </div>
             </div>
           </div>
         </aw-wizard-step>
-        <aw-wizard-step stepTitle="Upload Slides" [navigationSymbol]="{ symbol: '2' }">
+        <aw-wizard-step
+          stepTitle="Upload Slides"
+          [navigationSymbol]="{ symbol: '2' }"
+        >
           <div class="upload-slides-container">
             <div class="upload-container row">
               <div class="col-md-3"></div>
               <div class="col-md-6">
                 <h3 class="step-2-heading">Upload Lecture Slides</h3>
                 <div class="drop-zone">
-                  <file-drop multiple="false" dropZoneLabel="Drag and drop your files here"
-                    (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                  <file-drop
+                    multiple="true"
+                    dropZoneLabel="Drag and drop your files here"
+                    (onFileDrop)="lectureMaterialsDropped($event)"
+                    (onFileOver)="fileOver($event)"
+                    (onFileLeave)="fileLeave($event)"
+                  >
                     <table>
                       <tr *ngFor="let item of files; let i = index">
                         {{
-                                item.relativePath
-                              }}
+                          item.relativePath
+                        }}
                       </tr>
                     </table>
 
@@ -67,7 +83,9 @@
             <div class="row save-slides-button">
               <div class="col-md-3"></div>
               <div class="col-md-6">
-                <button class="btn btn-primary" awNextStep>SAVE LECTURE</button>
+                <button class="btn btn-primary" (click)="upload()" awNextStep>
+                  SAVE LECTURE
+                </button>
               </div>
               <div class="col-md-3"></div>
             </div>
@@ -81,19 +99,58 @@
             </div>
           </div>
         </aw-wizard-step>
-        <aw-wizard-completion-step stepTitle="Done" [navigationSymbol]="{ symbol: '3' }">
-
+        <aw-wizard-completion-step
+          stepTitle="Done"
+          [navigationSymbol]="{ symbol: '3' }"
+        >
           <div class="upload-container row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
               <div class="drop-zone">
                 <div class="upload-slides-container">
-                  <h2>Successfully uploaded your lecture</h2>
-                  <h4>
-                    <span>Let us generate the topics and questions for you!</span>
-                    <span>You will receive a notification once the topics and questions are ready for your
-                      review.</span>
-                  </h4>
+                  <div *ngIf="uploadResponse">
+                    <div *ngIf="uploadResponse.status === 'sent'">
+                      <h2>Successfully uploaded your lecture</h2>
+                      <h4>
+                        <span
+                          >Let us generate the topics and questions for
+                          you!</span
+                        >
+                        <span
+                          >You will receive a notification once the topics and
+                          questions are ready for your review.</span
+                        >
+                      </h4>
+                    </div>
+
+                    <div *ngIf="uploadResponse.status === 'progress'">
+                      <h3>Uploading Lecture</h3>
+                      <h4>
+                        <span>We are uploading your lecture. Please wait.</span>
+                      </h4>
+                    </div>
+                  </div>
+
+                  <div *ngIf="uploadResponse">
+                    <div *ngIf="error">
+                      {{ error.message }}
+                    </div>
+                    <div *ngIf="uploadResponse.status === 'error'">
+                      {{ uploadResponse.message }}
+                    </div>
+                    <div *ngIf="uploadResponse.status === 'progress'">
+                      <!-- <div role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        {{uploadResponse.message}}%
+                      </div> -->
+                      <p>
+                        <ngb-progressbar
+                          showValue="true"
+                          type="success"
+                          [value]="uploadResponse.message"
+                        ></ngb-progressbar>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -103,7 +160,9 @@
           <div class="row save-slides-button upload-slides-container">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-              <button class="btn btn-primary">OKAY, UPLOAD ANOTHER LECTURE</button>
+              <button class="btn btn-primary">
+                OKAY, UPLOAD ANOTHER LECTURE
+              </button>
             </div>
             <div class="col-md-3"></div>
           </div>
@@ -115,7 +174,6 @@
             </div>
             <div class="col-md-3"></div>
           </div>
-
         </aw-wizard-completion-step>
       </aw-wizard>
     </div>
