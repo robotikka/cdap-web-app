@@ -24,7 +24,7 @@ export class UploadService {
           return { status: 'progress', message: progress };
 
         case HttpEventType.Response:
-          return event.body;
+          return { status: event.status, message: event.body };
 
         case HttpEventType.Sent:
           return { status: 'sent', message: 'sent' };

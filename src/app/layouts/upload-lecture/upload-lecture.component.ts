@@ -4,6 +4,8 @@ import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry 
 import { environment } from '../../../environments/environment';
 import { UploadService } from '../../services/upload.service';
 
+import * as uuid from 'uuid';
+
 @Component({
   selector: 'app-upload-lecture',
   templateUrl: './upload-lecture.component.html',
@@ -16,17 +18,34 @@ export class UploadLectureComponent implements OnInit {
   droppedVideoFile;
 
   public lectureMaterials: UploadFile[] = [];
-  lectureMaterial = [];
-  droppedLectureMaterial = [];
+  // lectureMaterial = [];
+  // droppedLectureMaterial = [];
 
-  formData = new FormData();
+  formData;
+
+  lectureName: string;
+  lectureDescription: string;
 
   error: string;
   uploadResponse: {status: '', message: '', filePath: ''};
 
+  videoDropZoneLabel: string;
+  materialsDropZoneLabel: string;
+
+  // tslint:disable-next-line:no-inferrable-types
+  canExitFirstStep: boolean = false;
+  // tslint:disable-next-line:no-inferrable-types
+  disalbeNextButton: boolean = true;
+
   constructor(private uploadService: UploadService ) { }
 
   ngOnInit() {
+    console.log('initialized');
+    const id = uuid.v4();
+    this.formData = new FormData();
+    this.formData.append('lectureId', id);
+
+    this.changeDropZoneLabels();
   }
 
   public videoDropped(event: UploadEvent) {
@@ -53,11 +72,10 @@ export class UploadLectureComponent implements OnInit {
       }
 
     }
+    this.changeDropZoneLabels();
   }
 
   public lectureMaterialsDropped(event: UploadEvent) {
-    this.lectureMaterial = [];
-    this.droppedLectureMaterial = [];
     this.lectureMaterials = event.files;
 
     for (const droppedFile of event.files) {
@@ -65,14 +83,14 @@ export class UploadLectureComponent implements OnInit {
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
-          this.lectureMaterial.push(file);
-          this.droppedLectureMaterial.push(droppedFile);
+          this.formData.append('materials', file, droppedFile.relativePath);
         });
       } else {
         const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
         console.log(droppedFile.relativePath, fileEntry);
       }
     }
+    this.changeDropZoneLabels();
   }
 
   public fileOver(event) {
@@ -84,14 +102,12 @@ export class UploadLectureComponent implements OnInit {
   }
 
   public upload() {
-
     console.log('uploading');
-    // You could upload it like this:
-    this.formData.append('lecture', this.videoFile, this.droppedVideoFile.relativePath);
 
-    this.lectureMaterial.forEach((item, index) => {
-      this.formData.append('materials', item, this.droppedLectureMaterial[index]);
-    });
+    this.formData.append('lectureName', this.lectureName);
+    this.formData.append('lectureDescription', this.lectureDescription);
+
+    this.formData.append('lecture', this.videoFile, this.droppedVideoFile.relativePath);
 
     this.uploadService.upload(this.formData).subscribe(
       (res) => this.uploadResponse = res,
@@ -103,12 +119,41 @@ export class UploadLectureComponent implements OnInit {
 
   }
 
-  // public onClick() {
-  //   if (this.file && this.droppedFile) {
-  //     this.upload(this.file, this.droppedFile);
-  //   } else {
-  //     console.log('file not selected');
-  //   }
-  // }
+  changeDropZoneLabels() {
+    if (this.videoFiles.length !== 0) {
+      this.videoDropZoneLabel = '';
+      this.disalbeNextButton = false;
+    } else {
+      this.videoDropZoneLabel = 'Drag and drop your video here';
+      this.disalbeNextButton = true;
+    }
+
+    if (this.lectureMaterials.length !== 0) {
+      this.materialsDropZoneLabel = '';
+    } else {
+      this.materialsDropZoneLabel = 'Drag and drop your lecture materials here';
+    }
+  }
+
+  onInputChange(lectureName: string) {
+    if (lectureName !== undefined) {
+      this.canExitFirstStep = true;
+    } else {
+      this.canExitFirstStep = false;
+    }
+  }
+
+  proceedToLectureMaterialUpload() {
+    if (this.videoFiles.length > 0 && this.lectureName !== undefined) {
+      // TODO: CHange on form validation
+      this.canExitFirstStep = true;
+    } else if (this.lectureName === undefined) {
+      this.canExitFirstStep = false;
+      alert('Lecture name is required');
+    } else {
+      this.canExitFirstStep = false;
+    }
+
+  }
 
 }
