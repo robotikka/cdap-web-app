@@ -6,3 +6,18 @@
     left: 3px;
     right: auto;
 }
+
+/* .dropzone-class {
+    min-height: 100px !important;
+    height: inherit !important;   
+} */
+
+.ngx-content {
+    border: 1px dashed !important;
+    /* background-color: azure; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    height: inherit;
+}   
