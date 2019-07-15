@@ -27,7 +27,7 @@ export class UploadLectureComponent implements OnInit {
   lectureDescription: string;
 
   error: string;
-  uploadResponse: {status: '', message: '', filePath: ''};
+  uploadResponse;
 
   videoDropZoneLabel: string;
   materialsDropZoneLabel: string;
