@@ -12,7 +12,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^7.0.0",
+    "@angular/animations": "^7.2.15",
     "@angular/common": "^7.0.0",
     "@angular/compiler": "^7.0.0",
     "@angular/core": "^7.0.0",
@@ -44,6 +44,7 @@
     "ngx-loading": "^3.0.1",
     "ngx-perfect-scrollbar": "^5.0.0",
     "ngx-quill": "^3.1.0",
+    "ngx-toastr": "^10.0.4",
     "popper.js": "^1.12.5",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.0.0-rc.0",

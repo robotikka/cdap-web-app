@@ -23,6 +23,7 @@ import { SpinnerComponent } from './shared/spinner.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import { FileDropModule } from 'ngx-file-drop';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
+import { ToastrModule } from 'ngx-toastr';
 
 // videogular
 import { VgCoreModule } from 'videogular2/core';
@@ -119,7 +120,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NgxLoadingModule.forRoot({}),
     HttpModule,
     Ng2CarouselamosModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     VideoDataService,
