@@ -11,6 +11,7 @@ import {TopicModelComponent} from './layouts/topic-model/topic-model.component';
 import {ReviewVideoComponent} from './layouts/review-video/review-video.component';
 import { ExploreComponent } from './layouts/explore/explore.component';
 import { VideoDataResolve } from './services/video-data.resolve';
+import { AuthGuard } from './guards/auth.guard';
 
 export const Approutes: Routes = [
   {
@@ -31,7 +32,8 @@ export const Approutes: Routes = [
         component: UploadLectureComponent,
         data: {
           title: 'Upload Lecture'
-        }
+        },
+        canActivate: [AuthGuard]
       },
       {
         path: 'myuploads',

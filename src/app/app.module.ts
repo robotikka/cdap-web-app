@@ -57,6 +57,9 @@ import { ExploreComponent } from './layouts/explore/explore.component';
 import { VideoDataResolve } from './services/video-data.resolve';
 import { VideoDataService } from './services/video-data.service';
 
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
   wheelSpeed: 2,
@@ -120,7 +123,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
+    },
+    ErrorInterceptor,
+    JwtInterceptor
   ],
   bootstrap: [AppComponent]
 })
