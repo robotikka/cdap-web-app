@@ -30,6 +30,7 @@ import { QuestionComponent } from './question/question.component';
 import { SlideMatchComponent } from './slide-match/slide-match.component';
 import { QuestionEditorComponent } from './question-editor/question-editor.component';
 import { InlineEditComponent } from './inline-edit/inline-edit.component';
+import { LoginDropdownComponent } from './login-dropdown/login-dropdown.component';
 
 @NgModule({
   imports: [
@@ -63,7 +64,8 @@ import { InlineEditComponent } from './inline-edit/inline-edit.component';
     QuestionComponent,
     SlideMatchComponent,
     QuestionEditorComponent,
-    InlineEditComponent
+    InlineEditComponent,
+    LoginDropdownComponent
   ]
 })
 export class ComponentsModule {}

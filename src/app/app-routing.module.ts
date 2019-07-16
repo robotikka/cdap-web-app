@@ -12,6 +12,7 @@ import {ReviewVideoComponent} from './layouts/review-video/review-video.componen
 import { ExploreComponent } from './layouts/explore/explore.component';
 import { VideoDataResolve } from './services/video-data.resolve';
 import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './layouts/login/login.component';
 
 export const Approutes: Routes = [
   {
@@ -60,6 +61,10 @@ export const Approutes: Routes = [
       {
         path: 'explore',
         component: ExploreComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
       }
     ]
   },
