@@ -62,6 +62,7 @@ import { VideoDataService } from './services/video-data.service';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { LoginComponent } from './layouts/login/login.component';
+import { RegisterComponent } from './layouts/register/register.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -99,7 +100,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SlideMatchComponent,
     ExploreComponent,
     LoginComponent,
-    LoginDropdownComponent
+    LoginDropdownComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

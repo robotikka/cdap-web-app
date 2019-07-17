@@ -11,6 +11,7 @@ import { environment } from '../../environments/environment';
 })
 export class AuthenticationService {
   AUTHENTICATION_URL = environment.authnetication_url;
+  SIGNUP_URL = environment.signup_url;
 
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
@@ -36,6 +37,18 @@ export class AuthenticationService {
         }
 
         return user;
+      }));
+  }
+
+  register(username: string, password: string, email: string, firstname: string, lastname: string) {
+    console.log('register called');
+    return this.http.post<any>(this.SIGNUP_URL, {username, password, email, firstname, lastname})
+      .pipe(map(user => {
+        console.log(user);
+        if (user && user.token) {
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.currentUserSubject.next(user);
+        }
       }));
   }
 

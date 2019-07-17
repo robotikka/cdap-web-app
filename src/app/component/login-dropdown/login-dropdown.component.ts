@@ -60,9 +60,14 @@ export class LoginDropdownComponent implements OnInit {
           });
         },
         error => {
-          this.error = error;
+          console.log(error);
+          this.error = error.error.message;
           this.loading = false;
         });
+  }
+
+  navigateToRegister() {
+    this.router.navigate(['register']);
   }
 
 }

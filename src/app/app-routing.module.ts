@@ -13,6 +13,7 @@ import { ExploreComponent } from './layouts/explore/explore.component';
 import { VideoDataResolve } from './services/video-data.resolve';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './layouts/login/login.component';
+import { RegisterComponent } from './layouts/register/register.component';
 
 export const Approutes: Routes = [
   {
@@ -65,6 +66,10 @@ export const Approutes: Routes = [
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       }
     ]
   },
