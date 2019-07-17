@@ -46,8 +46,11 @@ export class TopicModelComponent implements OnInit {
   }
 
   seekVideo(time) {
-    console.log('dgfshdf');
     this.player.seekVideo(time);
+  }
+
+  onTimeChange(event, index) {
+    this.topic_models[index].time = event.target.value;
   }
 
 }
