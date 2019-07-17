@@ -24,7 +24,8 @@
                             "src/styles.css",
                             "src/assets/scss/style.scss",
                             "src/assets/scss/archwizard/archwizard.scss",
-                            "./node_modules/videogular2/fonts/videogular.css"
+                            "./node_modules/videogular2/fonts/videogular.css",
+                            "./node_modules/ngx-toastr/toastr.css"
                         ],
                         "scripts": []
                     },
