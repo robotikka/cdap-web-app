@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,8 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -30,6 +32,7 @@ export class RegisterComponent implements OnInit {
       lastname: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
+      lecturer: ['']
     });
 
     // reset login status
@@ -57,13 +60,19 @@ export class RegisterComponent implements OnInit {
       this.f.password.value,
       this.f.email.value,
       this.f.firstname.value,
-      this.f.lastname.value
+      this.f.lastname.value,
+      this.f.lecturer.value
     ).pipe(first()).subscribe(
       data => {
         console.log(data);
+        this.toastr.success('Success', 'Logged in successfully', {
+          timeOut: 1000
+        });
         this.router.navigate([this.returnUrl]);
       },
       error => {
+        console.log(error);
+
         this.error = error;
         this.loading = false;
       }

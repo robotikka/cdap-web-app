@@ -55,13 +55,17 @@ export class LoginDropdownComponent implements OnInit {
       .subscribe(
         data => {
           console.log('success');
-          this.toastr.success('Success', 'Logged in successfully', {
-            timeOut: 1000
+          this.toastr.success('Success', 'User registerd successfully', {
+            timeOut: 3000
           });
         },
         error => {
           console.log(error);
-          this.error = error.error.message;
+          if (error.error.message !== undefined) {
+            this.error = error.error.message;
+          } else {
+            this.error = error.message;
+          }
           this.loading = false;
         });
   }
