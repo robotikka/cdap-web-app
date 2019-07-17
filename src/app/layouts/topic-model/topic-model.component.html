@@ -19,7 +19,7 @@
       <h3 class="card-title" id="subtopics-title">Sub Topics</h3>
       <div class="card-body" style="position: relative;" id="subtopics-body">
         <ngb-accordion #acc="ngbAccordion" >
-          <ngb-panel *ngFor="let item of topic_models;" id={{item.keywords[1]}} title={{item.topic}}>
+          <ngb-panel *ngFor="let item of topic_models; let i = index" id={{item.keywords[1]}} title={{item.topic}}>
             <ng-template ngbPanelContent>
 
               <p  class="topic-details">Keywords :
@@ -30,7 +30,7 @@
               <!--<span><p class="topic-details" > Time :</p>-->
               <form class = "form-inline" id="time-form">
                 Time :
-                <input class="form-control time-selector" type="number" value="00" min="0" max="0" id="time"> : <input class="form-control time-selector" type="number" value="{{item.time}}" min="0" max="39">
+                <input class="form-control time-selector" type="number" value="00" min="0" max="0" id="time"> : <input class="form-control time-selector" type="number" value="{{item.time}}"  (change)="onTimeChange($event, i)" min="0" max="39" >
                 <button type="button" class="btn btn-sm btn-rounded btn-info" style="width: 45px; margin: 0 5px;" (click)="seekVideo(item.time)"><i class="fa fa-play"></i></button>
               </form>
               <!--</span>-->

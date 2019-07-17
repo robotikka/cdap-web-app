@@ -54,6 +54,12 @@
 .time-selector{
   margin-left: 5px;
   margin-right: 5px;
+  border-radius: 10px;
+  max-height: fit-content;
+}
+.time-selector:focus{
+  border: 2px solid #6610f2;
+  border-radius: 10px;
 }
 
 #time-form{
