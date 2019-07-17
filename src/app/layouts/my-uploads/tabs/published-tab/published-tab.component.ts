@@ -12,7 +12,7 @@ export class PublishedTabComponent implements OnInit {
   videos: any[];
 
   constructor(private videoDataService: VideoDataService) {
-    
+
   }
 
   ngOnInit() {

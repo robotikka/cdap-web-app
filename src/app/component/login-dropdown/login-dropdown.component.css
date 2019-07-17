@@ -1,0 +1,26 @@
+.login-title {
+    padding: 0 15px 0 15px !important;
+    text-align: center !important;
+}
+
+.login-form {
+    padding: 0 15px 0 15px !important;
+}
+
+.question-btn {
+    background: none;
+    color: #009EFD;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    /*border is optional*/
+    border-bottom: 1px solid #009EFD;
+    cursor: pointer;
+    font-size: small;
+  }
+
+  .register-btn-wrapper {
+      text-align: center !important;
+      margin-top: -15px !important;
+  }
+  

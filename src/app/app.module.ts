@@ -23,6 +23,7 @@ import { SpinnerComponent } from './shared/spinner.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import { FileDropModule } from 'ngx-file-drop';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
+import { ToastrModule } from 'ngx-toastr';
 
 // videogular
 import { VgCoreModule } from 'videogular2/core';
@@ -46,6 +47,7 @@ import { QuestionComponent } from './component/question/question.component';
 import { SlideMatchComponent} from './component/slide-match/slide-match.component';
 import { QuestionEditorComponent } from './component/question-editor/question-editor.component';
 import { InlineEditComponent } from './component/inline-edit/inline-edit.component';
+import { LoginDropdownComponent } from './component/login-dropdown/login-dropdown.component';
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
@@ -56,6 +58,11 @@ import { ReviewVideoComponent } from './layouts/review-video/review-video.compon
 import { ExploreComponent } from './layouts/explore/explore.component';
 import { VideoDataResolve } from './services/video-data.resolve';
 import { VideoDataService } from './services/video-data.service';
+
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { LoginComponent } from './layouts/login/login.component';
+import { RegisterComponent } from './layouts/register/register.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -91,7 +98,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     InlineEditComponent,
     ReviewVideoComponent,
     SlideMatchComponent,
-    ExploreComponent
+    ExploreComponent,
+    LoginComponent,
+    LoginDropdownComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -111,7 +121,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SidebarModule.forRoot(),
     NgxLoadingModule.forRoot({}),
     HttpModule,
-    Ng2CarouselamosModule
+    Ng2CarouselamosModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     VideoDataService,
@@ -120,7 +132,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
+    },
+    ErrorInterceptor,
+    JwtInterceptor
   ],
   bootstrap: [AppComponent]
 })
