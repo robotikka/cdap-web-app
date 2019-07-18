@@ -21,3 +21,7 @@
     min-height: 150px;
     height: inherit;
 }   
+
+.btn {
+    vertical-align: initial !important;
+}
