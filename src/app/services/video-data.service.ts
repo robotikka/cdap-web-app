@@ -264,8 +264,8 @@ const videos = [
         time: '00:26:34'
       },
       {
-        title: 'Clienr Program',
-        time: '00:30:22'
+        title: 'Client Program',
+        time: '00:50:22'
       }
     ]
   },
