@@ -31,7 +31,7 @@ export class InlineEditComponent implements ControlValueAccessor, OnInit {
   // tslint:disable-next-line:no-inferrable-types
   private preValue: string = '';
   // tslint:disable-next-line:no-inferrable-types
-  private editing: boolean = false;
+  public editing: boolean = false;
   public onChange: any = Function.prototype;
   public onTouched: any = Function.prototype;
 

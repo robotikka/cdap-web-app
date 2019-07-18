@@ -18,7 +18,7 @@ export class NavigationComponent implements AfterViewInit {
   private loggedIn = false;
 
   public config: PerfectScrollbarConfigInterface = {};
-  constructor(private modalService: NgbModal, private authService: AuthenticationService) {
+  constructor(private modalService: NgbModal, public authService: AuthenticationService) {
     console.log(this.authService.currentUserValue);
   }
 

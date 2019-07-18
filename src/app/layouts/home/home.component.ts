@@ -12,32 +12,27 @@ export class HomeComponent implements OnInit {
   constructor() {
     this.videos = [
       {
-        videoTitle: 'C++ Class Coding',
-        description: 'This lecture is about basic class coding in C++',
+        videoTitle: 'OOPLecture 05',
+        description: '2018 Object Oreiented Concepts Lecture 05',
         duration: '00:59:09',
-        thumbnailUrl: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/lec5-thumbnail.jpg',
+        thumbnailUrl: 'assets/images/thumbnails/2018-OOC-Lecture-05.jpg',
+        id: '6f27ec0f-2046-473e-85c1-88183d2956c9',
         tags: ['c++', 'classes', 'coding']
       },
       {
-        videoTitle: 'Classes and Objects',
-        description: 'Coding using classes and objects in C++',
+        videoTitle: 'OOP Lecture 05',
+        description: '2018 Object Oreiented Concepts Lecture 05',
         duration: '01:01:11',
-        thumbnailUrl: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/lec6-thumbnail.jpg',
-        tags: ['c++', 'classes', 'coding', 'objects']
-      },
-      {
-        videoTitle: 'OOP Constructors Destructors',
-        description: 'In this lecture we will look at how to work with constructors and destructors',
-        duration: '00:59:27',
-        thumbnailUrl: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/lec7-thumbnail.jpg',
+        thumbnailUrl: 'assets/images/thumbnails/2018-OOC-Lecture-06.jpg',
+        id: '220131b0-06ba-4353-bd01-fefed272a161',
         tags: ['objects', 'destructors', 'constructors']
       },
       {
-        videoTitle: 'Relationships and Class Diagrams',
-        // tslint:disable-next-line:max-line-length
-        description: 'Relationships and Class diagrams lecture',
-        duration: '00:57:14',
-        thumbnailUrl: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/lec11-thumbnail.jpg',
+        videoTitle: 'OOP Lecture 05',
+        description: '2018 Object Oreiented Concepts Lecture 05',
+        duration: '00:59:27',
+        thumbnailUrl: 'assets/images/thumbnails/2018-OOC-Lecture-07.jpg',
+        id: 'f3df3232-32b8-45dd-bee0-fbb2c0953ca6',
         tags: ['relationships', 'classes', 'diagrams']
       }
     ];

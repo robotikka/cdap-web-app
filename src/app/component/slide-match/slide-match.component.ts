@@ -9,8 +9,8 @@ import {VideoPlaybackComponent} from '../../layouts/video-playback/video-playbac
 })
 export class SlideMatchComponent implements OnInit {
   @ViewChild(VideoPlayerComponent) player;
-  private currentSlide = 1;
-  private noOfSlides = 6;
+  public currentSlide = 1;
+  public noOfSlides = 6;
 
   product: any[] = [
     {id: 1, no: 1, url: '../../../assets/slides/frame0001.jpg'},

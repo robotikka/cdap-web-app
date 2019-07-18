@@ -3,10 +3,10 @@ import { Observable } from 'rxjs/Observable';
 
 const videos = [
   {
-    id: '1',
+    id: '6f27ec0f-2046-473e-85c1-88183d2956c9',
     src: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/2018-OOC-Lecture-05.mp4',
-    videoTitle: 'C++ Class Coding',
-    description: 'This lecture is about basic class coding in C++',
+    videoTitle: 'OOC Lecture 05',
+    description: '2018 Object Oreiented Concepts Lecture 05',
     duration: '00:59:09',
     thumbnailUrl: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/lec5-thumbnail.jpg',
     code: [
@@ -128,13 +128,122 @@ const videos = [
         title: 'Creating Objects',
         time: '00:38:19'
       }
-    ]
+    ],
+    questions: {
+      count: 4,
+      questions: [
+        {
+          questionNo: 1,
+          questionBody: 'Which was the first object oriented programming language developed?',
+          answers: [
+            {
+              id: 'java',
+              value: 'Java',
+              correct: false
+            },
+            {
+              id: 'c++',
+              value: 'C++',
+              correct: false
+            },
+            {
+              id: 'smalltalk',
+              value: 'SmallTalk',
+              correct: true
+            },
+            {
+              id: 'kotlin',
+              value: 'Kotlin',
+              correct: false
+            }
+          ]
+        },
+        {
+          questionNo: 2,
+          questionBody: '2Which was the first object oriented programming language developed?',
+          answers: [
+            {
+              id: 'java',
+              value: 'Java',
+              correct: false
+            },
+            {
+              id: 'c++',
+              value: 'C++',
+              correct: false
+            },
+            {
+              id: 'smalltalk',
+              value: 'SmallTalk',
+              correct: true
+            },
+            {
+              id: 'kotlin',
+              value: 'Kotlin',
+              correct: false
+            }
+          ]
+        },
+        {
+          questionNo: 3,
+          questionBody: '3Which was the first object oriented programming language developed?',
+          answers: [
+            {
+              id: 'java',
+              value: 'Java',
+              correct: false
+            },
+            {
+              id: 'c++',
+              value: 'C++',
+              correct: false
+            },
+            {
+              id: 'smalltalk',
+              value: 'SmallTalk',
+              correct: true
+            },
+            {
+              id: 'kotlin',
+              value: 'Kotlin',
+              correct: false
+            }
+          ]
+        },
+        {
+          questionNo: 4,
+          questionBody: '4Which was the first object oriented programming language developed?',
+          answers: [
+            {
+              id: 'java',
+              value: 'Java',
+              correct: false
+            },
+            {
+              id: 'c++',
+              value: 'C++',
+              correct: false
+            },
+            {
+              id: 'smalltalk',
+              value: 'SmallTalk',
+              correct: true
+            },
+            {
+              id: 'kotlin',
+              value: 'Kotlin',
+              correct: false
+            }
+          ]
+        },
+      ]
+    }
   },
   {
-    id: '2',
+    id: '220131b0-06ba-4353-bd01-fefed272a161',
     src: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/2018-OOC-Lecture-06.mp4',
-    videoTitle: 'Classes and Objects',
-    description: 'Coding using classes and objects in C++',
+    videoTitle: 'OOC Lecture 06',
+    description: '2018 Object Oriented Concepts Lecture 06',
     duration: '01:01:11',
     thumbnailUrl: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/lec6-thumbnail.jpg',
     topics: [
@@ -161,10 +270,10 @@ const videos = [
     ]
   },
   {
-    id: '3',
+    id: 'f3df3232-32b8-45dd-bee0-fbb2c0953ca6',
     src: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/2018-OOC-Lecture-07.mp4',
-    videoTitle: 'OOP Constructors Destructors',
-    description: 'In this lecture we will look at how to work with constructors and destructors',
+    videoTitle: 'OOC Lecture 07',
+    description: '2018 Object Oriented Concepts Lecture 07',
     duration: '00:59:27',
     thumbnailUrl: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/lec7-thumbnail.jpg',
     topics: [

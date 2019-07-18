@@ -56,16 +56,7 @@ import { LoginDropdownComponent } from './login-dropdown/login-dropdown.componen
     NgbdtimepickerBasicComponent,
     NgbdtypeheadBasicComponent,
     CardsComponent,
-    ButtonsComponent,
-    VideoThumbnailComponent,
-    VideoPlayerComponent,
-    CodeEditorComponent,
-    QuestionAskerComponent,
-    QuestionComponent,
-    SlideMatchComponent,
-    QuestionEditorComponent,
-    InlineEditComponent,
-    LoginDropdownComponent
+    ButtonsComponent
   ]
 })
 export class ComponentsModule {}

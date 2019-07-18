@@ -15,14 +15,12 @@
 }
 
 .searchbar-wrapper {
-    width: 500px;
     overflow: hidden;
     /* text-align: center; */
 }
 
 .search-box {
-    width: 500px;
-    float: left;
+    max-width: 500px;
 }
 
 .search-btn {
