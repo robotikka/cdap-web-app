@@ -7,7 +7,7 @@
   </div>
 
   <div class="btn-list-wrapper">
-    <div class="btn-wrapper" *ngFor="let topic of topics; let i = index">
+    <div class="btn-wrapper" *ngFor="let topic of video.topics; let i = index">
       <div (click)="seekVideo(topic.time)">
         <button
           type="button"
@@ -16,7 +16,7 @@
         >
           <p>{{ i + 1 }}</p>
         </button>
-        <strong *ngIf="_opened">{{ topic.topic }}</strong>
+        <strong *ngIf="_opened">{{ topic.title }}</strong>
       </div>
     </div>
   </div>

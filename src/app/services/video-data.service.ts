@@ -4,11 +4,11 @@ import { Observable } from 'rxjs/Observable';
 const videos = [
   {
     id: '1',
-    src: 'assets/gravity_falls_opening.mp4',
-    videoTitle: 'Test Video 1',
-    description: 'test description long long long very long',
-    duration: '12:00',
-    thumbnailUrl: 'assets/images/big/img1.jpg',
+    src: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/2018-OOC-Lecture-05.mp4',
+    videoTitle: 'C++ Class Coding',
+    description: 'This lecture is about basic class coding in C++',
+    duration: '00:59:09',
+    thumbnailUrl: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/lec5-thumbnail.jpg',
     code: [
       {
         lines: [
@@ -114,23 +114,80 @@ const videos = [
           }
         ],
         title: 'Main.java'
-      }]
+      }],
+    topics: [
+      {
+        title: 'Public and Private attributes',
+        time: '00:02:33'
+      },
+      {
+        title: 'Activity 1',
+        time: '00:19:31'
+      },
+      {
+        title: 'Creating Objects',
+        time: '00:38:19'
+      }
+    ]
   },
   {
     id: '2',
-    src: 'assets/gravity_falls_opening.mp4',
-    videoTitle: 'test title2',
-    description: 'test description long long long very long',
-    duration: '12:00',
-    thumbnailUrl: 'assets/images/big/img1.jpg'
+    src: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/2018-OOC-Lecture-06.mp4',
+    videoTitle: 'Classes and Objects',
+    description: 'Coding using classes and objects in C++',
+    duration: '01:01:11',
+    thumbnailUrl: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/lec6-thumbnail.jpg',
+    topics: [
+      {
+        title: 'Classes and Objects',
+        time: '00:03:37'
+      },
+      {
+        title: 'Setters and Getters',
+        time: '00:08:32'
+      },
+      {
+        title: 'Exercise 1',
+        time: '00:13:43'
+      },
+      {
+        title: 'Exercise 2',
+        time: '00:26:34'
+      },
+      {
+        title: 'Clienr Program',
+        time: '00:30:22'
+      }
+    ]
   },
   {
     id: '3',
-    src: 'assets/gravity_falls_opening.mp4',
-    videoTitle: 'test title3',
-    description: 'test description long long long very long',
-    duration: '12:00',
-    thumbnailUrl: 'assets/images/big/img1.jpg'
+    src: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/2018-OOC-Lecture-07.mp4',
+    videoTitle: 'OOP Constructors Destructors',
+    description: 'In this lecture we will look at how to work with constructors and destructors',
+    duration: '00:59:27',
+    thumbnailUrl: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/lec7-thumbnail.jpg',
+    topics: [
+      {
+        title: 'Overloading functions',
+        time: '00:02:37'
+      },
+      {
+        title: 'Constructors',
+        time: '00:18:30'
+      },
+      {
+        title: 'Exercise 1',
+        time: '00:25:58'
+      },
+      {
+        title: 'Exercise 2',
+        time: '00:36:28'
+      },
+      {
+        title: 'Destructors',
+        time: '00:42:59'
+      }]
   },
   {
     id: '4',

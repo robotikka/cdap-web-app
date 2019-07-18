@@ -35,6 +35,7 @@ export class VideoPlaybackComponent implements OnInit {
   ngOnInit() {
 
     this.video = this.route.snapshot.data['video'];
+    console.log(this.video);
 
     this.http.get('assets/questions/mock-questions.json').map(data => data.json()).subscribe(data => {
       this.questions = data;
@@ -52,7 +53,11 @@ export class VideoPlaybackComponent implements OnInit {
   }
 
   seekVideo(time) {
-    this.player.seekVideo(time);
+    time = time.split(':');
+    var time_in_seconds = parseInt(time[0], 10) * 60 * 60 +  parseInt(time[1], 10) * 60 + parseInt(time[2], 10);
+    console.log(time_in_seconds);
+
+    this.player.seekVideo(time_in_seconds);
   }
 
   toggleSidebar() {
