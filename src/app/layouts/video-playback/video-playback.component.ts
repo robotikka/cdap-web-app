@@ -13,9 +13,7 @@ import { Http } from '@angular/http';
 export class VideoPlaybackComponent implements OnInit {
   @ViewChild(VideoPlayerComponent) player;
 
-  questions;
   video;
-
 
   src = 'assets/gravity_falls_opening.mp4';
 
@@ -23,25 +21,20 @@ export class VideoPlaybackComponent implements OnInit {
 
   public _opened = false;
 
-  topics = [{topic: 'Topic 1', time: 1},
-            {topic: 'Topic 2', time: 10},
-            {topic: 'Topic 3', time: 20}];
+  topics = [{ topic: 'Topic 1', time: 1 },
+  { topic: 'Topic 2', time: 10 },
+  { topic: 'Topic 3', time: 20 }];
 
   selected = this.topics[0];
 
-  constructor(private route: ActivatedRoute,
-    private currentTimeService: PlayerCurrentTimeService, private http: Http) { }
+  constructor(
+    private route: ActivatedRoute,
+    private currentTimeService: PlayerCurrentTimeService,
+    private http: Http
+    ) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.params.id);
-
     this.video = this.route.snapshot.data['video'];
-
-    this.http.get('assets/questions/mock-questions.json').map(data => data.json()).subscribe(data => {
-      this.questions = data;
-      console.log(data);
-    });
-
 
     this.currentTimeService.currentTime.subscribe(time => {
       this.currentTime = time;
@@ -60,23 +53,5 @@ export class VideoPlaybackComponent implements OnInit {
     this._opened = !this._opened;
 
   }
-
-
-
-  // onPlayerReady(api: VgAPI) {
-  //   this.api = api;
-
-  //   this.api.getDefaultMedia().subscriptions.pause.subscribe(() => {
-  //     console.log('paused');
-  //   });
-
-  //   this.api.getDefaultMedia().subscriptions.timeUpdate.subscribe((data) => {
-  //     console.log(data.srcElement.currentTime);
-  //     if (Math.floor(data.srcElement.currentTime) === 5) {
-  //       // console.log('current time fired');
-  //       this.api.getDefaultMedia().pause();
-  //     }
-  //   });
-  // }
 
 }

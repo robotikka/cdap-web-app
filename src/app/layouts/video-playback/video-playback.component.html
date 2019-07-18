@@ -50,9 +50,9 @@
       <div class="row">
         <div class="question-component-wrapper col">
           <app-question-asker
-            *ngIf="questions"
-            questionCount="{{ questions.count }}"
-            [questions]="questions.questions"
+            *ngIf="video['questions']"
+            questionCount="{{ video['questions'].count }}"
+            [questions]="video['questions'].questions"
           >
           </app-question-asker>
         </div>
