@@ -21,7 +21,7 @@ export class VideoPlaybackComponent implements OnInit {
 
   currentTime: any;
 
-  private _opened = false;
+  public _opened = false;
 
   topics = [{topic: 'Topic 1', time: 1},
             {topic: 'Topic 2', time: 10},

@@ -9,10 +9,10 @@ export class QuestionAskerComponent implements OnInit {
   @Input() questionCount: string;
   @Input() questions: any;
 
-  private currentQuestionNumber = 1;
-  private currentQustion;
-  private hasMoreQuestions: boolean;
-  private hasPrevQuestions: boolean;
+  public currentQuestionNumber = 1;
+  public currentQustion;
+  public hasMoreQuestions: boolean;
+  public hasPrevQuestions: boolean;
 
   question = 'Which was the first object oriented programming language developed?';
   answers: any[] = [
