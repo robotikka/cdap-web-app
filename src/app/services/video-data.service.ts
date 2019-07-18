@@ -3,11 +3,11 @@ import { Observable } from 'rxjs/Observable';
 
 const videos = [
   {
-    id: '1',
-    src: 'assets/gravity_falls_opening.mp4',
-    videoTitle: 'Test Video 1',
-    description: 'test description long long long very long',
-    duration: '12:00',
+    id: '6f27ec0f-2046-473e-85c1-88183d2956c9',
+    src: 'assets/videos/2018-OOC-Lecture-05.mp4',
+    videoTitle: 'OOC Lecture 05',
+    description: '2018 Object Oreiented Concepts Lecture 05',
+    duration: '59:09',
     thumbnailUrl: 'assets/images/big/img1.jpg',
     code: [
       {
@@ -114,22 +114,131 @@ const videos = [
           }
         ],
         title: 'Main.java'
-      }]
+      }],
+    questions: {
+      count: 4,
+      questions: [
+        {
+          questionNo: 1,
+          questionBody: 'Which was the first object oriented programming language developed?',
+          answers: [
+            {
+              id: 'java',
+              value: 'Java',
+              correct: false
+            },
+            {
+              id: 'c++',
+              value: 'C++',
+              correct: false
+            },
+            {
+              id: 'smalltalk',
+              value: 'SmallTalk',
+              correct: true
+            },
+            {
+              id: 'kotlin',
+              value: 'Kotlin',
+              correct: false
+            }
+          ]
+        },
+        {
+          questionNo: 2,
+          questionBody: '2Which was the first object oriented programming language developed?',
+          answers: [
+            {
+              id: 'java',
+              value: 'Java',
+              correct: false
+            },
+            {
+              id: 'c++',
+              value: 'C++',
+              correct: false
+            },
+            {
+              id: 'smalltalk',
+              value: 'SmallTalk',
+              correct: true
+            },
+            {
+              id: 'kotlin',
+              value: 'Kotlin',
+              correct: false
+            }
+          ]
+        },
+        {
+          questionNo: 3,
+          questionBody: '3Which was the first object oriented programming language developed?',
+          answers: [
+            {
+              id: 'java',
+              value: 'Java',
+              correct: false
+            },
+            {
+              id: 'c++',
+              value: 'C++',
+              correct: false
+            },
+            {
+              id: 'smalltalk',
+              value: 'SmallTalk',
+              correct: true
+            },
+            {
+              id: 'kotlin',
+              value: 'Kotlin',
+              correct: false
+            }
+          ]
+        },
+        {
+          questionNo: 4,
+          questionBody: '4Which was the first object oriented programming language developed?',
+          answers: [
+            {
+              id: 'java',
+              value: 'Java',
+              correct: false
+            },
+            {
+              id: 'c++',
+              value: 'C++',
+              correct: false
+            },
+            {
+              id: 'smalltalk',
+              value: 'SmallTalk',
+              correct: true
+            },
+            {
+              id: 'kotlin',
+              value: 'Kotlin',
+              correct: false
+            }
+          ]
+        },
+      ]
+    }
   },
   {
-    id: '2',
-    src: 'assets/gravity_falls_opening.mp4',
-    videoTitle: 'test title2',
-    description: 'test description long long long very long',
-    duration: '12:00',
+    id: '220131b0-06ba-4353-bd01-fefed272a161',
+    src: 'assets/videos/2018-OOC-Lecture-06.mp4',
+    videoTitle: 'OOC Lecture 06',
+    description: '2018 Object Oreiented Concepts Lecture 06',
+    duration: '1:01:11',
     thumbnailUrl: 'assets/images/big/img1.jpg'
   },
   {
-    id: '3',
-    src: 'assets/gravity_falls_opening.mp4',
-    videoTitle: 'test title3',
-    description: 'test description long long long very long',
-    duration: '12:00',
+    id: 'f3df3232-32b8-45dd-bee0-fbb2c0953ca6',
+    src: 'assets/videos/2018-OOC-Lecture-07.mp4',
+    videoTitle: 'OOC Lecture 07',
+    description: '2018 Object Oreiented Concepts Lecture 07',
+    duration: '59:27',
     thumbnailUrl: 'assets/images/big/img1.jpg'
   },
   {
