@@ -11,29 +11,25 @@ export class HomeComponent implements OnInit {
   constructor() {
     this.videos = [
       {
-        videoTitle: 'test title1',
-        description: 'test description long long long very long',
-        duration: '12:00',
-        thumbnailUrl: 'assets/images/big/img1.jpg'
+        videoTitle: 'OOC Lecture 05',
+        description: '2018 Object Oreiented Concepts Lecture 05',
+        duration: '59:09',
+        thumbnailUrl: 'assets/images/thumbnails/2018-OOC-Lecture-05.jpg',
+        id: '6f27ec0f-2046-473e-85c1-88183d2956c9'
       },
       {
-        videoTitle: 'test title2',
-        description: 'test description long long long very long',
-        duration: '12:00',
-        thumbnailUrl: 'assets/images/big/img1.jpg'
+        videoTitle: 'OOC Lecture 05',
+        description: '2018 Object Oreiented Concepts Lecture 05',
+        duration: '1:01:11',
+        thumbnailUrl: 'assets/images/thumbnails/2018-OOC-Lecture-06.jpg',
+        id: '220131b0-06ba-4353-bd01-fefed272a161'
       },
       {
-        videoTitle: 'test title3',
-        description: 'test description long long long very long',
-        duration: '12:00',
-        thumbnailUrl: 'assets/images/big/img1.jpg'
-      },
-      {
-        videoTitle: 'test title4',
-        // tslint:disable-next-line:max-line-length
-        description: 'test description long long long very long test description long long long very long test description long long long very long test description long long long very long',
-        duration: '12:00',
-        thumbnailUrl: 'assets/images/big/img1.jpg'
+        videoTitle: 'OOC Lecture 05',
+        description: '2018 Object Oreiented Concepts Lecture 05',
+        duration: '59:27',
+        thumbnailUrl: 'assets/images/thumbnails/2018-OOC-Lecture-07.jpg',
+        id: 'f3df3232-32b8-45dd-bee0-fbb2c0953ca6'
       }
     ];
    }

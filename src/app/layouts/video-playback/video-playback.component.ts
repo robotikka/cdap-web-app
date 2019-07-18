@@ -29,10 +29,11 @@ export class VideoPlaybackComponent implements OnInit {
 
   selected = this.topics[0];
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
     private currentTimeService: PlayerCurrentTimeService, private http: Http) { }
 
   ngOnInit() {
+    console.log(this.route.snapshot.params.id);
 
     this.video = this.route.snapshot.data['video'];
 
