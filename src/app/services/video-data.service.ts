@@ -120,104 +120,198 @@ const videos = [
       questions: [
         {
           questionNo: 1,
-          questionBody: 'Which was the first object oriented programming language developed?',
+          questionBody: 'What is the term used to indicate the variable and constants of a class?',
           answers: [
             {
-              id: 'java',
-              value: 'Java',
-              correct: false
-            },
-            {
-              id: 'c++',
-              value: 'C++',
-              correct: false
-            },
-            {
-              id: 'smalltalk',
-              value: 'SmallTalk',
+              id: 'a',
+              value: 'Data members',
               correct: true
             },
             {
-              id: 'kotlin',
-              value: 'Kotlin',
+              id: 'b',
+              value: 'Variables of class',
+              correct: false
+            },
+            {
+              id: 'c',
+              value: 'Data characters',
+              correct: false
+            },
+            {
+              id: 'd',
+              value: 'Constants',
               correct: false
             }
           ]
         },
         {
           questionNo: 2,
-          questionBody: '2Which was the first object oriented programming language developed?',
+          questionBody: 'Data members ________________ (C++)',
           answers: [
             {
-              id: 'java',
-              value: 'Java',
+              id: 'a',
+              value: 'Can be initialized with declaration in classes',
               correct: false
             },
             {
-              id: 'c++',
-              value: 'C++',
-              correct: false
-            },
-            {
-              id: 'smalltalk',
-              value: 'SmallTalk',
+              id: 'b',
+              value: 'Can be initialized only with help of constructors',
               correct: true
             },
             {
-              id: 'kotlin',
-              value: 'Kotlin',
+              id: 'c',
+              value: 'Can be initialized either in declaration or by constructor',
+              correct: false
+            },
+            {
+              id: 'd',
+              value: 'Can’t be initialized',
               correct: false
             }
           ]
         },
         {
           questionNo: 3,
-          questionBody: '3Which was the first object oriented programming language developed?',
+          questionBody: 'Which among the following is true for data members?',
           answers: [
             {
-              id: 'java',
-              value: 'Java',
+              id: 'a',
+              value: 'Private data members can be initialized with declaration in classava',
               correct: false
             },
             {
-              id: 'c++',
-              value: 'C++',
+              id: 'b',
+              value: 'Static members are initialized in constructors',
               correct: false
             },
             {
-              id: 'smalltalk',
-              value: 'SmallTalk',
+              id: 'c',
+              value: 'Protected data members can be initialized in class directly',
+              correct: false
+            },
+            {
+              id: 'd',
+              value: 'Static data members are defined outside class, not in constructortlin',
               correct: true
-            },
-            {
-              id: 'kotlin',
-              value: 'Kotlin',
-              correct: false
             }
           ]
         },
         {
           questionNo: 4,
-          questionBody: '4Which was the first object oriented programming language developed?',
+          questionBody: ' How to access data members of a class?',
           answers: [
             {
-              id: 'java',
-              value: 'Java',
+              id: 'a',
+              value: 'Dot operator',
               correct: false
             },
             {
-              id: 'c++',
-              value: 'C++',
+              id: 'b',
+              value: 'Arrow operator',
               correct: false
             },
             {
-              id: 'smalltalk',
-              value: 'SmallTalk',
+              id: 'c',
+              value: 'Dot or arrow as required',
               correct: true
             },
             {
-              id: 'kotlin',
-              value: 'Kotlin',
+              id: 'd',
+              value: 'Dot, arrow or direct call',
+              correct: false
+            }
+          ]
+        },
+        {
+          questionNo: 5,
+          questionBody: 'The static member functions can only use ________',
+          answers: [
+            {
+              id: 'a',
+              value: 'Static data members',
+              correct: true
+            },
+            {
+              id: 'b',
+              value: ' Private data members',
+              correct: false
+            },
+            {
+              id: 'c',
+              value: 'Protected data members',
+              correct: false
+            },
+            {
+              id: 'd',
+              value: 'Constant data members',
+              correct: false
+            }
+          ]
+        },
+        {
+          questionNo: 6,
+          questionBody: 'A class can have self-referential data members',
+          answers: [
+            {
+              id: 'a',
+              value: 'True',
+              correct: false
+            },
+            {
+              id: 'b',
+              value: 'False',
+              correct: true
+            }
+          ]
+        },
+        {
+          questionNo: 7,
+          questionBody: 'What is the keyword used to make data members have same value?',
+          answers: [
+            {
+              id: 'a',
+              value: 'static',
+              correct: false
+            },
+            {
+              id: 'b',
+              value: 'const',
+              correct: true
+            },
+            {
+              id: 'c',
+              value: 'double',
+              correct: false
+            },
+            {
+              id: 'd',
+              value: 'abstract',
+              correct: false
+            }
+          ]
+        },
+        {
+          questionNo: 8,
+          questionBody: 'Which among the following is not allowed for data member declaration?',
+          answers: [
+            {
+              id: 'a',
+              value: 'int a;',
+              correct: false
+            },
+            {
+              id: 'b',
+              value: 'static int a;',
+              correct: false
+            },
+            {
+              id: 'c',
+              value: 'abstract a;',
+              correct: true
+            },
+            {
+              id: 'd',
+              value: 'Boolean a;',
               correct: false
             }
           ]
