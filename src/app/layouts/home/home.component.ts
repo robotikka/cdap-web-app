@@ -20,16 +20,16 @@ export class HomeComponent implements OnInit {
         tags: ['c++', 'classes', 'coding']
       },
       {
-        videoTitle: 'OOP Lecture 05',
-        description: '2018 Object Oreiented Concepts Lecture 05',
+        videoTitle: 'OOP Lecture 06',
+        description: '2018 Object Oreiented Concepts Lecture 06',
         duration: '01:01:11',
         thumbnailUrl: 'assets/images/thumbnails/2018-OOC-Lecture-06.jpg',
         id: '220131b0-06ba-4353-bd01-fefed272a161',
         tags: ['objects', 'destructors', 'constructors']
       },
       {
-        videoTitle: 'OOP Lecture 05',
-        description: '2018 Object Oreiented Concepts Lecture 05',
+        videoTitle: 'OOP Lecture 07',
+        description: '2018 Object Oreiented Concepts Lecture 07',
         duration: '00:59:27',
         thumbnailUrl: 'assets/images/thumbnails/2018-OOC-Lecture-07.jpg',
         id: 'f3df3232-32b8-45dd-bee0-fbb2c0953ca6',
