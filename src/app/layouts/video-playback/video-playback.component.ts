@@ -47,6 +47,11 @@ export class VideoPlaybackComponent implements OnInit {
   }
 
   seekVideo(time) {
+
+    this.player.seekVideo(time);
+  }
+
+  seekVideoTopics(time){
     time = time.split(':');
     var time_in_seconds = parseInt(time[0], 10) * 60 * 60 +  parseInt(time[1], 10) * 60 + parseInt(time[2], 10);
     console.log(time_in_seconds);
