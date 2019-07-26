@@ -22,7 +22,7 @@ import {
 export class RegisterComponent implements OnInit {
 
   userDetailsForm: FormGroup;
-  accountDetailsForm: FormGroup;
+  // accountDetailsForm: FormGroup;
 
   matchingPasswordsGroup: FormGroup;
   countryPhoneGroup: FormGroup;
@@ -33,6 +33,11 @@ export class RegisterComponent implements OnInit {
     'Male',
     'Female',
     'Other'
+  ];
+
+  roles = [
+    { type: 'Student', value: false},
+    { type: 'Lecturer', value: true }
   ];
 
   countries = [
@@ -51,6 +56,9 @@ export class RegisterComponent implements OnInit {
     ],
     gender: [
       { type: 'required', message: 'Please select your gender' },
+    ],
+    role: [
+      { type: 'required', message: 'Please select the account type' }
     ],
     birthday: [
       { type: 'required', message: 'Please insert your birthday' },
@@ -124,6 +132,7 @@ export class RegisterComponent implements OnInit {
       bio: ['Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', Validators.maxLength(256)],
       birthday: ['', Validators.required],
       gender: new FormControl(this.genders[0], Validators.required),
+      lecturer: new FormControl(this.roles[0].type, Validators.required),
       countryPhone: this.countryPhoneGroup,
       username: new FormControl('', Validators.compose([
         UsernameValidator.validUsername,
@@ -139,29 +148,6 @@ export class RegisterComponent implements OnInit {
       matchingPasswords: this.matchingPasswordsGroup,
       terms: new FormControl(false, Validators.pattern('true'))
     });
-
-
-    // user links form validations
-    this.accountDetailsForm = this.fb.group({
-      username: new FormControl('', Validators.compose([
-        UsernameValidator.validUsername,
-        Validators.maxLength(25),
-        Validators.minLength(5),
-        Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
-        Validators.required
-      ])),
-      email: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])),
-      matchingPasswords: this.matchingPasswordsGroup,
-      terms: new FormControl(false, Validators.pattern('true'))
-    });
-
-  }
-
-  onSubmitAccountDetails(value) {
-    console.log(value);
   }
 
   onSubmitUserDetails(value) {
