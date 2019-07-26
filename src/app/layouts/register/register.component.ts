@@ -21,8 +21,9 @@ import {
 })
 export class RegisterComponent implements OnInit {
 
+  saving = false;
+
   userDetailsForm: FormGroup;
-  // accountDetailsForm: FormGroup;
 
   matchingPasswordsGroup: FormGroup;
   countryPhoneGroup: FormGroup;
@@ -43,7 +44,8 @@ export class RegisterComponent implements OnInit {
   countries = [
     new Country('UY', 'Uruguay'),
     new Country('US', 'United States'),
-    new Country('AR', 'Argentina')
+    new Country('AR', 'Argentina'),
+    new Country('LK', 'Sri Lanka')
   ];
 
 
@@ -92,7 +94,11 @@ export class RegisterComponent implements OnInit {
     ]
   };
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthenticationService,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit() {
     this.createForms();
@@ -152,6 +158,31 @@ export class RegisterComponent implements OnInit {
 
   onSubmitUserDetails(value) {
     console.log(value);
-  }
 
+    this.saving = true;
+
+    this.authService.register(
+      value
+    ).pipe(first()).subscribe(
+      data => {
+        this.toastr.success('Success', 'User registered in successfully', {
+          timeOut: 1000
+        });
+        // this.router.navigate([this.returnUrl]);
+      },
+      error => {
+        this.saving = false;
+        console.log(error);
+        const validationErrors = error.error;
+        Object.keys(validationErrors).forEach(prop => {
+          const formControl = this.userDetailsForm.get(prop);
+          if (formControl) {
+            formControl.setErrors({
+              serverError: validationErrors[prop]
+            });
+          }
+        });
+      }
+    );
+  }
 }
