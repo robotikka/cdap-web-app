@@ -118,7 +118,7 @@ export class RegisterComponent implements OnInit {
     });
 
     // country & phone validation
-    const country = new FormControl(this.countries[0], Validators.required);
+    const country = new FormControl('', Validators.required);
 
     const phone = new FormControl('', {
       validators: Validators.compose([
@@ -134,11 +134,11 @@ export class RegisterComponent implements OnInit {
 
     // user details form validations
     this.userDetailsForm = this.fb.group({
-      fullname: ['Homero Simpson', Validators.required],
-      bio: ['Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', Validators.maxLength(256)],
+      fullname: ['', Validators.required],
+      bio: ['', Validators.maxLength(256)],
       birthday: ['', Validators.required],
-      gender: new FormControl(this.genders[0], Validators.required),
-      lecturer: new FormControl(this.roles[0].type, Validators.required),
+      gender: new FormControl('', Validators.required),
+      lecturer: new FormControl('', Validators.required),
       countryPhone: this.countryPhoneGroup,
       username: new FormControl('', Validators.compose([
         UsernameValidator.validUsername,
