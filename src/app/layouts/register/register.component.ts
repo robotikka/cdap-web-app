@@ -1,93 +1,171 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 
+import {
+  Country,
+  UsernameValidator,
+  PasswordValidator,
+  ParentErrorStateMatcher,
+  PhoneValidator
+} from '../../validators';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
-  signupForm: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
-  error = '';
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService,
-    private toastr: ToastrService
-  ) { }
+  userDetailsForm: FormGroup;
+  accountDetailsForm: FormGroup;
+
+  matchingPasswordsGroup: FormGroup;
+  countryPhoneGroup: FormGroup;
+
+  parentErrorStateMatcher = new ParentErrorStateMatcher();
+
+  genders = [
+    'Male',
+    'Female',
+    'Other'
+  ];
+
+  countries = [
+    new Country('UY', 'Uruguay'),
+    new Country('US', 'United States'),
+    new Country('AR', 'Argentina')
+  ];
+
+
+  validationMessages = {
+    fullname: [
+      { type: 'required', message: 'Full name is required' }
+    ],
+    bio: [
+      { type: 'maxlength', message: 'Bio cannot be more than 256 characters long' },
+    ],
+    gender: [
+      { type: 'required', message: 'Please select your gender' },
+    ],
+    birthday: [
+      { type: 'required', message: 'Please insert your birthday' },
+    ],
+    phone: [
+      { type: 'required', message: 'Phone is required' },
+      { type: 'validCountryPhone', message: 'Phone incorrect for the country selected' }
+    ],
+    username: [
+      { type: 'required', message: 'Username is required' },
+      { type: 'minlength', message: 'Username must be at least 5 characters long' },
+      { type: 'maxlength', message: 'Username cannot be more than 25 characters long' },
+      { type: 'pattern', message: 'Your username must contain only numbers and letters' },
+      { type: 'validUsername', message: 'Your username has already been taken' }
+    ],
+    email: [
+      { type: 'required', message: 'Email is required' },
+      { type: 'pattern', message: 'Enter a valid email' }
+    ],
+    confirmPassword: [
+      { type: 'required', message: 'Confirm password is required' },
+      { type: 'areEqual', message: 'Password mismatch' }
+    ],
+    password: [
+      { type: 'required', message: 'Password is required' },
+      { type: 'minlength', message: 'Password must be at least 5 characters long' },
+      { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number' }
+    ],
+    terms: [
+      { type: 'pattern', message: 'You must accept terms and conditions' }
+    ]
+  };
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.signupForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      lecturer: ['']
-    });
-
-    // reset login status
-    this.authenticationService.logout();
-
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.createForms();
   }
 
-  // convenience getter for easy access to form fields
-  get f() { return this.signupForm.controls; }
+  createForms() {
+    // matching passwords validation
+    this.matchingPasswordsGroup = new FormGroup({
+      password: new FormControl('', Validators.compose([
+        Validators.minLength(5),
+        Validators.required,
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
+      ])),
+      confirmPassword: new FormControl('', Validators.required)
+    }, (formGroup: FormGroup) => {
+      return PasswordValidator.areEqual(formGroup);
+    });
 
-  onSubmit() {
-    this.submitted = true;
+    // country & phone validation
+    const country = new FormControl(this.countries[0], Validators.required);
 
-    // stop here if form is invalid
-    if (this.signupForm.invalid) {
-      return;
-    }
+    const phone = new FormControl('', {
+      validators: Validators.compose([
+        Validators.required,
+        PhoneValidator.validCountryPhone(country)
+      ])
+    });
 
-    this.loading = true;
+    this.countryPhoneGroup = new FormGroup({
+      country,
+      phone
+    });
 
-    this.authenticationService.register(
-      this.f.username.value,
-      this.f.password.value,
-      this.f.email.value,
-      this.f.firstname.value,
-      this.f.lastname.value,
-      this.f.lecturer.value
-    ).pipe(first()).subscribe(
-      data => {
-        console.log(data);
-        this.toastr.success('Success', 'Logged in successfully', {
-          timeOut: 1000
-        });
-        this.router.navigate([this.returnUrl]);
-      },
-      error => {
-        console.log(error);
+    // user details form validations
+    this.userDetailsForm = this.fb.group({
+      fullname: ['Homero Simpson', Validators.required],
+      bio: ['Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', Validators.maxLength(256)],
+      birthday: ['', Validators.required],
+      gender: new FormControl(this.genders[0], Validators.required),
+      countryPhone: this.countryPhoneGroup,
+      username: new FormControl('', Validators.compose([
+        UsernameValidator.validUsername,
+        Validators.maxLength(25),
+        Validators.minLength(5),
+        Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
+        Validators.required
+      ])),
+      email: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])),
+      matchingPasswords: this.matchingPasswordsGroup,
+      terms: new FormControl(false, Validators.pattern('true'))
+    });
 
-        this.error = error;
-        this.loading = false;
-      }
-    );
-    // this.loading = true;
-    // this.authenticationService.login(this.f.username.value, this.f.password.value)
-    //   .pipe(first())
-    //   .subscribe(
-    //     data => {
-    //       this.router.navigate([this.returnUrl]);
-    //     },
-    //     error => {
-    //       this.error = error;
-    //       this.loading = false;
-    //     });
+
+    // user links form validations
+    this.accountDetailsForm = this.fb.group({
+      username: new FormControl('', Validators.compose([
+        UsernameValidator.validUsername,
+        Validators.maxLength(25),
+        Validators.minLength(5),
+        Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
+        Validators.required
+      ])),
+      email: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])),
+      matchingPasswords: this.matchingPasswordsGroup,
+      terms: new FormControl(false, Validators.pattern('true'))
+    });
+
+  }
+
+  onSubmitAccountDetails(value) {
+    console.log(value);
+  }
+
+  onSubmitUserDetails(value) {
+    console.log(value);
   }
 
 }
