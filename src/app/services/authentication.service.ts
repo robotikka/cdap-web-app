@@ -45,9 +45,10 @@ export class AuthenticationService {
       }));
   }
 
-  register(username: string, password: string, email: string, firstname: string, lastname: string, lecturer: boolean) {
+  register(userForm) {
     console.log('register called');
-    return this.http.post<any>(this.SIGNUP_URL, {username, password, email, firstname, lastname, lecturer})
+    console.log(userForm);
+    return this.http.post<any>(this.SIGNUP_URL, {userForm})
       .pipe(map(user => {
         console.log(user);
         if (user && user.token) {
