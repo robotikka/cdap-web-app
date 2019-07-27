@@ -1,4 +1,4 @@
-const ec2url = 'ec2-35-154-98-108.ap-south-1.compute.amazonaws.com:3000/';
+const ec2url = 'http://ec2-35-154-98-108.ap-south-1.compute.amazonaws.com:3000/';
 export const environment = {
   production: true,
   upload_url: ec2url + 'v1/videos/upload',
