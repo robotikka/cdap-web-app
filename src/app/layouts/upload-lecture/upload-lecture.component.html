@@ -1,3 +1,29 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="d('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-module-manager></app-module-manager>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        (click)="c('Save click')"
+      >
+        Save
+      </button>
+    </div>
+  </ng-template>
+
 <div class="card">
   <div class="card-body">
     <div class="custom-css">
@@ -48,13 +74,20 @@
               </div>
 
               <div>
-                  <label for="moduleSelect">Module</label>
-                  <select id="moduleSelect" class="form-control">
-                    <option *ngFor="let module of modules">
-                      {{ module }}
-                    </option>
-                  </select>
-                </div>
+                <label for="moduleSelect">Module</label>
+                <select id="moduleSelect" class="form-control">
+                  <option *ngFor="let module of modules">
+                    {{ module }}
+                  </option>
+                </select>
+              </div>
+
+              <button
+                class="btn btn-outline-primary mb-2 mr-2"
+                (click)="openModal(content)"
+              >
+                Large modal
+              </button>
 
               <div class="tag-input-wrapper">
                 <tag-input [(ngModel)]="tags"></tag-input>

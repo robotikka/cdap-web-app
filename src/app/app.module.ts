@@ -48,6 +48,7 @@ import { SlideMatchComponent} from './component/slide-match/slide-match.componen
 import { QuestionEditorComponent } from './component/question-editor/question-editor.component';
 import { InlineEditComponent } from './component/inline-edit/inline-edit.component';
 import { LoginDropdownComponent } from './component/login-dropdown/login-dropdown.component';
+import { ModuleManagerComponent } from './component/module-manager/module-manager.component';
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
@@ -112,7 +113,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ExploreComponent,
     LoginComponent,
     LoginDropdownComponent,
-    RegisterComponent
+    RegisterComponent,
+    ModuleManagerComponent
   ],
   imports: [
     CommonModule,

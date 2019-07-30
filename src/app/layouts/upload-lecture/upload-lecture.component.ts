@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
 import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
-import { environment } from '../../../environments/environment';
 import { UploadService } from '../../services/upload.service';
+
+import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import * as uuid from 'uuid';
 
@@ -43,7 +43,10 @@ export class UploadLectureComponent implements OnInit {
   // tslint:disable-next-line:no-inferrable-types
   disalbeNextButton: boolean = true;
 
-  constructor(private uploadService: UploadService ) { }
+  constructor(
+    private uploadService: UploadService,
+    private modalService: NgbModal
+    ) { }
 
   ngOnInit() {
     console.log('initialized');
@@ -184,7 +187,10 @@ export class UploadLectureComponent implements OnInit {
     } else {
       this.canExitFirstStep = false;
     }
+  }
 
+  openModal(content) {
+    this.modalService.open(content, { size: 'lg' });
   }
 
 }
