@@ -1,18 +1,63 @@
 <ngb-tabset justify="justified">
-    <ngb-tab title="All Modules">
-        <ng-template ngbTabContent>
-          <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
-          master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
-          dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
-          iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-        </ng-template>
-      </ngb-tab>
-    <ngb-tab title="Your Modules">
-        <ng-template ngbTabContent>
-          <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
-          master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
-          dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
-          iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-        </ng-template>
-      </ngb-tab>
-  </ngb-tabset>
+  <ngb-tab title="All Modules">
+    <ng-template ngbTabContent>
+      <div class="row tab-content">
+        <div class="col-4">
+          <div class="list-group">
+            <button
+              *ngFor="let module of allModules"
+              type="button"
+              class="list-group-item list-group-item-action"
+              (click)="selectModule(module)"
+            >
+              {{ module.name }}
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="selectedModule" class="col-8">
+          <h3>{{ selectedModule.name }}</h3>
+          <small>{{ selectedModule.dateCreated }}</small>
+          <p>
+            {{ selectedModule.description }}
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Your Modules">
+    <ng-template ngbTabContent>
+      <div class="row">
+        <div class="col-12">
+          <ngb-alert *ngIf="alert" [type]="alert.type" (close)="closeAlert()">{{ alert.message }}</ngb-alert>
+          <form [formGroup]="moduleForm" (ngSubmit)="saveModule(moduleForm.value)">
+
+            <div class="form-group">
+              <label for="moduleName">Module Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="moduleName"
+                placeholder="Enter name"
+                formControlName="name"
+                required
+              />
+
+            </div>
+            <div class="form-group">
+              <label for="moduleDescription">Module Description</label>
+              <textarea
+                type="text"
+                class="form-control"
+                id="moduleDescription"
+                placeholder="Enter description"
+                formControlName="description"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!moduleForm.valid || saving">Submit</button>
+          </form>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
