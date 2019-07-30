@@ -64,6 +64,8 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { LoginComponent } from './layouts/login/login.component';
 import { RegisterComponent } from './layouts/register/register.component';
 
+import { TagInputModule } from 'ngx-chips';
+
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -138,7 +140,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    TagInputModule
   ],
   providers: [
     VideoDataService,

@@ -41,11 +41,25 @@
 
               <div>
                 <label>Description</label>
-                <input
+                <textarea
                   class="form-control form-control"
                   [(ngModel)]="lectureDescription"
-                />
+                ></textarea>
               </div>
+
+              <div>
+                  <label for="moduleSelect">Module</label>
+                  <select id="moduleSelect" class="form-control">
+                    <option *ngFor="let module of modules">
+                      {{ module }}
+                    </option>
+                  </select>
+                </div>
+
+              <div class="tag-input-wrapper">
+                <tag-input [(ngModel)]="tags"></tag-input>
+              </div>
+
               <div class="save-video-button">
                 <button
                   [disabled]="disalbeNextButton"
@@ -60,51 +74,66 @@
           </div>
         </aw-wizard-step>
         <aw-wizard-step
-          stepTitle="Upload Slides"
+          stepTitle="Upload Lecture Materials"
           [navigationSymbol]="{ symbol: '2' }"
         >
           <div class="upload-slides-container">
             <div class="upload-container row">
-              <div class="col-md-3"></div>
-              <div class="col-md-6">
+              <div class="col-md-1"></div>
+              <div class="col-md-5">
                 <h3 class="step-2-heading">Upload Lecture Slides</h3>
-                <div class="drop-zone">
+                <div class="drop-zone-lecture-slides">
                   <file-drop
                     multiple="true"
-                    dropZoneLabel="{{ materialsDropZoneLabel }}"
-                    (onFileDrop)="lectureMaterialsDropped($event)"
+                    dropZoneLabel="{{ lectureSlidesDropZoneLabel }}"
+                    (onFileDrop)="lectureSlidesDropped($event)"
                     (onFileOver)="fileOver($event)"
                     (onFileLeave)="fileLeave($event)"
-                    contentClassName="ngx-content"
+                    contentClassName="ngx-content-materials"
                     dropZoneClassName="dummy-class"
                   >
                     <ul style="text-align: start !important">
-                      <li *ngFor="let item of lectureMaterials; let i = index">
+                      <li *ngFor="let item of lectureSlides; let i = index">
                         {{ item.relativePath }}
                       </li>
                     </ul>
                   </file-drop>
                 </div>
               </div>
-              <div class="col-md-3"></div>
+              <div class="col-md-5">
+                <h3 class="step-2-heading-code-files">Upload Code Files</h3>
+                <div class="drop-zone-code-files">
+                  <file-drop
+                    multiple="true"
+                    dropZoneLabel="{{ codeFilesDropZoneLabel }}"
+                    (onFileDrop)="codeFilesDropped($event)"
+                    (onFileOver)="fileOver($event)"
+                    (onFileLeave)="fileLeave($event)"
+                    contentClassName="ngx-content-materials"
+                    dropZoneClassName="dummy-class"
+                  >
+                    <ul style="text-align: start !important">
+                      <li *ngFor="let item of codeFiles; let i = index">
+                        {{ item.relativePath }}
+                      </li>
+                    </ul>
+                  </file-drop>
+                </div>
+              </div>
+              <div class="col-md-1"></div>
             </div>
 
             <div class="row save-slides-button">
-              <div class="col-md-3"></div>
-              <div class="col-md-6">
+              <div class="col">
                 <button class="btn btn-primary" (click)="upload()" awNextStep>
                   SAVE LECTURE
                 </button>
               </div>
-              <div class="col-md-3"></div>
             </div>
-
             <div class="row back-button">
-              <div class="col-md-3"></div>
-              <div class="col-md-6">
+              <div class="col">
                 <a awPreviousStep><u>GO BACK</u></a>
               </div>
-              <div class="col-md-3"></div>
             </div>
           </div>
         </aw-wizard-step>
@@ -125,8 +154,8 @@
                           >Let us generate the topics and questions for
                           you!</span
                         >
-                        <span
-                          > You will receive a notification once the topics and
+                        <span>
+                          You will receive a notification once the topics and
                           questions are ready for your review.</span
                         >
                       </h4>
@@ -160,7 +189,8 @@
                           showValue="true"
                           type="success"
                           [value]="uploadResponse.message"
-                        ></ngb-progressbar>
+                        >
+                        </ngb-progressbar>
                       </p>
                     </div>
                   </div>
@@ -171,7 +201,10 @@
           </div>
 
           <div *ngIf="uploadResponse">
-            <div *ngIf="uploadResponse.status === 200" class="row save-slides-button upload-slides-container">
+            <div
+              *ngIf="uploadResponse.status === 200"
+              class="row complete-rerun-button upload-slides-container"
+            >
               <div class="col-md-3"></div>
               <div class="col-md-6">
                 <button class="btn btn-primary">
@@ -180,8 +213,11 @@
               </div>
               <div class="col-md-3"></div>
             </div>
-  
-            <div *ngIf="uploadResponse.status !== 'progress'" class="row back-button upload-slides-container">
+
+            <div
+              *ngIf="uploadResponse.status !== 'progress'"
+              class="row back-home-button upload-slides-container"
+            >
               <div class="col-md-3"></div>
               <div class="col-md-6">
                 <a awPreviousStep><u>GO BACK TO HOME</u></a>
