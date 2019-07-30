@@ -46,6 +46,20 @@
                   [(ngModel)]="lectureDescription"
                 ></textarea>
               </div>
+
+              <div>
+                  <label for="moduleSelect">Module</label>
+                  <select id="moduleSelect" class="form-control">
+                    <option *ngFor="let module of modules">
+                      {{ module }}
+                    </option>
+                  </select>
+                </div>
+
+              <div class="tag-input-wrapper">
+                <tag-input [(ngModel)]="tags"></tag-input>
+              </div>
+
               <div class="save-video-button">
                 <button
                   [disabled]="disalbeNextButton"
@@ -65,16 +79,17 @@
         >
           <div class="upload-slides-container">
             <div class="upload-container row">
-              <div class="col-md-6">
+              <div class="col-md-1"></div>
+              <div class="col-md-5">
                 <h3 class="step-2-heading">Upload Lecture Slides</h3>
-                <div class="drop-zone">
+                <div class="drop-zone-lecture-slides">
                   <file-drop
                     multiple="true"
                     dropZoneLabel="{{ lectureSlidesDropZoneLabel }}"
                     (onFileDrop)="lectureSlidesDropped($event)"
                     (onFileOver)="fileOver($event)"
                     (onFileLeave)="fileLeave($event)"
-                    contentClassName="ngx-content"
+                    contentClassName="ngx-content-materials"
                     dropZoneClassName="dummy-class"
                   >
                     <ul style="text-align: start !important">
@@ -85,16 +100,16 @@
                   </file-drop>
                 </div>
               </div>
-              <div class="col-md-6">
-                <h3 class="step-2-heading">Upload Code Files</h3>
-                <div class="drop-zone">
+              <div class="col-md-5">
+                <h3 class="step-2-heading-code-files">Upload Code Files</h3>
+                <div class="drop-zone-code-files">
                   <file-drop
                     multiple="true"
                     dropZoneLabel="{{ codeFilesDropZoneLabel }}"
                     (onFileDrop)="codeFilesDropped($event)"
                     (onFileOver)="fileOver($event)"
                     (onFileLeave)="fileLeave($event)"
-                    contentClassName="ngx-content"
+                    contentClassName="ngx-content-materials"
                     dropZoneClassName="dummy-class"
                   >
                     <ul style="text-align: start !important">
@@ -105,24 +120,20 @@
                   </file-drop>
                 </div>
               </div>
+              <div class="col-md-1"></div>
             </div>
 
             <div class="row save-slides-button">
-              <div class="col-md-3"></div>
-              <div class="col-md-6">
+              <div class="col">
                 <button class="btn btn-primary" (click)="upload()" awNextStep>
                   SAVE LECTURE
                 </button>
               </div>
-              <div class="col-md-3"></div>
             </div>
-
             <div class="row back-button">
-              <div class="col-md-3"></div>
-              <div class="col-md-6">
+              <div class="col">
                 <a awPreviousStep><u>GO BACK</u></a>
               </div>
-              <div class="col-md-3"></div>
             </div>
           </div>
         </aw-wizard-step>
@@ -192,7 +203,7 @@
           <div *ngIf="uploadResponse">
             <div
               *ngIf="uploadResponse.status === 200"
-              class="row save-slides-button upload-slides-container"
+              class="row complete-rerun-button upload-slides-container"
             >
               <div class="col-md-3"></div>
               <div class="col-md-6">
@@ -205,7 +216,7 @@
 
             <div
               *ngIf="uploadResponse.status !== 'progress'"
-              class="row back-button upload-slides-container"
+              class="row back-home-button upload-slides-container"
             >
               <div class="col-md-3"></div>
               <div class="col-md-6">

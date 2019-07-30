@@ -16,6 +16,10 @@ export class UploadLectureComponent implements OnInit {
   public videoFiles: UploadFile[] = [];
   videoFile;
   droppedVideoFile;
+  tags;
+
+  // tslint:disable-next-line: no-inferrable-types
+  modules = ['OOP', 'OOC', 'Java'];
 
   public lectureSlides: UploadFile[] = [];
   public codeFiles: UploadFile[] = [];
@@ -127,6 +131,7 @@ export class UploadLectureComponent implements OnInit {
 
     this.formData.append('lectureName', this.lectureName);
     this.formData.append('lectureDescription', this.lectureDescription);
+    this.formData.append('tags', this.tags);
     // this.formData.append('lecture', this.videoFile, this.droppedVideoFile.relativePath);
 
     this.uploadService.upload(this.formData).subscribe(
