@@ -66,9 +66,9 @@
 
               <div>
                 <label for="moduleSelect">Module</label>
-                <select id="moduleSelect" class="form-control">
-                  <option *ngFor="let module of modules">
-                    {{ module }}
+                <select id="moduleSelect" class="form-control" [(ngModel)]="moduleName">
+                  <option *ngFor="let module of modules" value="module._id">
+                    {{ module.name }}
                   </option>
                 </select>
               </div>
