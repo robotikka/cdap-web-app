@@ -1,0 +1,30 @@
+.dark-modal .modal-content {
+    background-color: #009efb;
+    color: white;
+  }
+  .dark-modal .close {
+    color: white;
+  }
+  .light-blue-backdrop {
+    background-color: #5cb3fd;
+  }
+
+  .tab-content {
+    padding: 5px;
+  }
+
+  .btn-link {
+    background: none;
+    color: black;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    /*border is optional*/
+    /* border-bottom: 1px solid #009efd; */
+    cursor: pointer;
+  }
+
+  .edit-btn-wrapper {
+    // text-align: end;
+    padding-left: 5px;
+  }

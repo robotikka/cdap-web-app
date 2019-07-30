@@ -31,6 +31,7 @@ import { SlideMatchComponent } from './slide-match/slide-match.component';
 import { QuestionEditorComponent } from './question-editor/question-editor.component';
 import { InlineEditComponent } from './inline-edit/inline-edit.component';
 import { LoginDropdownComponent } from './login-dropdown/login-dropdown.component';
+import { ModuleManagerComponent } from './module-manager/module-manager.component';
 
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import { LoginDropdownComponent } from './login-dropdown/login-dropdown.componen
     NgbdtimepickerBasicComponent,
     NgbdtypeheadBasicComponent,
     CardsComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    ModuleManagerComponent
   ]
 })
 export class ComponentsModule {}
