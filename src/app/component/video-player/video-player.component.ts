@@ -10,6 +10,7 @@ import { PlayerCurrentTimeService } from '../../services/player-current-time.ser
 export class VideoPlayerComponent implements OnInit {
   @Input() videoSrc: string;
   @Input() videoType: string;
+  @Input() videoToggle: Function;
 
   private api: VgAPI;
 
@@ -23,6 +24,15 @@ export class VideoPlayerComponent implements OnInit {
 
     this.api.getDefaultMedia().subscriptions.pause.subscribe(() => {
       console.log('paused');
+    });
+
+    this.api.getDefaultMedia().subscriptions.canPlay.subscribe(() => {
+      console.log('Can play the video now');
+      this.videoToggle();
+    });
+
+    this.api.getDefaultMedia().subscriptions.loadedData.subscribe(() => {
+      console.log('Video loaded');
     });
 
     this.api.getDefaultMedia().subscriptions.timeUpdate.subscribe((data) => {

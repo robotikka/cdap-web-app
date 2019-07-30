@@ -1,5 +1,6 @@
 <div class="player-wrapper">
   <vg-player (onPlayerReady)="onPlayerReady($event)">
+    <vg-buffering vgFor="singleVideo"></vg-buffering>
     <video [vgMedia]="media" #media id="singleVideo" preload="metadata" controls>
       <source src="{{ videoSrc }}" type="video/{{ videoType }}" />
     </video>

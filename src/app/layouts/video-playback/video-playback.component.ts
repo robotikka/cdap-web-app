@@ -14,12 +14,10 @@ export class VideoPlaybackComponent implements OnInit {
   @ViewChild(VideoPlayerComponent) player;
 
   video;
-
   src = 'assets/gravity_falls_opening.mp4';
-
   currentTime: any;
-
   public _opened = false;
+  videoLoaded = false;
 
   topics = [{ topic: 'Topic 1', time: 1 },
   { topic: 'Topic 2', time: 10 },
@@ -63,5 +61,13 @@ export class VideoPlaybackComponent implements OnInit {
     this._opened = !this._opened;
 
   }
+
+  toggleVideoLoaded() {
+    this.videoLoaded = !this.videoLoaded;
+  }
+
+  get getVideoToggleMethod() {
+    return this.toggleVideoLoaded.bind(this);
+}
 
 }
