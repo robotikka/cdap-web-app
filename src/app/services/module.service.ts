@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -22,5 +22,15 @@ export class ModuleService {
       console.log(data);
       return data;
     }));
+  }
+
+  updateModule(id, module) {
+    const params = new HttpParams().set('moduleId', id)
+
+    return this.http.put(this.MODULE_URL + '?moduleId=' + id, module)
+      .pipe(map(data => {
+        console.log(data);
+        return data;
+      }));
   }
 }

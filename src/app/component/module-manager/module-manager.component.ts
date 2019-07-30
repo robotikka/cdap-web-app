@@ -14,10 +14,13 @@ export class ModuleManagerComponent implements OnInit {
   selectedModule;
 
   moduleForm: FormGroup;
+  editModuleForm: FormGroup;
 
   saving = false;
+  currentModuleEditing = false;
 
   alert = null;
+  updateAlert = null;
 
   validationMessages = {
     moduleName: [
@@ -28,7 +31,7 @@ export class ModuleManagerComponent implements OnInit {
   constructor(
     private moduleService: ModuleService,
     private fb: FormBuilder,
-    private authService: AuthenticationService
+    public authService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -42,6 +45,14 @@ export class ModuleManagerComponent implements OnInit {
   selectModule(module) {
     console.log(module);
     this.selectedModule = module;
+    this.currentModuleEditing = false;
+
+    if (this.selectedModule.createdBy === this.authService.currentUserValue.id) {
+      this.editModuleForm = this.fb.group({
+        name: [this.selectedModule.name, Validators.required],
+        description: [this.selectedModule.description]
+      });
+    }
   }
 
   createForm() {
@@ -83,14 +94,52 @@ export class ModuleManagerComponent implements OnInit {
     );
   }
 
+  updateModule(value) {
+    console.log(value);
+
+    this.saving = true;
+
+    this.moduleService.updateModule(this.selectedModule._id, value)
+      .pipe(first()).subscribe(
+      data => {
+        this.saving = false;
+        console.log('update module', data);
+        this.updateAlert = {
+          type: 'success',
+          message: 'New module added successfully'
+        };
+
+        this.currentModuleEditing = false;
+        this.getAllModules();
+        // this.router.navigate([this.returnUrl]);
+      },
+      error => {
+        this.saving = false;
+        if (error.error) {
+          this.updateAlert = {
+            type: 'danger',
+            message: error.error.error
+          };
+        }
+        this.currentModuleEditing = false;
+        console.log(error);
+      }
+    );
+  }
+
   closeAlert() {
     this.alert = null;
+    this.updateAlert = null;
   }
 
   getAllModules() {
     this.moduleService.getAllModules().subscribe((data) => {
       this.allModules = data;
     });
+  }
+
+  editCurrentModule() {
+    this.currentModuleEditing = true;
   }
 
 }

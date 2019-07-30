@@ -15,12 +15,71 @@
           </div>
         </div>
 
-        <div *ngIf="selectedModule" class="col-8">
-          <h3>{{ selectedModule.name }}</h3>
-          <small>{{ selectedModule.dateCreated }}</small>
-          <p>
-            {{ selectedModule.description }}
-          </p>
+        <div class="col-8">
+          <ngb-alert
+            *ngIf="updateAlert"
+            [type]="updateAlert.type"
+            (close)="closeAlert()"
+            >{{ updateAlert.message }}</ngb-alert
+          >
+          <div *ngIf="!currentModuleEditing">
+            <div *ngIf="selectedModule">
+              <h3>{{ selectedModule.name }}</h3>
+              <small>{{ selectedModule.dateCreated }}</small>
+              <div>
+                <p>
+                  {{ selectedModule.description }}
+                </p>
+              </div>
+              <div class="edit-btn-wrapper">
+                <button
+                  *ngIf="
+                    selectedModule.createdBy == authService.currentUserValue.id
+                  "
+                  class="btn-link"
+                  (click)="editCurrentModule()"
+                >
+                  <small><i class="fa fa-edit"></i> Edit</small>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="currentModuleEditing">
+            <form
+              [formGroup]="editModuleForm"
+              (ngSubmit)="updateModule(editModuleForm.value)"
+            >
+              <div class="form-group">
+                <label for="moduleName">Module Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="moduleName"
+                  placeholder="Enter name"
+                  formControlName="name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="moduleDescription">Module Description</label>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id="moduleDescription"
+                  placeholder="Enter description"
+                  formControlName="description"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="!editModuleForm.valid || saving"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </ng-template>
@@ -29,9 +88,13 @@
     <ng-template ngbTabContent>
       <div class="row">
         <div class="col-12">
-          <ngb-alert *ngIf="alert" [type]="alert.type" (close)="closeAlert()">{{ alert.message }}</ngb-alert>
-          <form [formGroup]="moduleForm" (ngSubmit)="saveModule(moduleForm.value)">
-
+          <ngb-alert *ngIf="alert" [type]="alert.type" (close)="closeAlert()">{{
+            alert.message
+          }}</ngb-alert>
+          <form
+            [formGroup]="moduleForm"
+            (ngSubmit)="saveModule(moduleForm.value)"
+          >
             <div class="form-group">
               <label for="moduleName">Module Name</label>
               <input
@@ -42,7 +105,6 @@
                 formControlName="name"
                 required
               />
-
             </div>
             <div class="form-group">
               <label for="moduleDescription">Module Description</label>
@@ -54,7 +116,13 @@
                 formControlName="description"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" [disabled]="!moduleForm.valid || saving">Submit</button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="!moduleForm.valid || saving"
+            >
+              Submit
+            </button>
           </form>
         </div>
       </div>
