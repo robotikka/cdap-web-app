@@ -41,6 +41,7 @@ import { HomeComponent } from './layouts/home/home.component';
 
 import { VideoThumbnailComponent } from './component/video-thumbnail/video-thumbnail.component';
 import { VideoPlayerComponent } from './component/video-player/video-player.component';
+import { VideoInfobarComponent } from './component/video-infobar/video-infobar.component';
 import { CodeEditorComponent } from './component/code-editor/code-editor.component';
 import { QuestionAskerComponent } from './component/question-asker/question-asker.component';
 import { QuestionComponent } from './component/question/question.component';
@@ -89,13 +90,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SidebarComponent,
     UploadLectureComponent,
     MyUploadsComponent,
+    VideoInfobarComponent,
     VideoPlaybackComponent,
     ProcessingTabComponent,
     PublishedTabComponent,
     ReviewTabComponent,
     HomeComponent,
     VideoThumbnailComponent,
-    VideoPlaybackComponent,
     VideoPlayerComponent,
     TopicModelComponent,
     VideoPlayerComponent,

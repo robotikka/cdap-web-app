@@ -4,7 +4,8 @@ import { Observable } from 'rxjs/Observable';
 const videos = [
   {
     id: '6f27ec0f-2046-473e-85c1-88183d2956c9',
-    src: 'assets/videos/2018-OOC-Lecture-05.mp4',
+    src: 'assets/gravity_falls_opening.mp4',
+    // src: 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/2018-OOC-Lecture-05.mp4',
     videoTitle: 'OOC Lecture 05',
     description: '2018 Object Oreiented Concepts Lecture 05',
     duration: '59:09',

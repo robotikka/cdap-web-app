@@ -43,8 +43,12 @@
               </vg-player>
             </div> -->
 
-        <app-video-player videoSrc="{{ video.src }}" videoType="mp4">
-        </app-video-player>
+        <div class="player-container">
+          <app-video-player [videoToggle]="getVideoToggleMethod" videoSrc="{{ video.src }}" videoType="mp4">
+          </app-video-player>
+          <app-video-infobar videoTitle="{{videoTitle}}" videoDescription="{{videoDescription}}">
+          </app-video-infobar>
+        </div>
       </div>
 
       <div class="row">
