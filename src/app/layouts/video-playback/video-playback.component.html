@@ -53,6 +53,8 @@
         </div>
       </div>
 
+      <app-comments [video]="video"></app-comments>
+
       <div class="row">
         <div class="question-component-wrapper col">
           <app-question-asker *ngIf="video['questions']" questionCount="{{ video['questions'].count }}"

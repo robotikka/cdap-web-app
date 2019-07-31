@@ -11,5 +11,6 @@ export const environment = {
   signup_url: ec2url + 'v1/user/signup',
   module_url: ec2url + 'v1/modules',
   metaDataURL: ec2url + 'v1/metadata',
-  medaDataSearchURL: ec2url + 'v1/metadata/search'
+  medaDataSearchURL: ec2url + 'v1/metadata/search',
+  commentsURL: ec2url + 'v1/videos/update-comments'
 };

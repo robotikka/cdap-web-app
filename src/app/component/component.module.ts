@@ -33,6 +33,7 @@ import { InlineEditComponent } from './inline-edit/inline-edit.component';
 import { LoginDropdownComponent } from './login-dropdown/login-dropdown.component';
 import { ModuleManagerComponent } from './module-manager/module-manager.component';
 import { VideoInfobarComponent } from './video-infobar/video-infobar.component';
+import { CommentsComponent } from './comments/comments.component';
 import { VideoSearchResultComponent } from './video-search-result/video-search-result.component';
 
 @NgModule({
@@ -60,6 +61,7 @@ import { VideoSearchResultComponent } from './video-search-result/video-search-r
     NgbdtypeheadBasicComponent,
     CardsComponent,
     ButtonsComponent,
+    CommentsComponent,
     ModuleManagerComponent,
     VideoSearchResultComponent
   ]
