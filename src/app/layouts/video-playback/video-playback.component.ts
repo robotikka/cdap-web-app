@@ -33,10 +33,6 @@ export class VideoPlaybackComponent implements OnInit {
     {user: 'John Doe', time: 'Wed Jul 31 2019 13:32:39', comment: 'This is the second comment'},
     {user: 'John Doe', time: 'Wed Jul 31 2019 13:32:39', comment: 'This is the third comment'}];
 
-  commentCount = this.comments.length;
-
-  myComment = '';
-
   selected = this.topics[0];
 
   constructor(
@@ -74,37 +70,6 @@ export class VideoPlaybackComponent implements OnInit {
   toggleSidebar() {
     this._opened = !this._opened;
 
-  }
-
-  dateConverter(date){
-    let commentedDate = new Date(date);
-    let currentDate = new Date ();
-    let diffMs = (currentDate.getTime() - commentedDate.getTime());
-    let diffSec = Math.round((diffMs / 1000));
-    let diffDays = Math.floor(diffMs / 86400000); // days
-    let diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
-    let diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
-    let weeks = Math.floor(diffMins / (24 * 7 * 60));
-    let months = Math.floor(diffMins / (24 * 30 * 60));
-    let years = Math.floor(diffMins / (24 * 365 * 60));
-
-    const diffs = [years, months, weeks, diffDays, diffHrs, diffMins, diffSec];
-    const units = ['Years', 'Months', 'Weeks', 'Days', 'Hours', 'Minutes', 'Seconds'];
-
-    for (let i = 0; i < diffs.length; i++) {
-      if (diffs[i] > 0) {
-        if (diffs[i] === 1) {
-          return(diffs[i] + ' ' + units[i].substring(0, (units[i].length - 1)));
-        } else {
-          return(diffs[i] + ' ' + units[i]);
-        }
-      }
-    }
-
-  }
-
-  reply(user) {
-    this.myComment += ' @' + user;
   }
 
   toggleVideoLoaded() {

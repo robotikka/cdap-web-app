@@ -195,6 +195,7 @@ ng-sidebar{
 .comment-time{
   color: #7d8b92;
   font-size: 12px;
+  text-align: right;
 }
 
 .reply-button{

@@ -53,65 +53,7 @@
         </div>
       </div>
 
-      <div class="row comments-section">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-body">
-                <div class="row">
-                  <div class="col-md-1">
-                    <img src="assets/images/users/1.jpg" alt="user" class="profile" />
-                  </div>
-                  <div class="col-md-11">
-                    <mat-form-field class="full-width">
-                    <textarea matInput maxlength="256" placeholder="Your Comment" matTextareaAutosize
-                              matAutosizeMinRows="2" matAutosizeMaxRows="5" [(ngModel)]="myComment"></textarea>
-                      <mat-hint align="start">Comment your ideas and suggestions about this video</mat-hint>
-                    </mat-form-field>
-                  </div>
-
-
-                </div>
-              <div class="row justify-content-end">
-                <button type="button" class="btn btn-outline-secondary btn-rounded comment-btn"><i class="fa fa-times"></i> Cancel </button>
-                <button type="button" class="btn btn-outline-info btn-rounded comment-btn"><i class="fa fa-comment"></i> Comment</button>
-              </div>
-              <div class="row" class="comments">
-                <div class="col-md-12">
-                    <ngb-accordion #acc="ngbAccordion" >
-                      <ngb-panel title="{{commentCount}} Comments">
-                        <ng-template ngbPanelContent>
-                          <div class="row" *ngFor="let comment of comments">
-                            <div class="col-md-1">
-                              <img src="assets/images/users/1.jpg" alt="user" class="profile-comments" />
-                            </div>
-                            <div class="col-md-11">
-                              <div class="row">
-                                <div class="col-md-8 comment-user">
-                                  {{comment.user}}
-                                </div>
-                                <div class="col-md-4 justify-content-end comment-time">
-                                  {{dateConverter(comment.time)}} Ago <span><button type="button" class="btn reply-button btn-rounded btn-sm btn-outline-info" (click)="reply(comment.user)"><i class="fa fa-reply"></i></button></span>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-md-12">
-                                  <p>{{comment.comment}}</p>
-                                </div>
-                              </div>
-
-                            </div>
-                          </div>
-                        </ng-template>
-                      </ngb-panel>
-                    </ngb-accordion>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-comments [video]="video"></app-comments>
 
       <div class="row">
         <div class="question-component-wrapper col">
