@@ -14,6 +14,11 @@ export class VideoPlaybackComponent implements OnInit {
   @ViewChild(VideoPlayerComponent) player;
 
   video;
+  videoTitle = 'Video Title OOP concepts Lecture 2';
+  videoDescription = 'Raw denim you probably havent heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth' +
+  ' master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh' +
+  'dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum' +
+  'iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.';
   src = 'assets/gravity_falls_opening.mp4';
   currentTime: any;
   public _opened = false;
@@ -49,9 +54,9 @@ export class VideoPlaybackComponent implements OnInit {
     this.player.seekVideo(time);
   }
 
-  seekVideoTopics(time){
+  seekVideoTopics(time) {
     time = time.split(':');
-    var time_in_seconds = parseInt(time[0], 10) * 60 * 60 +  parseInt(time[1], 10) * 60 + parseInt(time[2], 10);
+    const time_in_seconds = parseInt(time[0], 10) * 60 * 60 +  parseInt(time[1], 10) * 60 + parseInt(time[2], 10);
     console.log(time_in_seconds);
 
     this.player.seekVideo(time_in_seconds);

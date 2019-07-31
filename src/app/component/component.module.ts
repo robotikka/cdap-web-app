@@ -32,6 +32,7 @@ import { QuestionEditorComponent } from './question-editor/question-editor.compo
 import { InlineEditComponent } from './inline-edit/inline-edit.component';
 import { LoginDropdownComponent } from './login-dropdown/login-dropdown.component';
 import { ModuleManagerComponent } from './module-manager/module-manager.component';
+import { VideoInfobarComponent } from './video-infobar/video-infobar.component';
 
 @NgModule({
   imports: [
