@@ -40,7 +40,7 @@
                           {{comment.user}}
                         </div>
                         <div class="col-md-4 comment-time">
-                          {{dateConverter(comment.date)}} Ago <span><button type="button" class="btn reply-button btn-rounded btn-sm btn-outline-info" (click)="reply(comment.user)"><i class="fa fa-reply"></i></button></span>
+                          {{dateConverter(comment.date)}} Ago <span><button type="button" class="btn reply-button btn-rounded btn-sm btn-outline-info" (click)="reply(comment.user)" [disabled]="user == null"><i class="fa fa-reply"></i></button></span>
                         </div>
                       </div>
                       <div class="row">
