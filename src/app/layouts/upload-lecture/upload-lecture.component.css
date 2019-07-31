@@ -1,42 +1,90 @@
 .upload-lecture {
-    text-align: end !important;
+  text-align: end !important;
 }
 .drop-zone {
-    padding: 0 60px 0 60px;
+  padding: 0 60px 0 60px;
+}
+
+.drop-zone-lecture-slides {
+  /* padding-left: 60px; */
+  /* width: 500px; */
+  /* padding-right: 30px; */
+}
+
+.drop-zone-code-files {
+  /* width: 500px; */
+  /* padding-left: 30px; */
+  /* padding-right: 60px; */
 }
 
 .detail-form {
-    padding: 0 120px 0 0;
+  padding: 0 120px 0 0;
 }
 
 .upload-container {
-    padding-top: 60px;
+  padding-top: 60px;
 }
 
 .file-drop-zone {
-    height: 500px !important;
-    border: 3px dotted;
-    display: flex;
+  height: 500px !important;
+  border: 3px dotted;
+  display: flex;
 }
 
 .save-video-button {
-    padding-top: 20px;
-    text-align: end;
+  padding-top: 20px;
+  text-align: end;
 }
 
 .save-slides-button {
-    padding-top: 20px;
+  padding-top: 20px;
+  text-align: end;
+  padding-right: 100px;
 }
 
 .back-button {
-    padding-top: 5px;
+  padding-top: 5px;
+  text-align: end !important;
+  padding-right: 100px;
+}
+
+.complete-rerun-button {
+  padding-top: 20px;
+}
+
+.back-home-button {
+  padding-top: 5px;
 }
 
 .step-2-heading {
-    padding-left: 60px;
-    text-align: left !important;
+  /* padding-left: 60px; */
+  text-align: left !important;
+}
+
+.step-2-heading-code-files {
+  text-align: left !important;
 }
 
 .upload-slides-container {
-    text-align: center;
+  text-align: center;
+}
+
+.tag-input-wrapper {
+  padding-top: 6px;
+}
+
+.btn-link {
+  background: none;
+  color: black;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+  /*border is optional*/
+  /* border-bottom: 1px solid #009efd; */
+  cursor: pointer;
+}
+
+.manage-module-btn-wrapper {
+    padding-top: 5px;
+    text-align: end;
 }

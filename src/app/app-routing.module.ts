@@ -32,9 +32,6 @@ export const Approutes: Routes = [
       {
         path: 'upload',
         component: UploadLectureComponent,
-        data: {
-          title: 'Upload Lecture'
-        },
         canActivate: [AuthGuard]
       },
       {

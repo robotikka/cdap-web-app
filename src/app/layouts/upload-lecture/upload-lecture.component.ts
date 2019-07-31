@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
 import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
-import { environment } from '../../../environments/environment';
 import { UploadService } from '../../services/upload.service';
 
+import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
 import * as uuid from 'uuid';
+import { ModuleService } from '../../services/module.service';
 
 @Component({
   selector: 'app-upload-lecture',
@@ -16,8 +17,13 @@ export class UploadLectureComponent implements OnInit {
   public videoFiles: UploadFile[] = [];
   videoFile;
   droppedVideoFile;
+  tags;
 
-  public lectureMaterials: UploadFile[] = [];
+  // tslint:disable-next-line: no-inferrable-types
+  modules;
+
+  public lectureSlides: UploadFile[] = [];
+  public codeFiles: UploadFile[] = [];
   // lectureMaterial = [];
   // droppedLectureMaterial = [];
 
@@ -25,19 +31,25 @@ export class UploadLectureComponent implements OnInit {
 
   lectureName: string;
   lectureDescription: string;
+  moduleName: string;
 
   error: string;
   uploadResponse;
 
   videoDropZoneLabel: string;
-  materialsDropZoneLabel: string;
+  lectureSlidesDropZoneLabel: string;
+  codeFilesDropZoneLabel: string;
 
   // tslint:disable-next-line:no-inferrable-types
   canExitFirstStep: boolean = false;
   // tslint:disable-next-line:no-inferrable-types
   disalbeNextButton: boolean = true;
 
-  constructor(private uploadService: UploadService ) { }
+  constructor(
+    private uploadService: UploadService,
+    private modalService: NgbModal,
+    private moduleService: ModuleService
+    ) { }
 
   ngOnInit() {
     console.log('initialized');
@@ -46,6 +58,14 @@ export class UploadLectureComponent implements OnInit {
     this.formData.append('lectureId', id);
 
     this.changeDropZoneLabels();
+
+    this.getAllModules();
+  }
+
+  getAllModules() {
+    this.moduleService.getAllModules().subscribe((data) => {
+      this.modules = data;
+    });
   }
 
   public videoDropped(event: UploadEvent) {
@@ -58,8 +78,9 @@ export class UploadLectureComponent implements OnInit {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
 
-          this.videoFile = file;
-          this.droppedVideoFile = droppedFile;
+          this.formData.append('lectureVideo', file, droppedFile.relativePath);
+          // this.videoFile = file;
+          // this.droppedVideoFile = droppedFile;
 
           // Here you can access the real file
           console.log(droppedFile.relativePath, file);
@@ -75,15 +96,33 @@ export class UploadLectureComponent implements OnInit {
     this.changeDropZoneLabels();
   }
 
-  public lectureMaterialsDropped(event: UploadEvent) {
-    this.lectureMaterials = event.files;
+  public codeFilesDropped(event: UploadEvent) {
+    this.codeFiles = event.files;
 
     for (const droppedFile of event.files) {
 
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
-          this.formData.append('materials', file, droppedFile.relativePath);
+          this.formData.append('codeFiles', file, droppedFile.relativePath);
+        });
+      } else {
+        const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
+        console.log(droppedFile.relativePath, fileEntry);
+      }
+    }
+    this.changeDropZoneLabels();
+  }
+
+  public lectureSlidesDropped(event: UploadEvent) {
+    this.lectureSlides = event.files;
+
+    for (const droppedFile of event.files) {
+
+      if (droppedFile.fileEntry.isFile) {
+        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+        fileEntry.file((file: File) => {
+          this.formData.append('lectureSlides', file, droppedFile.relativePath);
         });
       } else {
         const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
@@ -106,8 +145,9 @@ export class UploadLectureComponent implements OnInit {
 
     this.formData.append('lectureName', this.lectureName);
     this.formData.append('lectureDescription', this.lectureDescription);
-
-    this.formData.append('lecture', this.videoFile, this.droppedVideoFile.relativePath);
+    this.formData.append('tags', this.tags);
+    this.formData.append('moduleName', this.moduleName);
+    // this.formData.append('lecture', this.videoFile, this.droppedVideoFile.relativePath);
 
     this.uploadService.upload(this.formData).subscribe(
       (res) => this.uploadResponse = res,
@@ -128,10 +168,16 @@ export class UploadLectureComponent implements OnInit {
       this.disalbeNextButton = true;
     }
 
-    if (this.lectureMaterials.length !== 0) {
-      this.materialsDropZoneLabel = '';
+    if (this.codeFiles.length !== 0) {
+      this.codeFilesDropZoneLabel = '';
     } else {
-      this.materialsDropZoneLabel = 'Drag and drop your lecture materials here';
+      this.codeFilesDropZoneLabel = 'Drag and drop your code files here';
+    }
+
+    if (this.lectureSlides.length !== 0) {
+      this.lectureSlidesDropZoneLabel = '';
+    } else {
+      this.lectureSlidesDropZoneLabel = 'Drag and drop your lecture slides here';
     }
   }
 
@@ -153,7 +199,17 @@ export class UploadLectureComponent implements OnInit {
     } else {
       this.canExitFirstStep = false;
     }
+  }
 
+  openModal(content) {
+    this.modalService.open(content, { size: 'lg' }).result.then(
+      result => {
+        this.getAllModules();
+      },
+      reason => {
+        this.getAllModules();
+      }
+    );
   }
 
 }

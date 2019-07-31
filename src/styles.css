@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 .ps .ps__scrollbar-y-rail {
     left: 3px;
@@ -18,9 +19,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 150px;
+    min-height: 285px;
     height: inherit;
 }   
+
+.ngx-content-materials {
+    border: 1px dashed !important;
+    /* background-color: azure; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    height: inherit;
+}
 
 .btn {
     vertical-align: initial !important;

@@ -1,7 +1,8 @@
+const ec2url = 'http://ec2-35-154-98-108.ap-south-1.compute.amazonaws.com:3000/';
 export const environment = {
   production: true,
-  upload_url: 'http://ec2-52-66-30-76.ap-south-1.compute.amazonaws.com:3000/v1/videos/upload',
+  upload_url: ec2url + 'v1/videos/upload',
   // upload_url: 'https://v-tutor-backend.herokuapp.com/v1/videos/upload'
-  authnetication_url: 'http://ec2-52-66-30-76.ap-south-1.compute.amazonaws.com:3000/v1/user/authenticate',
-  signup_url: 'http://ec2-52-66-30-76.ap-south-1.compute.amazonaws.com:3000/v1/user/signup'
+  authnetication_url: ec2url + 'v1/user/authenticate',
+  signup_url: ec2url + 'v1/user/signup'
 };

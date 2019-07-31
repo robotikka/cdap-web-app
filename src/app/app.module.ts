@@ -48,6 +48,7 @@ import { SlideMatchComponent} from './component/slide-match/slide-match.componen
 import { QuestionEditorComponent } from './component/question-editor/question-editor.component';
 import { InlineEditComponent } from './component/inline-edit/inline-edit.component';
 import { LoginDropdownComponent } from './component/login-dropdown/login-dropdown.component';
+import { ModuleManagerComponent } from './component/module-manager/module-manager.component';
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
@@ -63,6 +64,17 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { LoginComponent } from './layouts/login/login.component';
 import { RegisterComponent } from './layouts/register/register.component';
+
+import { TagInputModule } from 'ngx-chips';
+
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatInputModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule
+ } from '@angular/material';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -101,7 +113,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ExploreComponent,
     LoginComponent,
     LoginDropdownComponent,
-    RegisterComponent
+    RegisterComponent,
+    ModuleManagerComponent
   ],
   imports: [
     CommonModule,
@@ -123,7 +136,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpModule,
     Ng2CarouselamosModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatButtonModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    TagInputModule
   ],
   providers: [
     VideoDataService,
