@@ -58,8 +58,7 @@ import { VideoInfobarComponent } from './video-infobar/video-infobar.component';
     NgbdtimepickerBasicComponent,
     NgbdtypeheadBasicComponent,
     CardsComponent,
-    ButtonsComponent,
-    ModuleManagerComponent
+    ButtonsComponent
   ]
 })
 export class ComponentsModule {}
