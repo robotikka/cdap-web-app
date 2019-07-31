@@ -1,0 +1,28 @@
+.result-wrapper {
+    max-width: 800px;
+    cursor: pointer;
+    max-height: 160px !important;
+}
+
+.video-thumbnail {
+    width: 245px !important;
+    height: 160px !important;
+    object-fit: cover;
+    // height: 100%;
+}
+
+.video-details-wrapper {
+    padding: 8px 10px 5px 0;
+    text-overflow: ellipsis !important;
+}
+
+.description-text {
+    overflow: hidden;
+    height: 75px;
+}
+
+.card-text {
+    text-overflow: ellipsis;
+    text-align: justify;
+    padding-right: 20px;
+}

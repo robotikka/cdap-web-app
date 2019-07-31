@@ -34,6 +34,7 @@ import { LoginDropdownComponent } from './login-dropdown/login-dropdown.componen
 import { ModuleManagerComponent } from './module-manager/module-manager.component';
 import { VideoInfobarComponent } from './video-infobar/video-infobar.component';
 import { CommentsComponent } from './comments/comments.component';
+import { VideoSearchResultComponent } from './video-search-result/video-search-result.component';
 
 @NgModule({
   imports: [
@@ -60,7 +61,9 @@ import { CommentsComponent } from './comments/comments.component';
     NgbdtypeheadBasicComponent,
     CardsComponent,
     ButtonsComponent,
-    CommentsComponent
+    CommentsComponent,
+    ModuleManagerComponent,
+    VideoSearchResultComponent
   ]
 })
 export class ComponentsModule {}

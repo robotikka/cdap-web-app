@@ -1,0 +1,16 @@
+<div class="card result-wrapper" routerLink="/videoplayer/{{id}}">
+  <div class="row">
+    <div class="col-4">
+      <img class="img-responsive video-thumbnail" src="{{ thumbnailUrl }}" alt="{{ thumbnailAltText }}">
+    </div>
+    <div class="col-8 video-details-wrapper">
+      <h4>{{ videoTitle }}</h4>
+      <small>{{ duration }} </small>
+      <small *ngIf="duration && date">・</small>
+      <small> {{ date }}</small>
+      <div class="description-text">
+        <p class="card-text">{{ description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
