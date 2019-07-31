@@ -1,0 +1,19 @@
+<div *ngIf="searchResults">
+  <div class="row">
+    <div class="col">
+      <app-video-search-result
+        *ngFor="let result of searchResults"
+        videoTitle="{{ result.videoTitle }}"
+        description="{{ result.description }}"
+        date="{{ result.date }}"
+        thumbnailUrl="{{ result.thumbnailUrl }}"
+        id="{{ result.id }}"
+        duration="{{ result.duration }}"
+      ></app-video-search-result>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!searchings && searchResults">
+  <h3 *ngIf="searchResults.length === 0">No search results found.</h3>
+</div>

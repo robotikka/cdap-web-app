@@ -25,7 +25,7 @@ export class ModuleService {
   }
 
   updateModule(id, module) {
-    const params = new HttpParams().set('moduleId', id)
+    const params = new HttpParams().set('moduleId', id);
 
     return this.http.put(this.MODULE_URL + '?moduleId=' + id, module)
       .pipe(map(data => {

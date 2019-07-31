@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/internal/observable/of';
 import { environment } from '../../environments/environment';
@@ -878,6 +878,7 @@ const processingVideos = [
 export class VideoDataService {
 
   private META_DATA_URL = environment.metaDataURL;  // URL to web api
+  private META_DATA_SEARCH_URL = environment.medaDataSearchURL;
 
   constructor(private http: HttpClient) { }
 
@@ -903,6 +904,21 @@ export class VideoDataService {
           catchError(this.handleError<any[]>('getAllVideoMetadata', []))
         );
     }
+  }
+
+  searchVideo(searchKey: string, projection?: string): Observable<any[]> {
+    console.log(searchKey);
+    console.log(projection);
+
+      const headers = new HttpHeaders()
+        .set('cdap-search-string', searchKey)
+        .set('cdap-projection-values', projection);
+
+    return this.http.get<any[]>(this.META_DATA_SEARCH_URL, {headers: headers})
+      .pipe(
+        tap(_ => console.log('fetched metadata for search key ', searchKey)),
+        catchError(this.handleError<any[]>('searchVideo', []))
+      );
   }
 
   getVideosUpForReview() {

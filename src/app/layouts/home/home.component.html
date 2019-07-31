@@ -16,8 +16,8 @@
   <div class="searchbar-container row">
     <div class="col-md-3"></div>
     <div class="searchbar-wrapper col-lg-12 text-center">
-      <input class="search-box form-control" (keyup)="search($event)" />
-      <button class="search-btn btn btn-primary">FIND MY LECTURE</button>
+      <input class="search-box form-control" [(ngModel)]="searchKey" (keyup.enter)="searchLecture()" />
+      <button class="search-btn btn btn-primary" (click)="searchLecture()">FIND MY LECTURE</button>
     </div>
   </div>
 </div>

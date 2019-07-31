@@ -50,6 +50,7 @@ import { QuestionEditorComponent } from './component/question-editor/question-ed
 import { InlineEditComponent } from './component/inline-edit/inline-edit.component';
 import { LoginDropdownComponent } from './component/login-dropdown/login-dropdown.component';
 import { ModuleManagerComponent } from './component/module-manager/module-manager.component';
+import { VideoSearchResultComponent } from './component/video-search-result/video-search-result.component';
 
 import { PlayerCurrentTimeService } from './services/player-current-time.service';
 import { SidebarModule } from 'ng-sidebar';
@@ -76,6 +77,7 @@ import {
   MatDatepickerModule,
   MatNativeDateModule
  } from '@angular/material';
+import { SearchResultsComponent } from './layouts/search-results/search-results.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -115,7 +117,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     LoginComponent,
     LoginDropdownComponent,
     RegisterComponent,
-    ModuleManagerComponent
+    ModuleManagerComponent,
+    SearchResultsComponent,
+    VideoSearchResultComponent
   ],
   imports: [
     CommonModule,

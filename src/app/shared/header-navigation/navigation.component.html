@@ -14,8 +14,13 @@
 <!-- User profile and search -->
 <!-- ============================================================== -->
 <div *ngIf="router.url != '/home'" class="searchbar-wrapper">
-    <input class="search-box form-control" placeholder="Search" />
-    <i class="search-icon fa fa-search"></i>
+  <input
+    class="search-box form-control"
+    placeholder="Search"
+    [(ngModel)]="searchKey"
+    (keyup.enter)="searchLecture()"
+  />
+  <i class="search-icon fa fa-search" (click)="searchLecture()"></i>
 </div>
 
 <ul class="navbar-nav my-lg-0 float-right">
