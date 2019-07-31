@@ -13,12 +13,20 @@ export class ExploreComponent implements OnInit {
   constructor(private videoDataService: VideoDataService) { }
 
   ngOnInit() {
-    this.getVideos();
+    // this.getVideos();
+    this.getVideoMetaData();
   }
 
-  getVideos(): void {
-    this.videoDataService.getVideos()
-      .subscribe(v => this.videos = v);
+  // getVideos(): void {
+  //   this.videoDataService.getVideos()
+  //     .subscribe(v => this.videos = v);
+  // }
+
+  getVideoMetaData(): void {
+    this.videoDataService.getAllVideoMetadata('id videoTitle thumbnailUrl description')
+      .subscribe(data => {
+        this.videos = data;
+      });
   }
 
 }
