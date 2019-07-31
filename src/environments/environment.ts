@@ -9,5 +9,6 @@ export const environment = {
   upload_url: ec2url + 'v1/videos/upload',
   authnetication_url: ec2url + 'v1/user/authenticate',
   signup_url: ec2url + 'v1/user/signup',
-  module_url: ec2url + 'v1/modules'
+  module_url: ec2url + 'v1/modules',
+  metaDataURL: ec2url + 'v1/metadata'
 };
