@@ -7,10 +7,12 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
 declare var $: any;
 @Component({
   selector: 'app-navigation',
-  templateUrl: './navigation.component.html'
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements AfterViewInit {
   @Output() toggleSidebar = new EventEmitter<void>();
@@ -18,7 +20,11 @@ export class NavigationComponent implements AfterViewInit {
   private loggedIn = false;
 
   public config: PerfectScrollbarConfigInterface = {};
-  constructor(private modalService: NgbModal, public authService: AuthenticationService) {
+  constructor(
+    private modalService: NgbModal,
+    public authService: AuthenticationService,
+    public router: Router
+  ) {
     console.log(this.authService.currentUserValue);
   }
 
