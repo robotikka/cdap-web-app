@@ -149,3 +149,45 @@ ng-sidebar{
   .sidebar a {font-size: 18px;}
 }
 
+.full-width {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.comments-section{
+  margin-top: 30px;
+}
+.comment-btn{
+  margin: 0px 10px;
+}
+
+.comments{
+  margin-top: 25px;
+}
+
+.profile{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: 20px;
+}
+.profile-comments{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+}
+
+.comment-user{
+  font-weight: bold;
+}
+
+.comment-time{
+  color: #7d8b92;
+}
+
+.reply-button{
+  margin-left: 10px;
+}
