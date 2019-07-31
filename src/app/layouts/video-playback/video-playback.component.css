@@ -189,10 +189,12 @@ ng-sidebar{
 
 .comment-user{
   font-weight: bold;
+  font-size: 15px;
 }
 
 .comment-time{
   color: #7d8b92;
+  font-size: 12px;
 }
 
 .reply-button{
