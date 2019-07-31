@@ -7,16 +7,12 @@
   </div>
 
   <div class="btn-list-wrapper">
-    <div class="btn-wrapper" *ngFor="let topic of topics; let i = index">
-      <div (click)="seekVideo(topic.time)">
-        <button
-          type="button"
-          class="btn btn-circle btn-lg btn-primary "
-
-        >
+    <div class="btn-wrapper" *ngFor="let topic of video.topics; let i = index">
+      <div (click)="seekVideoTopics(topic.time)">
+        <button type="button" class="btn btn-circle btn-lg btn-primary ">
           <p>{{ i + 1 }}</p>
         </button>
-        <strong *ngIf="_opened">{{ topic.topic }}</strong>
+        <strong *ngIf="_opened">{{ topic.title }}</strong>
       </div>
     </div>
   </div>
@@ -28,7 +24,13 @@
           <button type="button" class="btn btn-primary btn-circle btn-lg" (click)="toggleSidebar()"><i class="fa fa-list"></i> </button>
         </div> -->
     <div class="col-md-7">
-      <div class="row">
+      <div class="row video-loading-gif justify-content-center flex-column" [hidden]="videoLoaded">
+          <div style="padding: 100px 0px 10px 0px; text-align: center;">
+              <img src="assets/images/loading.gif" alt="John Doe">
+              <p class="loading-text">Loading Media...</p>
+          </div>
+      </div>
+      <div class="row" [hidden]="!videoLoaded">
         <!-- <div class="player-container">
               <vg-player (onPlayerReady)="onPlayerReady($event)">
                 <video
@@ -43,8 +45,10 @@
               </vg-player>
             </div> -->
 
-        <app-video-player videoSrc="{{ video.src }}" videoType="mp4">
-        </app-video-player>
+        <div class="player-container">
+          <app-video-player [videoToggle]="getVideoToggleMethod" videoSrc="{{ video.src }}" videoType="mp4">
+          </app-video-player>
+        </div>
       </div>
 
       <div class="row comments-section">
@@ -109,11 +113,8 @@
 
       <div class="row">
         <div class="question-component-wrapper col">
-          <app-question-asker
-            *ngIf="video['questions']"
-            questionCount="{{ video['questions'].count }}"
-            [questions]="video['questions'].questions"
-          >
+          <app-question-asker *ngIf="video['questions']" questionCount="{{ video['questions'].count }}"
+            [questions]="video['questions'].questions">
           </app-question-asker>
         </div>
 
@@ -131,7 +132,7 @@
           <ngb-tabset justify="justified" type="pills">
             <ngb-tab title="Code Finder">
               <ng-template ngbTabContent>
-                  <app-code-editor [seekVideo]="getSeekFunction" [code]="video.code"></app-code-editor>
+                <app-code-editor [seekVideo]="getSeekFunction" [code]="video.code"></app-code-editor>
               </ng-template>
             </ngb-tab>
             <ngb-tab title="Lecture Slides">

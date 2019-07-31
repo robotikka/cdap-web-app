@@ -6,13 +6,17 @@
   </div>
   <div class="tagline row">
     <div class="col">
-      <h2>Your video lecture platform with improved searchability and interactivity.</h2>
+      <h2>
+        Your video lecture platform with improved searchability and
+        interactivity.
+      </h2>
     </div>
   </div>
 
   <div class="searchbar-container row">
+    <div class="col-md-3"></div>
     <div class="searchbar-wrapper col-lg-12 text-center">
-      <input class="search-box form-control">
+      <input class="search-box form-control" (keyup)="search($event)" />
       <button class="search-btn btn btn-primary">FIND MY LECTURE</button>
     </div>
   </div>
@@ -20,14 +24,14 @@
 
 <p>Recent Uploads</p>
 <div class="row justify-content-center">
-  <div class="col-md-3" *ngFor="let item of videos">
+  <div class="col-md-3" *ngFor="let item of filteredVideos">
     <app-video-thumbnail
       videoTitle="{{ item.videoTitle }}"
       description="{{ item.description }}"
       duration="{{ item.duration }}"
       thumbnailUrl="{{ item.thumbnailUrl }}"
       [reviewBtn]="false"
-      id="{{item.id}}"
+      id="{{ item.id }}"
     ></app-video-thumbnail>
   </div>
 </div>

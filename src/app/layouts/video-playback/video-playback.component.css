@@ -1,7 +1,14 @@
 .player-container {
-    max-width: 800px;
+  width: 100%;
 }
 
+.video-loading-gif {
+  align-content: center;
+}
+
+.loading-text {
+  color: #009EFD;
+}
 
 li{
   padding: 15px 10px;

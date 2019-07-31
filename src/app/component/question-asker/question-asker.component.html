@@ -14,7 +14,7 @@
     (answerSubmit)="receiveAnswer($event)"
     (prevQuestion)="goToPrevQuestion($event)"
     question="{{ currentQustion.questionBody }}"
-    [answers]="answers"
+    [answers]="currentQustion.answers"
     [hasMoreQuestions]="hasMoreQuestions"
     [hasPrevQuestion]="hasPrevQuestions"
     ></app-question>

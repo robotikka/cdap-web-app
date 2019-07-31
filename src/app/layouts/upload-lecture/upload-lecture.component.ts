@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
 import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
-import { environment } from '../../../environments/environment';
 import { UploadService } from '../../services/upload.service';
 
+import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
 import * as uuid from 'uuid';
+import { ModuleService } from '../../services/module.service';
 
 @Component({
   selector: 'app-upload-lecture',
@@ -19,7 +20,7 @@ export class UploadLectureComponent implements OnInit {
   tags;
 
   // tslint:disable-next-line: no-inferrable-types
-  modules = ['OOP', 'OOC', 'Java'];
+  modules;
 
   public lectureSlides: UploadFile[] = [];
   public codeFiles: UploadFile[] = [];
@@ -30,6 +31,7 @@ export class UploadLectureComponent implements OnInit {
 
   lectureName: string;
   lectureDescription: string;
+  moduleName: string;
 
   error: string;
   uploadResponse;
@@ -43,7 +45,11 @@ export class UploadLectureComponent implements OnInit {
   // tslint:disable-next-line:no-inferrable-types
   disalbeNextButton: boolean = true;
 
-  constructor(private uploadService: UploadService ) { }
+  constructor(
+    private uploadService: UploadService,
+    private modalService: NgbModal,
+    private moduleService: ModuleService
+    ) { }
 
   ngOnInit() {
     console.log('initialized');
@@ -52,6 +58,14 @@ export class UploadLectureComponent implements OnInit {
     this.formData.append('lectureId', id);
 
     this.changeDropZoneLabels();
+
+    this.getAllModules();
+  }
+
+  getAllModules() {
+    this.moduleService.getAllModules().subscribe((data) => {
+      this.modules = data;
+    });
   }
 
   public videoDropped(event: UploadEvent) {
@@ -132,6 +146,7 @@ export class UploadLectureComponent implements OnInit {
     this.formData.append('lectureName', this.lectureName);
     this.formData.append('lectureDescription', this.lectureDescription);
     this.formData.append('tags', this.tags);
+    this.formData.append('moduleName', this.moduleName);
     // this.formData.append('lecture', this.videoFile, this.droppedVideoFile.relativePath);
 
     this.uploadService.upload(this.formData).subscribe(
@@ -184,7 +199,17 @@ export class UploadLectureComponent implements OnInit {
     } else {
       this.canExitFirstStep = false;
     }
+  }
 
+  openModal(content) {
+    this.modalService.open(content, { size: 'lg' }).result.then(
+      result => {
+        this.getAllModules();
+      },
+      reason => {
+        this.getAllModules();
+      }
+    );
   }
 
 }

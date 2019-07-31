@@ -15,12 +15,10 @@ export class VideoPlaybackComponent implements OnInit {
   @ViewChild(VideoPlayerComponent) player;
 
   video;
-
   src = 'assets/gravity_falls_opening.mp4';
-
   currentTime: any;
-
   public _opened = false;
+  videoLoaded = false;
 
   topics = [{ topic: 'Topic 1', time: 1 },
   { topic: 'Topic 2', time: 10 },
@@ -44,6 +42,7 @@ export class VideoPlaybackComponent implements OnInit {
 
   ngOnInit() {
     this.video = this.route.snapshot.data['video'];
+    console.log(this.video);
 
     this.currentTimeService.currentTime.subscribe(time => {
       this.currentTime = time;
@@ -55,7 +54,16 @@ export class VideoPlaybackComponent implements OnInit {
   }
 
   seekVideo(time) {
+
     this.player.seekVideo(time);
+  }
+
+  seekVideoTopics(time){
+    time = time.split(':');
+    var time_in_seconds = parseInt(time[0], 10) * 60 * 60 +  parseInt(time[1], 10) * 60 + parseInt(time[2], 10);
+    console.log(time_in_seconds);
+
+    this.player.seekVideo(time_in_seconds);
   }
 
   toggleSidebar() {
@@ -93,5 +101,13 @@ export class VideoPlaybackComponent implements OnInit {
   reply(user) {
     this.myComment += ' @' + user;
   }
+
+  toggleVideoLoaded() {
+    this.videoLoaded = !this.videoLoaded;
+  }
+
+  get getVideoToggleMethod() {
+    return this.toggleVideoLoaded.bind(this);
+}
 
 }
