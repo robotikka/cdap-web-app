@@ -70,7 +70,7 @@ export const Approutes: Routes = [
         component: RegisterComponent
       },
       {
-        path: 'search',
+        path: 'search/:s',
         component: SearchResultsComponent
       }
     ]

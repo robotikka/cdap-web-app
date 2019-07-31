@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,9 @@ export class HomeComponent implements OnInit {
   videos: any[];
   filteredVideos: any[];
 
-  constructor() {
+  searchKey: string;
+
+  constructor(private router: Router) {
     this.videos = [
       {
         videoTitle: 'OOC Lecture 05',
@@ -68,5 +71,11 @@ export class HomeComponent implements OnInit {
     }
 
 
+  }
+
+  searchLecture() {
+    if (this.searchKey) {
+      this.router.navigate(['/search', this.searchKey]);
+    }
   }
 }

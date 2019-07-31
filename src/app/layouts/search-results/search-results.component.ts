@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { VideoDataService } from '../../services/video-data.service';
 
 @Component({
   selector: 'app-search-results',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultsComponent implements OnInit {
 
-  searchResults = [
+  searchResults1 = [
     {
         'questions': {
             'questions': []
@@ -25,7 +28,7 @@ export class SearchResultsComponent implements OnInit {
         'comments': [],
         '_id': '5d4017701c9d440000fc8665',
         'id': 'a2d60977-8ffb-45d5-8353-80ba5fe445ef',
-        'videoTitle': 'OOC Lecture 5',
+        ' ': 'OOC Lecture 5',
         'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         'video_url': 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/a2d60977-8ffb-45d5-8353-80ba5fe445ef/2018-OOC-Lecture-05.mp4',
         'thumbnailUrl': 'https://cdap-19-087-vtutor-lecturematerials.s3.ap-south-1.amazonaws.com/a2d60977-8ffb-45d5-8353-80ba5fe445ef/thumbnail/thumbnail.jpg'
@@ -66,9 +69,29 @@ export class SearchResultsComponent implements OnInit {
     }
 ];
 
-  constructor() { }
+  searchResults;
+  // tslint:disable-next-line: no-inferrable-types
+  searching: boolean = true;
+
+  constructor(
+      private route: ActivatedRoute,
+      private videoDataService: VideoDataService
+    ) { }
 
   ngOnInit() {
+    this.searching = true;
+    console.log('init');
+    const searchKey = this.route.snapshot.paramMap.get('s');
+    this.videoDataService
+      .searchVideo(
+        searchKey,
+        'thumbnailUrl video_url duration date id _id videoTitle description'
+      )
+      .subscribe(data => {
+        console.log(data);
+        this.searchResults = data;
+        this.searching = false;
+      });
   }
 
 }

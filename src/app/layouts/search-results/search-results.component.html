@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="searchResults">
   <div class="row">
     <div class="col">
       <app-video-search-result
@@ -12,4 +12,8 @@
       ></app-video-search-result>
     </div>
   </div>
+</div>
+
+<div *ngIf="!searchings && searchResults">
+  <h3 *ngIf="searchResults.length === 0">No search results found.</h3>
 </div>
