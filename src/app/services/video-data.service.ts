@@ -887,14 +887,22 @@ export class VideoDataService {
     });
   }
 
-  getAllVideoMetadata(projection): Observable<any[]> {
-    const headers = new HttpHeaders()
-            .set('cdap-projection-values', projection);
-    return this.http.get<any[]>(this.META_DATA_URL, {headers})
-      .pipe(
-        tap(_ => console.log('fetched metadata of all videos')),
-        catchError(this.handleError<any[]>('getAllVideoMetadata', []))
-      );
+  getAllVideoMetadata(projection?: string): Observable<any[]> {
+    if (projection) {
+      const headers = new HttpHeaders()
+        .set('cdap-projection-values', projection);
+      return this.http.get<any[]>(this.META_DATA_URL, { headers })
+        .pipe(
+          tap(_ => console.log('fetched metadata of all videos')),
+          catchError(this.handleError<any[]>('getAllVideoMetadata', []))
+        );
+    } else {
+      return this.http.get<any[]>(this.META_DATA_URL)
+        .pipe(
+          tap(_ => console.log('fetched metadata of all videos')),
+          catchError(this.handleError<any[]>('getAllVideoMetadata', []))
+        );
+    }
   }
 
   getVideosUpForReview() {
@@ -909,13 +917,22 @@ export class VideoDataService {
     });
   }
 
-  getVideo(id) {
-    return Observable.create(observer => {
-      setTimeout(() => {
-        observer.next(videos.find((video) => video.id === id));
-        observer.complete();
-      }, 0);
-    });
+  getVideo(id: string, projection?: string) {
+    if (projection) {
+      const headers = new HttpHeaders()
+        .set('cdap-projection-values', projection);
+      return this.http.get<any[]>(`${this.META_DATA_URL}/${id}`, { headers })
+        .pipe(
+          tap(_ => console.log(`fetched metadata of ${id}`)),
+          catchError(this.handleError<any[]>('getVideo', []))
+        );
+    } else {
+      return this.http.get<any[]>(`${this.META_DATA_URL}/${id}`)
+        .pipe(
+          tap(_ => console.log(`fetched metadata of ${id}`)),
+          catchError(this.handleError<any[]>('getVideo', []))
+        );
+    }
   }
 
   /**
