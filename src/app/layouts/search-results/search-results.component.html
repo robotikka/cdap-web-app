@@ -1,0 +1,15 @@
+<div>
+  <div class="row">
+    <div class="col">
+      <app-video-search-result
+        *ngFor="let result of searchResults"
+        videoTitle="{{ result.videoTitle }}"
+        description="{{ result.description }}"
+        date="{{ result.date }}"
+        thumbnailUrl="{{ result.thumbnailUrl }}"
+        id="{{ result.id }}"
+        duration="{{ result.duration }}"
+      ></app-video-search-result>
+    </div>
+  </div>
+</div>

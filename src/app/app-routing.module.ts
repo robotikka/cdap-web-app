@@ -14,6 +14,7 @@ import { VideoDataResolve } from './services/video-data.resolve';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './layouts/login/login.component';
 import { RegisterComponent } from './layouts/register/register.component';
+import { SearchResultsComponent } from './layouts/search-results/search-results.component';
 
 export const Approutes: Routes = [
   {
@@ -67,6 +68,10 @@ export const Approutes: Routes = [
       {
         path: 'register',
         component: RegisterComponent
+      },
+      {
+        path: 'search',
+        component: SearchResultsComponent
       }
     ]
   },
