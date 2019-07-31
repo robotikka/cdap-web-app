@@ -48,7 +48,7 @@
         <div class="player-container">
           <app-video-player [videoToggle]="getVideoToggleMethod" videoSrc="{{ video.video_url }}" videoType="mp4">
           </app-video-player>
-          <app-video-infobar videoTitle="{{videoTitle}}" videoDescription="{{videoDescription}}">
+          <app-video-infobar videoTitle="{{video.videoTitle}}" videoDescription="{{video.description}}">
           </app-video-infobar>
         </div>
       </div>
