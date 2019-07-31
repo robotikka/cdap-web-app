@@ -2,44 +2,70 @@
 <!-- toggle and nav items -->
 <!-- ============================================================== -->
 <ul class="navbar-nav mr-auto float-left">
-    <li (click)="toggleSidebar.emit()" class="nav-item m-l-10 d-block d-lg-none">
-        <a class="nav-link sidebartoggler text-muted waves-effect waves-dark" href="javascript:void(0)"><i
-                class="ti-menu"></i></a>
-    </li>
+  <li (click)="toggleSidebar.emit()" class="nav-item m-l-10 d-block d-lg-none">
+    <a
+      class="nav-link sidebartoggler text-muted waves-effect waves-dark"
+      href="javascript:void(0)"
+      ><i class="ti-menu"></i
+    ></a>
+  </li>
 </ul>
 <!-- ============================================================== -->
 <!-- User profile and search -->
 <!-- ============================================================== -->
-<ul class="navbar-nav my-lg-0 float-right">
-    <!-- ============================================================== -->
-    <!-- Profile -->
-    <!-- ============================================================== -->
-    <p>Search bar here</p>
-    <li class="nav-item dropdown" ngbDropdown placement="bottom-right">
-        <a *ngIf="authService.currentUserValue" ngbDropdownToggle
-            class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="javascript:void(0)"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg"
-                alt="user" class="profile-pic" /></a>
-        <div class="dropdown-menu animated slideInDown" ngbDropdownMenu>
-            <ul class="dropdown-user">
-                
-                <li>
-                    <a (click)="authService.logout()" href="#"><i class="fa fa-power-off"></i> Logout</a>
-                </li>
-            </ul>
-        </div>
-    </li>
+<div *ngIf="router.url != '/home'" class="searchbar-wrapper">
+    <input class="search-box form-control" placeholder="Search" />
+    <i class="search-icon fa fa-search"></i>
+</div>
 
-    <li *ngIf="!authService.currentUserValue" class="nav-item dropdown" ngbDropdown placement="bottom-right" autoClose="false">
-        <a *ngIf="!authService.currentUserValue" ngbDropdownToggle
-            class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="javascript:void(0)"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <button type="button" class="btn btn-rounded btn-outline-success">
-                Login
-            </button>
-        </a>
-        <div class="dropdown-menu animated slideInDown" ngbDropdownMenu>
-           <app-login-dropdown></app-login-dropdown>
-        </div>
-    </li>
+<ul class="navbar-nav my-lg-0 float-right">
+  <!-- ============================================================== -->
+  <!-- Profile -->
+  <!-- ============================================================== -->
+  <li class="nav-item dropdown" ngbDropdown placement="bottom-right">
+    <a
+      *ngIf="authService.currentUserValue"
+      ngbDropdownToggle
+      class="nav-link dropdown-toggle text-muted waves-effect waves-dark"
+      href="javascript:void(0)"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+      ><img src="assets/images/users/1.jpg" alt="user" class="profile-pic"
+    /></a>
+    <div class="dropdown-menu animated slideInDown" ngbDropdownMenu>
+      <ul class="dropdown-user">
+        <li>
+          <a (click)="authService.logout()" href="#"
+            ><i class="fa fa-power-off"></i> Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </li>
+
+  <li
+    *ngIf="!authService.currentUserValue"
+    class="nav-item dropdown"
+    ngbDropdown
+    placement="bottom-right"
+    autoClose="false"
+  >
+    <a
+      *ngIf="!authService.currentUserValue"
+      ngbDropdownToggle
+      class="nav-link dropdown-toggle text-muted waves-effect waves-dark"
+      href="javascript:void(0)"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <button type="button" class="btn btn-rounded btn-outline-success">
+        Login
+      </button>
+    </a>
+    <div class="dropdown-menu animated slideInDown" ngbDropdownMenu>
+      <app-login-dropdown></app-login-dropdown>
+    </div>
+  </li>
 </ul>
