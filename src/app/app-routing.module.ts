@@ -59,7 +59,10 @@ export const Approutes: Routes = [
       },
       {
         path: 'explore',
-        component: ExploreComponent
+        component: ExploreComponent,
+        data: {
+          title: 'Explore'
+        }
       },
       {
         path: 'login',
