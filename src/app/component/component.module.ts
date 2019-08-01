@@ -35,6 +35,7 @@ import { ModuleManagerComponent } from './module-manager/module-manager.componen
 import { VideoInfobarComponent } from './video-infobar/video-infobar.component';
 import { CommentsComponent } from './comments/comments.component';
 import { VideoSearchResultComponent } from './video-search-result/video-search-result.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   imports: [
@@ -63,7 +64,8 @@ import { VideoSearchResultComponent } from './video-search-result/video-search-r
     ButtonsComponent,
     CommentsComponent,
     ModuleManagerComponent,
-    VideoSearchResultComponent
+    VideoSearchResultComponent,
+    UserProfileComponent
   ]
 })
 export class ComponentsModule {}
