@@ -25,10 +25,10 @@
         </div> -->
     <div class="col-md-7">
       <div class="row video-loading-gif justify-content-center flex-column" [hidden]="videoLoaded">
-          <div style="padding: 100px 0px 10px 0px; text-align: center;">
-              <img src="assets/images/loading.gif" alt="John Doe">
-              <p class="loading-text">Loading Media...</p>
-          </div>
+        <div style="padding: 100px 0px 10px 0px; text-align: center;">
+          <img src="assets/images/loading.gif" alt="John Doe">
+          <p class="loading-text">Loading Media...</p>
+        </div>
       </div>
       <div class="row" [hidden]="!videoLoaded">
         <!-- <div class="player-container">
@@ -55,31 +55,34 @@
 
       <app-comments [video]="video"></app-comments>
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="question-component-wrapper col">
           <app-question-asker *ngIf="video['questions']" questionCount="{{ video['questions'].count }}"
             [questions]="video['questions'].questions">
           </app-question-asker>
         </div>
-
-        <!-- <button type="button" class="btn btn-rounded btn-block btn-primary" (click)="seekVideo(30)" style="width:auto; margin-top: 10px">Seek video to 30 seconds</button>
-            <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
-              master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
-              dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
-              iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p> -->
-      </div>
+      </div> -->
     </div>
 
     <div class="col-md-5">
       <div class="card">
         <div class="card-body">
           <ngb-tabset justify="justified" type="pills">
-            <ngb-tab title="Code Finder">
+            <ngb-tab title="Code">
               <ng-template ngbTabContent>
-                <app-code-editor [seekVideo]="getSeekFunction" [code]="video.code"></app-code-editor>
+                <app-code-editor class="code-editor-component" [seekVideo]="getSeekFunction" [code]="video.code"></app-code-editor>
               </ng-template>
             </ngb-tab>
-            <ngb-tab title="Lecture Slides">
+            <ngb-tab title="Questions">
+              <ng-template ngbTabContent>
+                <div class="question-component-wrapper col">
+                  <app-question-asker *ngIf="video['questions']" questionCount="{{ video['questions'].count }}"
+                    [questions]="video['questions'].questions">
+                  </app-question-asker>
+                </div>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Slides">
               <!--<ng-template ngbTabTitle>Lecture Slides</ng-template>-->
               <ng-template ngbTabContent>
                 <app-slide-match></app-slide-match>
