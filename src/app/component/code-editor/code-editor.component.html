@@ -4,7 +4,13 @@
 
 <div *ngIf="code">
   <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-    <ngb-panel title="{{codefile.title}}" *ngFor="let codefile of code">
+    <!-- <ngb-panel title="{{codefile.title}}" *ngFor="let codefile of code"> -->
+    <ngb-panel *ngFor="let codefile of code">
+      <ng-template ngbPanelTitle>
+        <div class="" style="color: #398bf7; padding-left:0.5rem;">
+          <i class="fa fa-file"></i>&nbsp;{{codefile.title}}
+        </div>
+      </ng-template>
       <ng-template ngbPanelContent>
         <table class="card-text" style="width:100%">
           <tr class="hoverable-tr" *ngFor="let line of codefile.lines" (click)="onSelect(line)">
