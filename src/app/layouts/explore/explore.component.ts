@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { VideoDataService } from '../../services/video-data.service';
 import { ModuleService } from '../../services/module.service';
 
 @Component({
@@ -12,11 +11,10 @@ export class ExploreComponent implements OnInit {
   videos;
   modules;
 
-  constructor(private videoDataService: VideoDataService, private moduleService: ModuleService ) { }
+  constructor(private moduleService: ModuleService ) { }
 
   ngOnInit() {
     // this.getVideos();
-    this.getVideoMetaData();
     this.getAllModuleData();
   }
 
@@ -24,13 +22,6 @@ export class ExploreComponent implements OnInit {
   //   this.videoDataService.getVideos()
   //     .subscribe(v => this.videos = v);
   // }
-
-  getVideoMetaData(): void {
-    this.videoDataService.getAllVideoMetadata('id videoTitle thumbnailUrl description')
-      .subscribe(data => {
-        this.videos = data;
-      });
-  }
 
   getAllModuleData(): void {
     this.moduleService.getAllModules()
