@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row my-2">
+    <div class="col-lg-8 order-lg-2">
+      <div class="tab-content py-4">
+        <div class="tab-pane active" id="profile">
+          <h5 class="mb-3"> <strong> Edit Your Profile </strong></h5>
+          <div class="row">
+            <div class="col-md-9">
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" placeholder="First Name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" placeholder="Last Name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value="" placeholder="Street">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label"></label>
+                <div class="col-lg-6">
+                  <input class="form-control" type="text" value="" placeholder="City">
+                </div>
+                <div class="col-lg-3">
+                  <input class="form-control" type="text" value="" placeholder="State">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+                <div class="col-lg-9">
+                  <select id="user_time_zone" class="form-control" size="0">
+                    <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                    <option value="Alaska">(GMT-09:00) Alaska</option>
+                    <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                    <option value="Arizona">(GMT-07:00) Arizona</option>
+                    <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                    <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                    <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                    <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                  </select>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary" style="width:40%; float: left"> Update Profile </button>
+              <button type="reset" class="btn btn-primary" style="width:40% ;float: right"> Reset </button>
+            </div>
+          </div>
+          <!--/row-->
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 order-lg-1 text-center">
+      <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+      <h6 class="mt-2"> <b> Change Profile Picture </b></h6>
+      <label class="custom-file">
+        <input type="file" id="file" class="custom-file-input">
+        <span class="custom-file-control"> Choose file </span>
+      </label>
+      <button type="button" class="btn btn-primary" style="width: auto; alignment: center"> Change Password </button>
+    </div>
+  </div>
+</div>

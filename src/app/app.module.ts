@@ -79,6 +79,7 @@ import {
   MatNativeDateModule
  } from '@angular/material';
 import { SearchResultsComponent } from './layouts/search-results/search-results.component';
+import {UserProfileComponent} from './component/user-profile/user-profile.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -121,7 +122,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ModuleManagerComponent,
     SearchResultsComponent,
     VideoSearchResultComponent,
-    CommentsComponent
+    CommentsComponent,
+    UserProfileComponent
   ],
   imports: [
     CommonModule,

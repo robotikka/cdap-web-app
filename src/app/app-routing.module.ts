@@ -15,6 +15,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './layouts/login/login.component';
 import { RegisterComponent } from './layouts/register/register.component';
 import { SearchResultsComponent } from './layouts/search-results/search-results.component';
+import {UserProfileComponent} from './component/user-profile/user-profile.component';
 
 export const Approutes: Routes = [
   {
@@ -75,6 +76,10 @@ export const Approutes: Routes = [
       {
         path: 'search/:s',
         component: SearchResultsComponent
+      },
+      {
+        path: 'profile',
+        component: UserProfileComponent
       }
     ]
   },
