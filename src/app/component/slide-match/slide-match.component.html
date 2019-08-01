@@ -5,14 +5,14 @@
       <h4 class="card-title-header"> Currently discussing on video </h4>
     </div>
     <div class="question-count col" style="float: right; width: 70px">
-      <p style="text-align: end">{{ currentSlide }}/{{ noOfSlides }} SLIDES </p>
+      <p style="text-align: end">{{ currentSlide }}/{{ product.length }} SLIDES </p>
     </div>
   </div>
   <!--</div>-->
   <div class="container-fluid" id="test">
-    <ngb-carousel *ngIf="product" [showNavigationArrows]="true" [pauseOnHover]="false" [interval]="5000" [wrap]="true" [keyboard]="true">
+    <ngb-carousel *ngIf="product" [showNavigationArrows]="true" [pauseOnHover]="false" [interval]="false" [wrap]="true" [keyboard]="true" >
       <ng-template ngbSlide *ngFor="let slide of product">
-        <img [src]="product[0].url" alt="Random first slide" (click)="getTime(slide.id)" style="max-height:400px; width: 100%; margin: 0;">
+        <img [src]="slide.url" alt="Random first slide" (click)="getTime(slide.id, slide.no)" style="max-height:400px; width: 100%; margin: 0;">
         <div class="carousel-caption">
         </div>
       </ng-template>
