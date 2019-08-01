@@ -73,7 +73,7 @@ export class VideoPlaybackComponent implements OnInit {
   }
 
   toggleVideoLoaded() {
-    this.videoLoaded = !this.videoLoaded;
+    this.videoLoaded = true;
   }
 
   get getVideoToggleMethod() {

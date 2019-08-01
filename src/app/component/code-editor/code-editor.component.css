@@ -2,3 +2,14 @@
     color: #009EFD;
     cursor: pointer;
 }
+
+::ng-deep .code-editor-component .card .card-header {
+    background: none;
+    border: none;
+    padding: 0;
+    padding-top: 10px;
+}
+
+::ng-deep .code-editor-component .card .card-header > h5 > button{
+    padding: 0;  
+}
