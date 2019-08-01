@@ -13,12 +13,20 @@ export class SlideMatchComponent implements OnInit {
   public noOfSlides = 6;
 
   product: any[] = [
-    {id: 1, no: 1, url: '../../../assets/slides/frame0001.jpg'},
-    {id: 36, no: 2, url: '../../../assets/slides/frame0036.jpg'},
-    {id: 48, no: 3, url: '../../../assets/slides/frame0048.jpg'},
-    {id: 87, no: 4, url: '../../../assets/slides/frame0087.jpg'},
-    {id: 117, no: 5, url: '../../../assets/slides/frame0117.jpg'},
-    {id: 483, no: 6, url: '../../../assets/slides/frame0483.jpg'}];
+    {id: 157, no: 1, url: '../../../assets/slides/frame0001.jpg'},
+    {id: 160, no: 2, url: '../../../assets/slides/frame0036.jpg'},
+    {id: 166, no: 3, url: '../../../assets/slides/frame0048.jpg'},
+    {id: 1048, no: 4, url: '../../../assets/slides/frame0087.jpg'},
+    {id: 1087, no: 5, url: '../../../assets/slides/frame0117.jpg'},
+    {id: 1089, no: 6, url: '../../../assets/slides/frame0483.jpg'},
+    {id: 1172, no: 1, url: '../../../assets/slides/frame0001.jpg'},
+    {id: 2299, no: 2, url: '../../../assets/slides/frame0036.jpg'},
+    {id: 2346, no: 3, url: '../../../assets/slides/frame0048.jpg'},
+    {id: 2368, no: 4, url: '../../../assets/slides/frame0087.jpg'},
+    {id: 3177, no: 5, url: '../../../assets/slides/frame0117.jpg'},
+    {id: 3191, no: 6, url: '../../../assets/slides/frame0483.jpg'},
+    {id: 3195, no: 5, url: '../../../assets/slides/frame0117.jpg'},
+    {id: 3549, no: 6, url: '../../../assets/slides/frame0483.jpg'}];
 
   images: Array<any> = [];
 
