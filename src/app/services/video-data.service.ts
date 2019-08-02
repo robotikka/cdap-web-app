@@ -879,6 +879,7 @@ export class VideoDataService {
 
   private META_DATA_URL = environment.metaDataURL;  // URL to web api
   private META_DATA_SEARCH_URL = environment.medaDataSearchURL;
+  private META_DATA_BY_STATUS = environment.reviewVideoURL;
 
   constructor(private http: HttpClient) { }
 
@@ -949,6 +950,14 @@ export class VideoDataService {
           catchError(this.handleError<any[]>('getVideo', []))
         );
     }
+  }
+
+  getVideoByStatus(status: string) {
+      return this.http.get<any[]>(`${this.META_DATA_BY_STATUS}/${status}`)
+        .pipe(
+          tap(_ => console.log(`fetched metadata of videos with status ${status}`)),
+          catchError(this.handleError<any[]>('getVideo', []))
+        );
   }
 
   /**

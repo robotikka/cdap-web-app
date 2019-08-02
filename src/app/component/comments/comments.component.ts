@@ -56,7 +56,7 @@ export class CommentsComponent implements OnInit {
   postComment(): void {
 
     let username = this.user.username;
-    const comment_object = {comment: this.myComment, user: username, date: new Date().toString()};
+    const comment_object = {comment: this.myComment, user: username, date: new Date().toString(), picUrl: this.user.profilePictureUrl};
     this.commentsService.updateComment(this.video._id, comment_object).subscribe(data => {
       this.myComment = '';
       this.videoDataService.getVideo(this.video.id).subscribe(video => {

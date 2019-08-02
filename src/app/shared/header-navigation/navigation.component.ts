@@ -55,7 +55,7 @@ export class NavigationComponent implements AfterViewInit, OnInit, OnChanges {
     console.log('loadinguserdata');
     this.currentUser = this.authService.currentUserValue;
     this.imageSrc = data;
-    console.log(this.imageSrc);
+    console.log(this.authService.currentUserValue);
   }
 
   get getRefreshMethod() {
