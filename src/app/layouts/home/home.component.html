@@ -22,16 +22,13 @@
   </div>
 </div>
 
-<p>Trending videos</p>
+<h2 class="pt-3">
+  <b>Trending videos</b>
+</h2>
 <div class="row justify-content-center">
   <div class="col-md-3" *ngFor="let item of filteredVideos">
-    <app-video-thumbnail
-      videoTitle="{{ item.videoTitle }}"
-      description="{{ item.description }}"
-      duration="{{ item.duration }}"
-      thumbnailUrl="{{ item.thumbnailUrl }}"
-      [reviewBtn]="false"
-      id="{{ item.id }}"
-    ></app-video-thumbnail>
+    <app-video-thumbnail videoTitle="{{ item.videoTitle }}" description="{{ item.description }}"
+      duration="{{ item.duration }}" thumbnailUrl="{{ item.thumbnailUrl }}" [reviewBtn]="false" id="{{ item.id }}">
+    </app-video-thumbnail>
   </div>
 </div>
