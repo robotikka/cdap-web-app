@@ -2,8 +2,8 @@
 <div *ngIf="modules">
   <div class="row">
     <div class="col-3" *ngFor="let module of modules">
-      <div class="card explore-card-shadow rounded-border">
-        <div class="img-hover-container">
+      <div class="card explore-card-shadow rounded-border" routerLink="/playlist/{{module._id}}">
+        <div class="img-hover-container" (click)="cardClicked(module._id)">
           <img src="{{module.thumbnailUrl}}" alt="Icon" class="image" style="width:100%">
           <div class="middle">
             <div><span class="play-icon fa-layers fa-fw fa-4x" style="color:#009efd;">

@@ -31,4 +31,8 @@ export class ExploreComponent implements OnInit {
       });
   }
 
+  cardClicked(moduleId) {
+    console.log('Card clicked' + moduleId);
+  }
+
 }

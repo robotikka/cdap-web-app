@@ -33,4 +33,8 @@ export class ModuleService {
         return data;
       }));
   }
+
+  getModuleContent(id) {
+    return this.http.get(this.MODULE_URL + `/${id}`);
+  }
 }

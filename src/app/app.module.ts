@@ -62,6 +62,7 @@ import { ReviewVideoComponent } from './layouts/review-video/review-video.compon
 import { ExploreComponent } from './layouts/explore/explore.component';
 import { VideoDataResolve } from './services/video-data.resolve';
 import { VideoDataService } from './services/video-data.service';
+import { PlaylistDataResolve } from './services/playlist-data.resolve';
 
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
@@ -80,6 +81,7 @@ import {
  } from '@angular/material';
 import { SearchResultsComponent } from './layouts/search-results/search-results.component';
 import {UserProfileComponent} from './component/user-profile/user-profile.component';
+import { PlaylistComponent } from './layouts/playlist/playlist.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -123,7 +125,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SearchResultsComponent,
     VideoSearchResultComponent,
     CommentsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PlaylistComponent
   ],
   imports: [
     CommonModule,
@@ -157,6 +160,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   providers: [
     VideoDataService,
     VideoDataResolve,
+    PlaylistDataResolve,
     PlayerCurrentTimeService,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

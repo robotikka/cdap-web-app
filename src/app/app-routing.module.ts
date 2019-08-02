@@ -11,11 +11,13 @@ import {TopicModelComponent} from './layouts/topic-model/topic-model.component';
 import {ReviewVideoComponent} from './layouts/review-video/review-video.component';
 import { ExploreComponent } from './layouts/explore/explore.component';
 import { VideoDataResolve } from './services/video-data.resolve';
+import { PlaylistDataResolve } from './services/playlist-data.resolve';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './layouts/login/login.component';
 import { RegisterComponent } from './layouts/register/register.component';
 import { SearchResultsComponent } from './layouts/search-results/search-results.component';
-import {UserProfileComponent} from './component/user-profile/user-profile.component';
+import { UserProfileComponent } from './component/user-profile/user-profile.component';
+import { PlaylistComponent } from './layouts/playlist/playlist.component';
 
 export const Approutes: Routes = [
   {
@@ -56,6 +58,13 @@ export const Approutes: Routes = [
         component: VideoPlaybackComponent,
         resolve: {
           video: VideoDataResolve
+        }
+      },
+      {
+        path: 'playlist/:id',
+        component: PlaylistComponent,
+        resolve: {
+          videos: PlaylistDataResolve
         }
       },
       {
