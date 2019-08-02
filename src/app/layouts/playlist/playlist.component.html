@@ -1,3 +1,32 @@
-<p>
-  playlist works!
-</p>
+<div class="sticky-top fill-background">
+  <a class="back-button pointer-cursor" (click)="backClicked()"><i class="fa fa-arrow-left"></i>Previous page</a>
+  <h2 class="pt-3">
+    <b>{{module[0].name}}</b>
+  </h2>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-12" *ngFor="let video of videos">
+    <div class="card mb-3 pointer-cursor video-card img-hover-container" routerLink="/videoplayer/{{video.id}}">
+      <div class="middle">
+        <div>
+          <span class="play-icon fa-3x" style="color:#009efd;">
+            <i class="fa fa-play"></i>
+          </span>
+        </div>
+      </div>
+      <div class="fade">
+        <div class="row no-gutters">
+          <div class="col-md-3">
+            <img src="{{video.thumbnailUrl}}" height="100%" class="card-img" alt="...">
+          </div>
+          <div class="col-md-9">
+            <div class="card-body">
+              <h5 class="card-title">{{video.videoTitle}}</h5>
+              <p class="card-text">{{video.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -64,7 +64,7 @@ export const Approutes: Routes = [
         path: 'playlist/:id',
         component: PlaylistComponent,
         resolve: {
-          videos: PlaylistDataResolve
+          moduleData: PlaylistDataResolve
         }
       },
       {
