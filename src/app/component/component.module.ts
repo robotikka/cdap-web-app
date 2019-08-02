@@ -61,11 +61,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     NgbdtimepickerBasicComponent,
     NgbdtypeheadBasicComponent,
     CardsComponent,
-    ButtonsComponent,
-    CommentsComponent,
-    ModuleManagerComponent,
-    VideoSearchResultComponent,
-    UserProfileComponent
+    ButtonsComponent
   ]
 })
 export class ComponentsModule {}
