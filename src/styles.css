@@ -36,3 +36,7 @@
 .btn {
     vertical-align: initial !important;
 }
+
+.btn-primary {
+    border: none !important;
+}

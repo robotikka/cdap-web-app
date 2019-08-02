@@ -41,7 +41,7 @@ export class AuthenticationService {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
         }
 
-        return user;
+        return jwt_decode(user.token);
       }));
   }
 

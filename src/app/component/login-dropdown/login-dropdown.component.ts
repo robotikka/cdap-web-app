@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
@@ -11,6 +11,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login-dropdown.component.css']
 })
 export class LoginDropdownComponent implements OnInit {
+  @Input() refreshUser: Function;
+
   loginForm: FormGroup;
   loading = false;
   submitted = false;
@@ -54,7 +56,8 @@ export class LoginDropdownComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log('success');
+          console.log('success ');
+          this.refreshUser(data.profilePictureUrl);
           this.toastr.success('Success', 'User registerd successfully', {
             timeOut: 3000
           });
