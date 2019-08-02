@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import { Component, AfterViewInit, EventEmitter, Output, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import {
   NgbModal,
   ModalDismissReasons,
@@ -14,11 +14,13 @@ declare var $: any;
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements AfterViewInit {
+export class NavigationComponent implements AfterViewInit, OnInit, OnChanges {
   @Output() toggleSidebar = new EventEmitter<void>();
 
   private loggedIn = false;
   searchKey: string;
+  currentUser: any;
+  imageSrc = '';
 
   public config: PerfectScrollbarConfigInterface = {};
   constructor(
@@ -33,10 +35,30 @@ export class NavigationComponent implements AfterViewInit {
 
   ngAfterViewInit() {}
 
+  ngOnInit() {
+    this.currentUser = this.authService.currentUserValue;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    // changes.prop contains the old and the new value...
+    console.log('onChanges() called');
+  }
+
   searchLecture() {
     if (this.searchKey) {
       this.router.navigate(['/search', this.searchKey]);
       this.searchKey = '';
     }
+  }
+
+  loadUserData(data) {
+    console.log('loadinguserdata');
+    this.currentUser = this.authService.currentUserValue;
+    this.imageSrc = data;
+    console.log(this.imageSrc);
+  }
+
+  get getRefreshMethod() {
+    return this.loadUserData.bind(this);
   }
 }
