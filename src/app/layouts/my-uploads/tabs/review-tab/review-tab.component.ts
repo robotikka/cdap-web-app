@@ -8,10 +8,10 @@ import { VideoDataService } from '../../../../services/video-data.service';
 })
 export class ReviewTabComponent implements OnInit {
 
-  videos;
+  videos =[];
 
   constructor(private videoDataService: VideoDataService) {
-    
+
   }
 
   ngOnInit() {
@@ -19,8 +19,10 @@ export class ReviewTabComponent implements OnInit {
   }
 
   getVideos(): void {
-    this.videoDataService.getVideosUpForReview()
-      .subscribe(v => this.videos = v);
+    this.videoDataService.getVideoByStatus('review').subscribe(data => {
+      console.log(data);
+      this.videos = data;
+    });
   }
 
 }

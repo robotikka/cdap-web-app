@@ -5,7 +5,7 @@
         <div *ngIf="user !== null">
           <div class="row">
             <div class="col-md-1">
-              <img src="assets/images/users/1.jpg" alt="user" class="profile" />
+              <img src="{{user.profilePictureUrl}}" alt="user" class="profile" />
             </div>
             <div class="col-md-11">
               <mat-form-field class="full-width">
@@ -32,7 +32,7 @@
                 <ng-template ngbPanelContent>
                   <div class="row" *ngFor="let comment of video.comments">
                     <div class="col-md-1">
-                      <img src="assets/images/users/1.jpg" alt="user" class="profile-comments" />
+                      <img src="{{comment.picUrl}}" alt="user" class="profile-comments" />
                     </div>
                     <div class="col-md-11">
                       <div class="row">
