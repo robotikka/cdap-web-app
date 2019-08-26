@@ -47,6 +47,16 @@ export const Approutes: Routes = [
         component: VideoPlaybackComponent
       },
       {
+        path: 'review-video/:id',
+        component: ReviewVideoComponent,
+        data: {
+          title: 'Review Video'
+        },
+        resolve: {
+          video: VideoDataResolve
+        }
+      },
+      {
         path: 'review-video',
         component: ReviewVideoComponent,
         data: {

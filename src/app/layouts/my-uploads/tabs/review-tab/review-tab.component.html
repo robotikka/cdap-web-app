@@ -5,7 +5,7 @@
       <div class="row pad-30">
         <div class="col-md-3" *ngFor="let video of videos">
           <app-video-thumbnail videoTitle="{{ video.videoTitle }}" description="{{ video.description }}"
-            duration="{{ video.duration }}" thumbnailUrl="{{ video.thumbnailUrl }}" [reviewBtn]="true">
+            duration="{{ video.duration }}" thumbnailUrl="{{ video.thumbnailUrl }}" [reviewBtn]="true" [id]="video.id">
           </app-video-thumbnail>
         </div>
       </div>

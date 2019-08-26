@@ -1,4 +1,4 @@
-<div class="thumbnail-container card" routerLink="/videoplayer/{{id}}">
+<div *ngIf="reviewBtn === false" class="thumbnail-container card" routerLink="/videoplayer/{{id}}">
   <a class="img-container">
     <img class="card-img-top img-responsive" src="{{ thumbnailUrl }}" alt="{{ thumbnailAltText }}">
     <i class="fa fa-play-circle-o fa-4x"></i>
@@ -9,6 +9,20 @@
         <p class="card-text pt-3">{{ description }}</p>
 
     </div>
-  <a routerLink="/review-video"><button *ngIf="reviewBtn === true" type="button" class="btn btn-rounded btn-primary"><i class="fa fa-search"></i> Review</button></a>
+
+</div>
+
+<div *ngIf="reviewBtn === true" class="thumbnail-container card" routerLink="/review-video/{{id}}">
+  <a class="img-container">
+    <img class="card-img-top img-responsive" src="{{ thumbnailUrl }}" alt="{{ thumbnailAltText }}">
+    <i class="fa fa-play-circle-o fa-4x"></i>
+  </a>
+  <div class="card-body-container card-body">
+    <h4 class="card-title">{{ videoTitle }}</h4>
+    <p class="duration-tag">{{ duration }}</p>
+    <p class="card-text pt-3">{{ description }}</p>
+
+  </div>
+  <a routerLink="/review-video/{{id}}"><button  type="button" class="btn btn-rounded btn-primary"><i class="fa fa-search"></i> Review</button></a>
 
 </div>

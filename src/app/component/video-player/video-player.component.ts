@@ -53,4 +53,7 @@ export class VideoPlayerComponent implements OnInit {
     this.api.$$seek(this.api.getDefaultMedia(), time);
   }
 
+  getDuration(){
+    return this.api.duration;
+  }
 }
