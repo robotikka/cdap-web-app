@@ -4,29 +4,26 @@
 <div class="question-container" *ngIf="questions">
   <div *ngFor="let item of questions.questions" class="question-wrapper card">
     <div class="card-body">
-      <div class="question-wrapper">
-        <app-inline-edit
+      <mat-form-field class="example-full-width">
+        <textarea
+          matInput
+          placeholder="Question"
           [(ngModel)]="item.questionBody"
-          
-          [required]="true"
-          type="text"
-          [isQuestion]="true"
-        ></app-inline-edit>
-      </div>
+          value="{{ item.questionBody }}"
+        ></textarea>
+      </mat-form-field>
 
-      <div *ngFor="let answer of item.answers" class="answers-wrapper">
-        <label class="container">
-            <app-inline-edit
-            [(ngModel)]="answer.value"
-            label="Name"
-            [required]="true"
-            type="text"
-            [isQuestion]="false"
-          ></app-inline-edit>
-          <input type="checkbox" [(ngModel)]="answer.correct" />
-          <span class="checkmark"></span>
-        </label>
-      </div>
+      <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="favoriteSeason">
+          <mat-radio-button class="example-radio-button" *ngFor="let answer of item.answers" [checked]="answer.correct" [value]="answer.id">
+              <input matInput placeholder="Favorite food" [(ngModel)]="answer.value"  value="{{answer.value}}">
+          </mat-radio-button>
+        </mat-radio-group>
+      <!-- <div *ngFor="let answer of item.answers" class="answers-wrapper">
+          
+      </div> -->
     </div>
   </div>
 </div>

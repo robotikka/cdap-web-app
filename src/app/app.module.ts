@@ -77,7 +77,8 @@ import {
   MatInputModule,
   MatSelectModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatRadioModule
  } from '@angular/material';
 import { SearchResultsComponent } from './layouts/search-results/search-results.component';
 import {UserProfileComponent} from './component/user-profile/user-profile.component';
@@ -155,6 +156,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatRadioModule,
     TagInputModule
   ],
   providers: [
