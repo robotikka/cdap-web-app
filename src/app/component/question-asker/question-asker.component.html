@@ -13,10 +13,11 @@
     <app-question
     (answerSubmit)="receiveAnswer($event)"
     (prevQuestion)="goToPrevQuestion($event)"
-    question="{{ currentQustion.questionBody }}"
-    [answers]="currentQustion.answers"
+    question="{{ currentQuestion.questionBody }}"
+    [answers]="currentQuestion.answers"
     [hasMoreQuestions]="hasMoreQuestions"
     [hasPrevQuestion]="hasPrevQuestions"
+    correctAnswer="{{ currentQuestion.correctAnswer }}"
     ></app-question>
   </div>
 </div>

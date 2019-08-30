@@ -10,7 +10,7 @@ export class QuestionAskerComponent implements OnInit {
   @Input() questions: any;
 
   public currentQuestionNumber = 1;
-  public currentQustion;
+  public currentQuestion;
   public hasMoreQuestions: boolean;
   public hasPrevQuestions: boolean;
 
@@ -46,7 +46,7 @@ export class QuestionAskerComponent implements OnInit {
     this.calcHasMoreQuestions();
     this.calcHasPrevQuestions();
     this.setCurrentQuestion();
-    console.log(this.currentQustion);
+    console.log('questionasker>>', this.currentQuestion);
   }
 
   receiveAnswer($event) {
@@ -74,7 +74,7 @@ export class QuestionAskerComponent implements OnInit {
   }
 
   setCurrentQuestion() {
-    this.currentQustion = this.questions[this.currentQuestionNumber - 1];
+    this.currentQuestion = this.questions[this.currentQuestionNumber - 1];
   }
 
   calcHasMoreQuestions() {
