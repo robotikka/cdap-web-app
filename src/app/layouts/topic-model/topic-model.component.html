@@ -2,11 +2,11 @@
   <div class="col-md-8" style="align-items: center; justify-content: center;">
     <div class="card">
       <div class="card-body">
-        <h1 class="card-title">Lecture Topic</h1>
+        <h1 class="card-title">{{video.videoTitle}}</h1>
         <div>
           <app-video-player
-            videoSrc="{{src}}"
-            videoType="mp4">
+            videoSrc="{{video.video_url}}"
+            videoType="mp4" [videoToggle]="getVideoToggleMethod">
           </app-video-player>
         </div>
       </div>
@@ -18,8 +18,8 @@
     <div class="card">
       <h3 class="card-title" id="subtopics-title">Sub Topics</h3>
       <div class="card-body" style="position: relative;" id="subtopics-body">
-        <ngb-accordion #acc="ngbAccordion" >
-          <ngb-panel *ngFor="let item of topic_models; let i = index" id={{item.keywords[1]}} title={{item.topic}}>
+        <ngb-accordion #acc="ngbAccordion" [activeIds]="activeIds">
+          <ngb-panel *ngFor="let item of video.topics; let i = index" id="panel{{i}}" title={{item.topic}}>
             <ng-template ngbPanelContent>
 
               <p  class="topic-details">Keywords :
@@ -30,8 +30,10 @@
               <!--<span><p class="topic-details" > Time :</p>-->
               <form class = "form-inline" id="time-form">
                 Time :
-                <input class="form-control time-selector" type="number" value="00" min="0" max="0" id="time"> : <input class="form-control time-selector" type="number" value="{{item.time}}"  (change)="onTimeChange($event, i)" min="0" max="39" >
-                <button type="button" class="btn btn-sm btn-rounded btn-info" style="width: 45px; margin: 0 5px;" (click)="seekVideo(item.time)"><i class="fa fa-play"></i></button>
+                <input class="form-control time-selector" type="number" value="{{times[i].hrs}}" (change)="onTimeChange($event, i, 'hrs')" min="0" max="0"> :
+                <input class="form-control time-selector" type="number" value="{{times[i].mins}}" (change)="onTimeChange($event, i, 'mins')" min="0" max="60" > :
+                <input class="form-control time-selector" type="number" value="{{times[i].secs}}"  (change)="onTimeChange($event, i, 'secs')" min="0" max="60">
+                <button type="button" class="btn btn-sm btn-rounded btn-info" style="width: 45px; margin: 0 5px;" (click)="seekVideo(i)"><i class="fa fa-play"></i></button>
               </form>
               <!--</span>-->
               <!--<p class="topic-details" > Time : <span>{{item.time}} seconds-->
@@ -39,20 +41,39 @@
               <!--</p>-->
               <form id="topic-form">
                 <div class="group">
-                  <input type="text" value={{item.topic}} id="topic" required>
+                  <input type="text" value={{item.topic}} id="topic" required (change)="onTopicChange($event, i)">
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Topic</label>
                 </div>
               </form>
+
+              <div class="row justify-content-center">
+                <ng-template #content let-c="close" let-d="dismiss">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Confirm Deletion</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Do you really want to delete this topic segment ?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" (click)="deleteTopic(i); c('Close click')"> Delete</button>
+                    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+                  </div>
+                </ng-template>
+
+                <button type="button" class="btn btn-outline-info btn-rounded" (click)="openVerticallyCentered(content)"><i class="fa fa-minus"></i> Delete</button>
+              </div>
+
             </ng-template>
           </ngb-panel>
         </ngb-accordion>
-        <div class="row">
-          <div class="col-md-12">
-            <button type="button" class="btn btn-block btn-primary" id = "save-topics" ><i class="fa fa-check"></i> Save Topics </button>
-          </div>
-
+        <div class="row justify-content-center">
+            <button type="button" class="btn btn-outline-success save-topics" (click)="addTopic()"><i class="fa fa-plus"></i> Add New Topic</button>
+            <button type="button" class="btn btn-block btn-primary save-topics" (click)="updateTopics()"><i class="fa fa-check"></i> Save Topics </button>
         </div>
       </div>
 

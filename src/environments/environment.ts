@@ -14,5 +14,6 @@ export const environment = {
   medaDataSearchURL: ec2url + 'v1/metadata/search',
   commentsURL: ec2url + 'v1/videos/update-comments',
   reviewVideoURL: ec2url + 'v1/videos/get-by-status',
-  updateStatusURL: ec2url + 'v1/videos/update-status'
+  updateStatusURL: ec2url + 'v1/videos/update-status',
+  updateTopicsURL: ec2url + 'v1/videos/update-topics'
 };
