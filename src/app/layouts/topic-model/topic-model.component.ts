@@ -3,6 +3,7 @@ import { PlayerCurrentTimeService } from '../../services/player-current-time.ser
 import { VideoPlayerComponent } from '../../component/video-player/video-player.component';
 import {VideoDataService} from '../../services/video-data.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-topic-model',
@@ -35,7 +36,8 @@ export class TopicModelComponent implements OnInit {
     {keywords: ['class', 'inheritance', 'sub-class'], time: 20,  topic: 'Topic 2'},
     {keywords: ['class', 'dependancy', 'sub-class'], time: 30,  topic: 'Topic 3'}];
 
-  constructor(private currentTimeService: PlayerCurrentTimeService, private videoDataService: VideoDataService, private toastr: ToastrService) { }
+  constructor(private currentTimeService: PlayerCurrentTimeService, private videoDataService: VideoDataService,
+              private toastr: ToastrService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.currentTimeService.currentTime.subscribe(time => {
@@ -147,5 +149,23 @@ export class TopicModelComponent implements OnInit {
         });
       }
     });
+  }
+
+  openVerticallyCentered(content) {
+    this.modalService.open(content, { centered: true });
+  }
+
+  addTopic(){
+    let new_topic = {'keywords': [], 'time': '00:00:00', 'topic': 'Topic ' + (this.video.topics.length + 1)};
+    let time_object = {'hrs': '00', 'mins': '00', 'secs': '00'};
+    this.video.topics.push(new_topic);
+    console.log(this.video.topics);
+    this.times.push(time_object);
+  }
+
+  deleteTopic(index){
+    this.video.topics.splice(index, 1);
+    this.times.splice(index, 1);
+    console.log(this.video.topics);
   }
 }
