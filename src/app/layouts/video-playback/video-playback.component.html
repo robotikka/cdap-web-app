@@ -53,6 +53,8 @@
         </div>
       </div>
 
+     <app-transcript [transcript]="video.transcript" [seekVideo]="getSeekFunction" [synchronizeTranscript]="getSynchronizeTranscript"> </app-transcript>
+
       <app-comments [video]="video"></app-comments>
 
       <!-- <div class="row">

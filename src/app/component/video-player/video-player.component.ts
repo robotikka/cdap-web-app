@@ -56,4 +56,12 @@ export class VideoPlayerComponent implements OnInit {
   getDuration(){
     return this.api.duration;
   }
+
+  getState(){
+    return this.api.state;
+  }
+
+  getCurrentTime(){
+    return this.api.currentTime;
+  }
 }
