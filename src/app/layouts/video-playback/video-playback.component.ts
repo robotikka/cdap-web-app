@@ -48,6 +48,7 @@ export class VideoPlaybackComponent implements OnInit {
     this.currentTimeService.currentTime.subscribe(time => {
       this.currentTime = time;
     });
+
   }
 
   get getSeekFunction() {
@@ -57,6 +58,17 @@ export class VideoPlaybackComponent implements OnInit {
   seekVideo(time) {
 
     this.player.seekVideo(time);
+  }
+
+  synchronizeTranscript(){
+    if (this.player.getState() === 'playing') {
+      return (this.player.getCurrentTime());
+    } else {
+      return -1;
+    }
+  }
+  get getSynchronizeTranscript(){
+    return this.synchronizeTranscript.bind(this);
   }
 
   seekVideoTopics(time) {
@@ -74,6 +86,7 @@ export class VideoPlaybackComponent implements OnInit {
 
   toggleVideoLoaded() {
     this.videoLoaded = true;
+
   }
 
   get getVideoToggleMethod() {

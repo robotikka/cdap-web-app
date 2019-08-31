@@ -1,0 +1,40 @@
+<div *ngIf="!transcript">
+  <p class="p-30">Transcript not available for this video</p>
+</div>
+<div *ngIf="transcript.length > 0" class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <ngb-tabset justify="justified">
+          <ngb-tab title="Currently Describing">
+            <ng-template ngbTabContent>
+              <p style="font-weight: bold; padding: 15px;"> {{transcript[activeTranscriptIndex].paragraph}}</p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Full Transcript">
+            <ng-template ngbTabContent>
+              <div style=" height: 400px; overflow: auto;">
+                <table style="width:100%;">
+                  <tr class="hoverable-tr" *ngFor="let para of transcript; let i = index" (click)="onClick(para.seconds)">
+                    <div *ngIf="i == activeTranscriptIndex">
+                      <td style="color:#009EFD; font-weight: bold;">{{para.time}}</td>
+                      <td style="color:#009EFD; font-weight: bold;">{{para.paragraph}}</td>
+                    </div>
+                    <div *ngIf="i != activeTranscriptIndex">
+                      <td>{{para.time}}</td>
+                      <td>{{para.paragraph}}</td>
+                    </div>
+                  </tr>
+                </table>
+              </div>
+
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+

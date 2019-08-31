@@ -11,7 +11,7 @@ export class ProcessingTabComponent implements OnInit {
 
   videos: any[];
 
-  constructor(private videoDataService: VideoDataService) { 
+  constructor(private videoDataService: VideoDataService) {
   }
 
   ngOnInit() {
@@ -19,7 +19,7 @@ export class ProcessingTabComponent implements OnInit {
   }
 
   getVideos(): void {
-    this.videoDataService.getProcessingVideos()
+    this.videoDataService.getVideoByStatus('processing')
       .subscribe(v => this.videos = v);
   }
 
