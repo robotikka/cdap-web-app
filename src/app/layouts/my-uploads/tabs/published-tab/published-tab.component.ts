@@ -20,7 +20,7 @@ export class PublishedTabComponent implements OnInit {
   }
 
   getVideos(): void {
-    this.videoDataService.getVideos()
+    this.videoDataService.getVideoByStatus('published')
       .subscribe(v => this.videos = v);
   }
 

@@ -133,7 +133,7 @@ export class TopicModelComponent implements OnInit {
     // console.log(this.video.topics);
     let new_topics = {'topics': this.video.topics};
     // console.log(new_topics);
-    this.videoDataService.updateTopics(this.video._id, new_topics).subscribe(data =>{
+    this.videoDataService.updateTopics(this.video.id, new_topics).subscribe(data =>{
       // console.log(data);
       let json_data = JSON.parse(data);
       if (json_data.status === 200){

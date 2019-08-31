@@ -36,6 +36,7 @@ import { VideoInfobarComponent } from './video-infobar/video-infobar.component';
 import { CommentsComponent } from './comments/comments.component';
 import { VideoSearchResultComponent } from './video-search-result/video-search-result.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { TranscriptComponent } from './transcript/transcript.component';
 
 @NgModule({
   imports: [
@@ -61,7 +62,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     NgbdtimepickerBasicComponent,
     NgbdtypeheadBasicComponent,
     CardsComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    TranscriptComponent
   ]
 })
 export class ComponentsModule {}
