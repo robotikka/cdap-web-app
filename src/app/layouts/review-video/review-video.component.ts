@@ -15,7 +15,7 @@ export class ReviewVideoComponent implements OnInit {
 
   ngOnInit() {
     this.video = this.route.snapshot.data['video'];
-    console.log(this.video);
+    console.log('video>>', this.video);
     this.http.get('assets/questions/mock-questions.json').map(data => data.json()).subscribe(data => {
       this.questions = data;
     });

@@ -104,3 +104,43 @@
   .example-radio-button {
     margin: 5px;
   }
+
+  .delete-btn-wrapper {
+    text-align: end;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .radio-btn-input {
+    border-bottom: 0.5px solid #ccc;
+    min-width: 200px;
+  }
+
+  .radio-btn-input:focus {
+    outline: none;
+    border-bottom: 0.5px solid #4527A0;
+   }
+
+   .distractor-remove-button {
+     color: #dedede;
+   }
+
+//    ::ng-deep .mat-icon{
+//     height:18px !important;
+//     width:18px !important;
+//     font-size:18px !important;
+// }
+
+.mat-icon-button.distractor-remove-button {
+
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+
+  .mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+  }
+}

@@ -4,6 +4,7 @@
         {
             "questionNo": 1,
             "questionBody": "Which was the first object oriented programming language developed?",
+            "correctAnswer": "DggPBwQPAwwDBw4ABAcCBA",
             "answers": [
                 {
                     "id": "AQMPAAIDCw8LAAwABAMNBA",
@@ -30,6 +31,7 @@
         {
             "questionNo": 2,
             "questionBody": "2Which was the first object oriented programming language developed?",
+            "correctAnswer": "AwkIDQcLCAoFCAELBAkCDw",
             "answers": [
                 {
                     "id": "BQQBCg8BBAEOBAYFBA4IAQ",
@@ -56,6 +58,7 @@
         {
             "questionNo": 3,
             "questionBody": "3Which was the first object oriented programming language developed?",
+            "correctAnswer": "AwoHBwoKBQ4ACAwJBAwCAA",
             "answers": [
                 {
                     "id": "AA8KDw4BDQEABwsLBAgHCw",

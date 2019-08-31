@@ -2,7 +2,10 @@
 <p>Check on an aswer to select as a correct answer.</p> -->
 
 <div class="question-container" *ngIf="questions">
-  <div *ngFor="let item of questions.questions" class="question-wrapper card">
+  <div
+    *ngFor="let item of questions.questions; let i = index"
+    class="question-wrapper card"
+  >
     <div class="card-body">
       <mat-form-field class="example-full-width">
         <textarea
@@ -14,16 +17,46 @@
       </mat-form-field>
 
       <mat-radio-group
-          aria-labelledby="example-radio-group-label"
-          class="example-radio-group"
-          [(ngModel)]="favoriteSeason">
-          <mat-radio-button class="example-radio-button" *ngFor="let answer of item.answers" [checked]="answer.correct" [value]="answer.id">
-              <input matInput placeholder="Favorite food" [(ngModel)]="answer.value"  value="{{answer.value}}">
-          </mat-radio-button>
-        </mat-radio-group>
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="item.correctAnswer"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let answer of item.answers; let j = index"
+          [checked]="answer.correct"
+          [value]="answer.id"
+        >
+          <input
+            class="radio-btn-input"
+            matInput
+            [(ngModel)]="answer.value"
+            value="{{ answer.value }}"
+          />
+          <button
+            mat-icon-button
+            class="distractor-remove-button"
+            aria-label="Example icon-button with a heart icon"
+            (click)="removeDistractor(i, j)"
+          >
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+        </mat-radio-button>
+      </mat-radio-group>
       <!-- <div *ngFor="let answer of item.answers" class="answers-wrapper">
           
       </div> -->
+    </div>
+
+    <div class="delete-btn-wrapper">
+      <button class="btn btn-outline-info btn-rounded" type="button" (click)="addDistractor(i)">
+        <span class="btn-label"><i class="fa fa-plus"></i></span>Add Distractor
+      </button>
+      <button class="btn btn-outline-info btn-rounded" type="button" (click)="deleteQuestion(i)">
+          <span class="btn-label"><i class="fa fa-trash"></i></span>Delete Question
+        </button>
+      <!-- <button (click)="addDistractor(i)">add answer</button>
+      <button (click)="deleteQuestion(i)">delete</button> -->
     </div>
   </div>
 </div>
