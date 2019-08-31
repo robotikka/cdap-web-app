@@ -2,31 +2,61 @@
 <p>Check on an aswer to select as a correct answer.</p> -->
 
 <div class="question-container" *ngIf="questions">
-  <div *ngFor="let item of questions.questions" class="question-wrapper card">
+  <div
+    *ngFor="let item of questions.questions; let i = index"
+    class="question-wrapper card"
+  >
     <div class="card-body">
-      <div class="question-wrapper">
-        <app-inline-edit
+      <mat-form-field class="example-full-width">
+        <textarea
+          matInput
+          placeholder="Question"
           [(ngModel)]="item.questionBody"
-          
-          [required]="true"
-          type="text"
-          [isQuestion]="true"
-        ></app-inline-edit>
-      </div>
+          value="{{ item.questionBody }}"
+        ></textarea>
+      </mat-form-field>
 
-      <div *ngFor="let answer of item.answers" class="answers-wrapper">
-        <label class="container">
-            <app-inline-edit
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="item.correctAnswer"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let answer of item.answers; let j = index"
+          [checked]="answer.correct"
+          [value]="answer.id"
+        >
+          <input
+            class="radio-btn-input"
+            matInput
             [(ngModel)]="answer.value"
-            label="Name"
-            [required]="true"
-            type="text"
-            [isQuestion]="false"
-          ></app-inline-edit>
-          <input type="checkbox" [(ngModel)]="answer.correct" />
-          <span class="checkmark"></span>
-        </label>
-      </div>
+            value="{{ answer.value }}"
+          />
+          <button
+            mat-icon-button
+            class="distractor-remove-button"
+            aria-label="Example icon-button with a heart icon"
+            (click)="removeDistractor(i, j)"
+          >
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+        </mat-radio-button>
+      </mat-radio-group>
+      <!-- <div *ngFor="let answer of item.answers" class="answers-wrapper">
+          
+      </div> -->
+    </div>
+
+    <div class="delete-btn-wrapper">
+      <button class="btn btn-outline-info btn-rounded" type="button" (click)="addDistractor(i)">
+        <span class="btn-label"><i class="fa fa-plus"></i></span>Add Distractor
+      </button>
+      <button class="btn btn-outline-info btn-rounded" type="button" (click)="deleteQuestion(i)">
+          <span class="btn-label"><i class="fa fa-trash"></i></span>Delete Question
+        </button>
+      <!-- <button (click)="addDistractor(i)">add answer</button>
+      <button (click)="deleteQuestion(i)">delete</button> -->
     </div>
   </div>
 </div>

@@ -9,6 +9,7 @@ import { FormGroup, NgForm } from '@angular/forms';
 export class QuestionComponent implements OnInit {
   @Input() question: string;
   @Input() answers: [{ id: string, value: string, correct: boolean }];
+  @Input() correctAnswer: string;
   @Input() hasMoreQuestions: boolean;
   @Input() hasPrevQuestion: boolean;
 
@@ -29,7 +30,7 @@ export class QuestionComponent implements OnInit {
     } else {
       console.log(form.value);
 
-      if (this.answers[form.value.answer].correct === true) {
+      if (form.value.answer === this.correctAnswer) {
         alert('correct');
         this.answerSubmit.emit(true);
         form.reset();

@@ -2,6 +2,16 @@
   <div class="col-md-12">
     <div style="min-height: 100vh;">
       <ngb-tabset justify="justified" type="pills">
+          <ngb-tab title="Questions">
+              <ng-template ngbTabContent>
+                <div class="question-tab-container tab-wrapper">
+                  <app-question-editor
+                    [questions]="video.questions"
+                  >
+                </app-question-editor>
+                </div>
+              </ng-template>
+            </ngb-tab>
         <ngb-tab title="Topic Review">
           <ng-template ngbTabContent>
             <div class="tab-wrapper">
@@ -16,16 +26,7 @@
             </div>
           </ng-template>
         </ngb-tab>
-        <ngb-tab title="Questions">
-          <ng-template ngbTabContent>
-            <div class="question-tab-container tab-wrapper">
-              <app-question-editor
-                [questions]="questions"
-              >
-            </app-question-editor>
-            </div>
-          </ng-template>
-        </ngb-tab>
+        
       </ngb-tabset>
     </div>
   </div>
