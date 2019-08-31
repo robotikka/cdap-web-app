@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-const short = require('short-uuid');
+import * as short from 'short-uuid';
 import { Http } from '@angular/http';
+import { VideoDataService } from '../../services/video-data.service';
 
 @Component({
   selector: 'app-question-editor',
@@ -8,10 +9,11 @@ import { Http } from '@angular/http';
   styleUrls: ['./question-editor.component.scss']
 })
 export class QuestionEditorComponent implements OnInit {
+  @Input() videoId: String;
   @Input() questions: any;
   // questions;
 
-  constructor() { }
+  constructor(private videoDataService: VideoDataService) { }
 
   ngOnInit() {
     console.log(this.questions);
@@ -32,6 +34,14 @@ export class QuestionEditorComponent implements OnInit {
 
   logQuestions() {
     console.log(this.questions);
+  }
+
+  updateQuestions() {
+    console.log(this.videoId);
+    console.log(this.questions);
+    this.videoDataService.updateQuestions(this.videoId, this.questions).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }
