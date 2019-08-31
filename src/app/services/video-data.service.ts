@@ -961,12 +961,22 @@ export class VideoDataService {
         );
   }
 
-  updateTopics(id, topic_data){
+  updateTopics(id, topic_data) {
     return this.http.put(`${this.TOPIC_UPDATE_URL}/${id}`, topic_data)
       .pipe(map(data => {
         console.log(data);
         return JSON.stringify(data);
       }));
+  }
+
+  updateQuestions(id, questions) {
+    return this.http.put(this.META_DATA_URL + `/${id}/` + 'questions', questions, {responseType: 'text'})
+      .pipe(
+        map(data => {
+          console.log(data);
+          return data;
+        })
+      );
   }
 
   /**
