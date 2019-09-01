@@ -13,3 +13,8 @@
 ::ng-deep .code-editor-component .card .card-header > h5 > button{
     padding: 0;  
 }
+
+::ng-deep .nav-pills .nav-link.active {
+    color: #ffffff;
+    background-color: #398bf7;
+}
