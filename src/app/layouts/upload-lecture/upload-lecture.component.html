@@ -65,6 +65,15 @@
               </div>
 
               <div>
+                  <label>Main subject of the lecture</label>
+                  <input
+                    (input)="onInputChange($event.target.value)"
+                    class="form-control form-control"
+                    [(ngModel)]="keyword"
+                  />
+              </div>
+
+              <div>
                 <label for="moduleSelect">Module</label>
                 <select id="moduleSelect" class="form-control" [(ngModel)]="moduleName">
                   <option *ngFor="let module of modules" value="module._id">

@@ -32,6 +32,7 @@ export class UploadLectureComponent implements OnInit {
   lectureName: string;
   lectureDescription: string;
   moduleName: string;
+  keyword: string;
 
   error: string;
   uploadResponse;
@@ -144,6 +145,7 @@ export class UploadLectureComponent implements OnInit {
     console.log('uploading');
 
     this.formData.append('lectureName', this.lectureName);
+    this.formData.append('keyword', this.keyword);
     this.formData.append('lectureDescription', this.lectureDescription);
     this.formData.append('tags', this.tags);
     this.formData.append('moduleName', this.moduleName);
