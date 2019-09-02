@@ -87,7 +87,7 @@
             <ngb-tab title="Slides">
               <!--<ng-template ngbTabTitle>Lecture Slides</ng-template>-->
               <ng-template ngbTabContent>
-                <app-slide-match></app-slide-match>
+                <app-slide-match class="slide-match-component" [slides] = video.slides></app-slide-match>
               </ng-template>
             </ngb-tab>
           </ngb-tabset>
