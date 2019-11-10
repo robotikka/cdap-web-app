@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
       } else {
         console.log('not lecturer');
         // user lecturer// unsubscribe
-
+        this.notificationService.unsubscribeFromSocket();
       }
     });
   }

@@ -24,5 +24,6 @@ export class NotificationService {
 
   unsubscribeFromSocket() {
     // unsubscribe
+    this.socket.off('statusUpdate');
   }
 }
