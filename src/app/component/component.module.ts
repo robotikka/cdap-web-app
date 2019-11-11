@@ -22,21 +22,6 @@ import { NgbdtimepickerBasicComponent } from './timepicker/timepicker.component'
 import { NgbdtypeheadBasicComponent } from './typehead/typehead.component';
 import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
-import { VideoThumbnailComponent } from './video-thumbnail/video-thumbnail.component';
-import { VideoPlayerComponent } from './video-player/video-player.component';
-import { CodeEditorComponent } from './code-editor/code-editor.component';
-import { QuestionAskerComponent } from './question-asker/question-asker.component';
-import { QuestionComponent } from './question/question.component';
-import { SlideMatchComponent } from './slide-match/slide-match.component';
-import { QuestionEditorComponent } from './question-editor/question-editor.component';
-import { InlineEditComponent } from './inline-edit/inline-edit.component';
-import { LoginDropdownComponent } from './login-dropdown/login-dropdown.component';
-import { ModuleManagerComponent } from './module-manager/module-manager.component';
-import { VideoInfobarComponent } from './video-infobar/video-infobar.component';
-import { CommentsComponent } from './comments/comments.component';
-import { VideoSearchResultComponent } from './video-search-result/video-search-result.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TranscriptComponent } from './transcript/transcript.component';
 
 @NgModule({
   imports: [
@@ -62,8 +47,7 @@ import { TranscriptComponent } from './transcript/transcript.component';
     NgbdtimepickerBasicComponent,
     NgbdtypeheadBasicComponent,
     CardsComponent,
-    ButtonsComponent,
-    TranscriptComponent
+    ButtonsComponent
   ]
 })
 export class ComponentsModule {}

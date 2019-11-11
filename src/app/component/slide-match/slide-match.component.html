@@ -1,18 +1,27 @@
+<div *ngIf="slides.length<=0">
+  <br>
+  <div class="alert alert-info" role="alert">
+    No Slides Available.
+  </div>
+</div>
+
+<div *ngIf="slides.length>0">
 <div class="card m-t-20">
   <!--<div class="card-header">-->
   <div class="card-title-wrapper row">
     <div class="col">
-      <h4 class="card-title-header"> Currently discussing on video </h4>
+      <h4 class="card-title-header"> Lecture Slides </h4>
     </div>
     <div class="question-count col" style="float: right; width: 70px">
-      <p style="text-align: end">{{ currentSlide }}/{{ product.length }} SLIDES </p>
+      <p style="text-align: end"> ({{slides.length}} slides)</p>
+      <!--<p style="text-align: end">{{ currentSlide }}/{{ slides.length }} SLIDES </p>-->
     </div>
   </div>
   <!--</div>-->
   <div class="container-fluid" id="test">
-    <ngb-carousel *ngIf="product" [showNavigationArrows]="true" [pauseOnHover]="false" [interval]="false" [wrap]="true" [keyboard]="true" >
-      <ng-template ngbSlide *ngFor="let slide of product">
-        <img [src]="slide.url" alt="Random first slide" (click)="getTime(slide.id, slide.no)" style="max-height:400px; width: 100%; margin: 0;">
+    <ngb-carousel *ngIf="slides" [showNavigationArrows]="true" [pauseOnHover]="false" [interval]="false" [wrap]="true" [keyboard]="true" >
+      <ng-template ngbSlide *ngFor="let slide of slides">
+        <img [src]="slide.slide" alt="Random first slide" (click)="getTime(slide.timestamp)" style="max-height:400px; width: 100%; margin: 0;">
         <div class="carousel-caption">
         </div>
       </ng-template>
@@ -52,13 +61,11 @@
   </div><br/>
 
   <!--test-->
-
-
   <div id="container-fluid">
     <div
       ng2-carouselamos
       class="slides-wrapper"
-      [items]="product"
+      [items]="slides"
       [width]="850"
       [$prev]="prev"
       [$next]="next"
@@ -75,9 +82,9 @@
     </ng-template>
     <ng-template #item let-item let-i="index">
       <div class="slide-items">
-        <img src="{{ item.url }}" style="width: 90px; height: 90px" (click)="setImage(item.url)">
+        <img src="{{ item.slide }}" style="width: 90px; height: 90px" (click)="setImage(item.url)">
       </div>
     </ng-template>
   </div>
 </div>
-
+</div>

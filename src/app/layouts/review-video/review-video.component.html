@@ -11,11 +11,12 @@
         <p>You are about to publish this video. Once published  modifications are not allowed. Please confirm publishing.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-info" (click)="publishVideo()">Publish Video</button>
+        <button type="button" class="btn btn-info" (click)="publishVideo(); c('Close click');">Publish Video</button>
         <button type="button" class="btn btn-light" (click)="c('Close click')">Cancel</button>
       </div>
     </ng-template>
-    <button type="button" class="btn btn-primary btn-rounded" style="margin-bottom: 15px; width: 200px;" (click)="openVerticallyCentered(content); c('Close click');">
+    <!-- <button type="button" class="btn btn-primary btn-rounded" style="margin-bottom: 15px; width: 200px;" (click)="openVerticallyCentered(content); c('Close click');"> -->
+    <button type="button" class="btn btn-primary btn-rounded" style="margin-bottom: 15px; width: 200px;" (click)="openVerticallyCentered(content);">
       <i class="fa fa-check-square-o" aria-hidden="true"></i> Publish Video</button>
   </div>
   <div class="col-md-12">
@@ -28,11 +29,11 @@
             </div>
           </ng-template>
         </ngb-tab>
-        <ngb-tab title="Code Matching Review">
+        <!-- <ngb-tab title="Code Matching Review">
           <ng-template ngbTabContent>
             <div class="tab-wrapper"></div>
           </ng-template>
-        </ngb-tab>
+        </ngb-tab> -->
         <ngb-tab title="Questions">
             <ng-template ngbTabContent>
               <div class="question-tab-container tab-wrapper">
