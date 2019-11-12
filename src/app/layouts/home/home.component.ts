@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { VideoDataService } from '../../services/video-data.service';
 
+// socket.io
+import io from 'socket.io-client';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,6 +21,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getVideoMetaData();
+
+    // socket.io
+    const socket = io('http://localhost:3000');
+
+    socket.on('hello', (data) => {
+      console.log(data);
+    });
   }
 
   getVideoMetaData(): void {

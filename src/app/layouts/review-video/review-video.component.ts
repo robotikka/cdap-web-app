@@ -30,7 +30,7 @@ export class ReviewVideoComponent implements OnInit {
   }
 
   publishVideo(){
-    this.videoDataService.updateStatus(this.video._id, {'status': 'published'}).subscribe(data =>{
+    this.videoDataService.updateStatus(this.video.id, {'status': 'published'}).subscribe(data =>{
       let json_data = JSON.parse(data);
       if (json_data.status === 200){
           this.router.navigate(['videoplayer/' + this.video.id]);
